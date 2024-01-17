@@ -16,18 +16,18 @@ public class InputService
 
     public Vector2 StartTouchPosition { get; private set; }
 
-    private bool _isListening;
+    //private bool _isListening;
 
     public void SetLimitationFrame()
     {
 
     }
 
-    public void StartListen() =>
-        _isListening = true;
+    //public void StartListen() =>
+    //    _isListening = true;
 
-    public void StopListen() => 
-        _isListening = false;
+    //public void StopListen() => 
+    //    _isListening = false;
 
     public void Update() 
     {

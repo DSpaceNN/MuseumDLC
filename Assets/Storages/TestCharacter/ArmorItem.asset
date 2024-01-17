@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520a54b8bfef34f4da4270fd4dbeaabe, type: 3}
-  m_Name: PanelsStorage
+  m_Script: {fileID: 11500000, guid: d13b081b4874d2140a25a665a52d1787, type: 3}
+  m_Name: ArmorItem
   m_EditorClassIdentifier: 
-  Panels:
-  - PanelId: ViewCharacterPanel
-    Panel: {fileID: 2390018658118908858, guid: 32ae2da3fb063414c9dc92e441d6767c, type: 3}
+  Id: Armor
+  ItemName: 
+  ItemDescription: 
+  ItemPrefab: {fileID: 0}
+  ItemSprite: {fileID: 0}

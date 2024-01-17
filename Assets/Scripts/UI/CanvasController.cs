@@ -8,6 +8,7 @@ public class CanvasController : MonoBehaviour
     public void Init()
     {
         _panelsController = new PanelsController(this, _panelsStorage);
+        ShowPanelById(PanelsIdHolder.ViewCharacterPanelId);
     }
 
     public void ShowPanelById(string id) => 

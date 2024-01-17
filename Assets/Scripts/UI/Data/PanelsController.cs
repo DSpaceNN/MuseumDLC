@@ -8,7 +8,7 @@ public class PanelsController
     private CanvasController _canvasController;
     private PanelsStorage _storage;
     private PanelBase _mainPanel;
-    private Dictionary<Type, PanelBase> _panelsOnScene;
+    private Dictionary<Type, PanelBase> _panelsOnScene = new Dictionary<Type, PanelBase>();
 
     public PanelsController(CanvasController canvasController, PanelsStorage storage)
     {
@@ -19,7 +19,7 @@ public class PanelsController
     public void ShowPanelById(string id)
     {
         PanelInStorage storPanel = _storage.Panels.FirstOrDefault(x => x.PanelId == id);
-        if (storPanel != null)
+        if (storPanel == null)
         {
             Debug.Log("По этому Id нет панели");
             return;
@@ -82,14 +82,18 @@ public class PanelsController
     private bool IsPanelOnScene(Type type, out PanelBase panelOnScene)
     {
         panelOnScene = null;
-        foreach (var panel in _panelsOnScene)
+        if(_panelsOnScene.Count > 0)
         {
-            if (panel.Key == type)
+            foreach (var panel in _panelsOnScene)
             {
-                panelOnScene = panel.Value;
-                return true;
+                if (panel.Key == type)
+                {
+                    panelOnScene = panel.Value;
+                    return true;
+                }
             }
         }
+        
         return false;
     }
 }
