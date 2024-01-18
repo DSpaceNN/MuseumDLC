@@ -12,6 +12,7 @@ public class CanvasController : MonoBehaviour
 
     public void ShowStartPanel() =>
         ShowPanelById(PanelsIdHolder.ViewCharacterPanelId);
+
     public void ShowPanelById(string id, IPanelBaseData dataForOpen = null) => 
         _panelsController.ShowPanelById(id, dataForOpen);
 }

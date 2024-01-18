@@ -10,7 +10,7 @@ public class Bootstraper : MonoBehaviour
     private void Start()
     {
         _canvasController.Init();
-        _serviceLocator.Init(_canvasController, _characterHolder);
+        _serviceLocator.Init(_canvasController, _characterHolder, _itemOnSceneHolder);
         _serviceLocator.InitServices();
         _characterHolder.Init();
         _itemOnSceneHolder.Init();

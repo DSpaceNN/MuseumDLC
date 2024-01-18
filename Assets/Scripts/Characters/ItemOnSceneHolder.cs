@@ -15,6 +15,21 @@ public class ItemOnSceneHolder : MonoBehaviour
         _inputService = ServiceLocator.Instance.InputFromImagesService;
         _itemModel = _testGo;
     }
+    
+    float sizeInMeters = 2f;
+    public void ShowItem(GameObject itemModel)
+    {
+        if (_itemModel != null)
+            Destroy(_itemModel);
+
+        _itemModel = Instantiate(itemModel, this.transform);
+        _itemModel.transform.localPosition = Vector3.zero;
+        _itemModel.transform.localRotation = Quaternion.identity;
+
+        BoxCollider collider = _itemModel.GetComponentInChildren<BoxCollider>();
+        _itemModel.transform.localScale /= collider.size.magnitude;
+        _itemModel.transform.localScale *= sizeInMeters;
+    }
 
     private void Update()
     {
@@ -30,7 +45,4 @@ public class ItemOnSceneHolder : MonoBehaviour
             _itemModel.transform.RotateAround(_itemModel.transform.position, _itemCamera.gameObject.transform.right, _inputService.ItemDeltaInput.y * _rotationSpeed * Time.deltaTime);
         }
     }
-
-        //loadedMesh.transform.localScale /= collider.size.magnitude;
-        //loadedMesh.transform.localScale *= sizeInMeters *= _deltaSize;
 }
