@@ -16,7 +16,7 @@ public class PanelsController
         _storage = storage;
     }
 
-    public void ShowPanelById(string id)
+    public void ShowPanelById(string id, IPanelBaseData dataForOpen = null)
     {
         PanelInStorage storPanel = _storage.Panels.FirstOrDefault(x => x.PanelId == id);
         if (storPanel == null)
@@ -45,7 +45,7 @@ public class PanelsController
         if (panelMb is IMainPanel)
             _mainPanel = panelMb;
 
-        panelMb.Initialize(_canvasController, this);
+        panelMb.Initialize(_canvasController, this, dataForOpen);
         _panelsOnScene.Add(panelMb.GetType(), panelMb);
     }
 

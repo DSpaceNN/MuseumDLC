@@ -15,5 +15,5 @@ MonoBehaviour:
   Id: Armor
   ItemName: 
   ItemDescription: 
-  ItemPrefab: {fileID: 0}
-  ItemSprite: {fileID: 0}
+  ItemPrefab: {fileID: 8921279032012893380, guid: 70bad402ad2ab2346abcc662d62fe6ae, type: 3}
+  ItemSprite: {fileID: 21300000, guid: b91a0ac5727cee94a85d4802cbf70e50, type: 3}
