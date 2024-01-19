@@ -19912,11 +19912,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4503c9eb10400a84ea28ac1c5ef0666f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _underwear: {fileID: 0}
-  _helmet: {fileID: 0}
-  _outwear: {fileID: 0}
-  _belt: {fileID: 0}
-  _armor: {fileID: 0}
+  _wearLevels:
+  - LevelName: First Level
+    LowerLevel: Second Level
+    ItemsOnLevel:
+    - Id: Outwear
+      ItemOnCharacterModel: {fileID: 2832162318905325071}
+      ItemOnModelToHideWhenDress: {fileID: 6804678024024300815}
+  - LevelName: Second Level
+    LowerLevel: 
+    ItemsOnLevel:
+    - Id: Helmet
+      ItemOnCharacterModel: {fileID: 4220993459236532605}
+      ItemOnModelToHideWhenDress: {fileID: 0}
+    - Id: Belt
+      ItemOnCharacterModel: {fileID: 7925895924378560744}
+      ItemOnModelToHideWhenDress: {fileID: 0}
+    - Id: Armor
+      ItemOnCharacterModel: {fileID: 5287147950166032054}
+      ItemOnModelToHideWhenDress: {fileID: 0}
 --- !u!1 &9066951256729757998
 GameObject:
   m_ObjectHideFlags: 0

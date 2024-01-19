@@ -1,12 +1,23 @@
+using System;
 using UnityEngine;
 
 public class CharacterModelMb : MonoBehaviour
 {
-    [SerializeField] private GameObject _underwear;
-    [SerializeField] private GameObject _helmet;
-    [SerializeField] private GameObject _outwear;
-    [SerializeField] private GameObject _belt;
-    [SerializeField] private GameObject _armor;
+    public WearLevel[] _wearLevels;
+}
 
+[Serializable]
+public class WearLevel
+{
+    public string LevelName;
+    public string LowerLevel;
+    public ItemOnWearLevel[] ItemsOnLevel;
+}
 
+[Serializable]
+public class ItemOnWearLevel
+{
+    public string Id;
+    public GameObject ItemOnCharacterModel;
+    public GameObject ItemOnModelToHideWhenDress;
 }

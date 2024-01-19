@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CharacterOnSceneHolder : MonoBehaviour
 {
+    public event Action<CharacterModelMb> OnInstantiateCharacter;
+
     [SerializeField] private Camera _characterCamera;
     private InputFromImagesService _inputService;
     private GameObject _characterModel;
@@ -17,8 +20,13 @@ public class CharacterOnSceneHolder : MonoBehaviour
         ServiceLocator.Instance.CharacterChanger.ShowNewCharacter += ShowCharacter;
     }
 
-    public void ShowCharacter(CharacterSo characterSo) =>
+    public void ShowCharacter(CharacterSo characterSo)
+    {
         _characterModel = Instantiate(characterSo.CharacterPrefab, Vector3.zero, Quaternion.identity, this.transform);
+        CharacterModelMb characterMb = _characterModel.GetComponent<CharacterModelMb>();
+        OnInstantiateCharacter?.Invoke(characterMb);
+    }
+        
 
     private void Update()
     {

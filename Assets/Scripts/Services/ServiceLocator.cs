@@ -10,12 +10,14 @@ public class ServiceLocator : MonoBehaviour
     public CharactersStorage CharactersStorage => _charactersStorage;
     public InputFromImagesService InputFromImagesService => _inputFromImagesService;
     public CharacterChanger CharacterChanger => _characterChanger;
+    public CharacterDresser CharacterDresser => _characterDresser;
 
 
     //private InputService _inputService;
     private CharactersStorage _charactersStorage;
     private InputFromImagesService _inputFromImagesService;
     private CharacterChanger _characterChanger;
+    private CharacterDresser _characterDresser;
 
     public void Init(CanvasController canvasController, CharacterOnSceneHolder characterHolder, ItemOnSceneHolder itemHolder)
     {
@@ -37,7 +39,9 @@ public class ServiceLocator : MonoBehaviour
         //_inputService = new InputService();
         _charactersStorage = GetComponent<CharactersStorage>();
         _inputFromImagesService = new InputFromImagesService();
+        _inputFromImagesService.Init();
         _characterChanger = new CharacterChanger();
+        _characterDresser = new CharacterDresser(CharacterOnSceneHolder, CharacterChanger);
     }
 
     private void Update()

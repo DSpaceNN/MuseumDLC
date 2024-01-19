@@ -13,7 +13,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         base.Initialize(canvasController, panelsController, dataForOpen);
 
-        _itemsPanel.Init();
+        _itemsPanel.Init(canvasController);
         _characterChanger = ServiceLocator.Instance.CharacterChanger;
         _characterChanger.ShowNewCharacter += OnChangeCharacter;
     }

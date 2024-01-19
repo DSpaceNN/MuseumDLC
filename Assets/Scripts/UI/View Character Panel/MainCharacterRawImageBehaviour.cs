@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MainCharacterRawImageBehaviour : MonoBehaviour, IPointerMoveHandler
+public class MainCharacterRawImageBehaviour : MonoBehaviour, IPointerMoveHandler, IDropHandler
 {
     public void OnPointerMove(PointerEventData eventData)
     {
@@ -9,5 +12,10 @@ public class MainCharacterRawImageBehaviour : MonoBehaviour, IPointerMoveHandler
         {
             ServiceLocator.Instance.InputFromImagesService.SetCharacterInput(eventData.delta);
         }
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("MainCharacterRawImageBehaviour IDropHandler");
     }
 }
