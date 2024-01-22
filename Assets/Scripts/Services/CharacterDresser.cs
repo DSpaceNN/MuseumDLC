@@ -15,9 +15,10 @@ public class CharacterDresser
         ItemIcon.OnDragItemOnCharacterIcon += OnDragItemOnCharacter;
     }
 
-    public event Action<CharacterItemSo> OnItemEquiped;
     public CharacterSo CurrentCharacter { get; private set; }
     public CharacterModelMb CurrentCharacterMb { get; private set; }
+
+    public event Action<CharacterItemSo> OnItemEquiped;
 
     private CharacterOnSceneHolder _characterOnSceneHolder;
     private CharacterChanger _characterChanger;

@@ -8,4 +8,5 @@ public class CharacterItemSo : ScriptableObject
     public string ItemDescription;
     public GameObject ItemPrefab;
     public Sprite ItemSprite;
+    public AudioClip ItemAudioClip;
 }

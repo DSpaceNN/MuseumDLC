@@ -9,5 +9,6 @@ public class CharacterSo : ScriptableObject
 
     public GameObject CharacterPrefab;
     public Sprite CharacterSprite;
+    public AudioClip CharacterTaskAudioClip;
     public CharacterItemSo[] Items;
 }

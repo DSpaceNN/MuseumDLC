@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -28,8 +25,6 @@ public class MainCharacterRawImageBehaviour : MonoBehaviour, IPointerMoveHandler
     public void OnPointerMove(PointerEventData eventData)
     {
         if (eventData.eligibleForClick && eventData.pointerEnter == this.gameObject)
-        {
             ServiceLocator.Instance.InputFromImagesService.SetCharacterInput(eventData.delta);
-        }
     }
 }

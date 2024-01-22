@@ -12,7 +12,6 @@ public class ServiceLocator : MonoBehaviour
     public CharacterChanger CharacterChanger => _characterChanger;
     public CharacterDresser CharacterDresser => _characterDresser;
 
-
     //private InputService _inputService;
     private CharactersStorage _charactersStorage;
     private InputFromImagesService _inputFromImagesService;
