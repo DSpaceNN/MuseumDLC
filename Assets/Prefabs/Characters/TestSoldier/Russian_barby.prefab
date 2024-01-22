@@ -19913,14 +19913,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wearLevels:
-  - LevelName: First Level
-    LowerLevel: Second Level
+  - LevelGroupId: SimpleWear
+    LevelInsertNumber: 0
     ItemsOnLevel:
     - Id: Outwear
       ItemOnCharacterModel: {fileID: 2832162318905325071}
       ItemOnModelToHideWhenDress: {fileID: 6804678024024300815}
-  - LevelName: Second Level
-    LowerLevel: 
+  - LevelGroupId: SimpleWear
+    LevelInsertNumber: 1
     ItemsOnLevel:
     - Id: Helmet
       ItemOnCharacterModel: {fileID: 4220993459236532605}
