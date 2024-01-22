@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointerUpHandler, IPointerDownHandler, IInitializePotentialDragHandler, IEndDragHandler
+public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitializePotentialDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public static event Action OnBeginDragIcon;
     public static event Action OnEndDragIcon;
+    
+    public static event Action OnHoverEnterDragIcon;
+    public static event Action OnHoverExitDragIcon;
+
     public static event Action<CharacterItemSo> OnDragItemOnCharacterIcon;
 
     [SerializeField] private Image _itemIconImage;
@@ -16,7 +20,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
     [SerializeField] private Image _infoImage;
     [SerializeField] private Image _blockImage;
     [SerializeField] private Image _equipedImage;
-    
+
     private RectTransform _dragRectTransform;
     private Vector3 _startRectDragPosition;
 
@@ -26,8 +30,9 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
     private CanvasController _canvasController;
 
     private bool _canEquip;
+    private bool _isEquipped;
+
     private float _dragThreshold = 3;
-    private bool _hasDrag;
     private bool _dragOnCharacter;
 
     private EventSystem _eventSystem;
@@ -62,8 +67,11 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
         _canEquip = ServiceLocator.Instance.CharacterDresser.CanEquipItem(_item);
         _blockImage.gameObject.SetActive(!_canEquip);
 
-        if(itemSo == _item)
+        if (itemSo == _item)
+        {
             _equipedImage.gameObject.SetActive(true);
+            _isEquipped = true;
+        }
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData)
@@ -73,41 +81,43 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
     }
 
     public void OnBeginDrag(PointerEventData eventData)
-    {   
-        OnBeginDragIcon?.Invoke();
-        _hasDrag = true;
-        _itemDragImage.transform.SetParent(_canvasController.gameObject.transform);
-        _itemDragImage.transform.SetAsLastSibling();
+    {
+        if (_canEquip && !_isEquipped)
+        {
+            OnBeginDragIcon?.Invoke();
+            _itemDragImage.transform.SetParent(_canvasController.gameObject.transform);
+            _itemDragImage.transform.SetAsLastSibling();
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        _dragRectTransform.position = eventData.position;
-        RaycastToCanvas();
+        if (_canEquip && !_isEquipped)
+        {
+            _dragRectTransform.position = eventData.position;
+            RaycastToCanvas();
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        OnEndDrag();
-        OnEndDragIcon?.Invoke();
-        _itemDragImage.transform.SetParent(this.transform);
-        _dragRectTransform.position = _startRectDragPosition;
+        if (_canEquip && !_isEquipped)
+        {
+            if (_dragOnCharacter)
+                OnDragItemOnCharacterIcon?.Invoke(_item);
+
+            OnEndDragIcon?.Invoke();
+            _itemDragImage.transform.SetParent(this.transform);
+            _dragRectTransform.position = _startRectDragPosition;
+        }
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (!_hasDrag)
-            OnIconClick();
-        _hasDrag = false;
-    }
+    public void OnPointerClick(PointerEventData eventData) =>
+        OnIconClick();
 
-    private void OnIconClick()
-    {
+    private void OnIconClick() =>
         _itemHolder.ShowItem(_item.ItemPrefab);
-    }
-
-    public void OnPointerDown(PointerEventData eventData) { }
-
+    
     private void RaycastToCanvas()
     {
         List<RaycastResult> results = new List<RaycastResult>();
@@ -122,6 +132,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
                 if (!_dragOnCharacter)
                 {
                     _dragOnCharacter = true;
+                    OnHoverEnterDragIcon?.Invoke();
                     Debug.Log("навели на персонажа");
                 }
             }
@@ -130,6 +141,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
                 if (_dragOnCharacter)
                 {
                     _dragOnCharacter = false;
+                    OnHoverExitDragIcon?.Invoke();
                     Debug.Log("убрали с персонажа");
                 }
             }
@@ -139,14 +151,9 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
             if (_dragOnCharacter)
             {
                 _dragOnCharacter = false;
+                OnHoverExitDragIcon?.Invoke();
                 Debug.Log("убрали с персонажа");
             }
         }
-    }
-
-    private void OnEndDrag()
-    {
-        if (_dragOnCharacter)
-            OnDragItemOnCharacterIcon?.Invoke(_item);
     }
 }

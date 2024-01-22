@@ -1733,6 +1733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f48bbbf8e127042a5707557a01f754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _greenCircleImage: {fileID: 5619223664929572555}
 --- !u!1 &8892320000770987079
 GameObject:
   m_ObjectHideFlags: 0
