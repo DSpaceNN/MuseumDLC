@@ -13,6 +13,10 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
     [SerializeField] private Image _itemIconImage;
     [SerializeField] private Image _itemDragImage;
 
+    [SerializeField] private Image _infoImage;
+    [SerializeField] private Image _blockImage;
+    [SerializeField] private Image _equipedImage;
+    
     private RectTransform _dragRectTransform;
     private Vector3 _startRectDragPosition;
 
@@ -21,6 +25,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
     private ItemOnSceneHolder _itemHolder;
     private CanvasController _canvasController;
 
+    private bool _canEquip;
     private float _dragThreshold = 3;
     private bool _hasDrag;
     private bool _dragOnCharacter;
@@ -28,14 +33,11 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
     private EventSystem _eventSystem;
     private GraphicRaycaster _raycaster;
 
-    private void Start()
+    public void ShowItem(CharacterItemSo item, ItemsPanelBehaviour parentPanel, CanvasController canvasController)
     {
         _eventSystem = EventSystem.current;
         _raycaster = GetComponent<GraphicRaycaster>();
-    }
 
-    public void ShowItem(CharacterItemSo item, ItemsPanelBehaviour parentPanel, CanvasController canvasController)
-    {
         _item = item;
         _parentPanel = parentPanel;
         _canvasController = canvasController;
@@ -48,15 +50,20 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
 
         _itemHolder = ServiceLocator.Instance.ItemOnSceneHolder;
 
-        bool test = ServiceLocator.Instance.CharacterDresser.CanEquipItem(_item);
+        _canEquip = ServiceLocator.Instance.CharacterDresser.CanEquipItem(_item);
         ServiceLocator.Instance.CharacterDresser.OnItemEquiped += OnItemEquiped;
-        Debug.Log($"can equip {item.Id} = {test}");
+
+        _equipedImage.gameObject.SetActive(false);
+        _blockImage.gameObject.SetActive(!_canEquip);
     }
 
-    private void OnItemEquiped(CharacterItemSo obj)
+    private void OnItemEquiped(CharacterItemSo itemSo)
     {
-        bool test = ServiceLocator.Instance.CharacterDresser.CanEquipItem(_item);
-        Debug.Log($"can equip {_item.Id} = {test}");
+        _canEquip = ServiceLocator.Instance.CharacterDresser.CanEquipItem(_item);
+        _blockImage.gameObject.SetActive(!_canEquip);
+
+        if(itemSo == _item)
+            _equipedImage.gameObject.SetActive(true);
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData)
@@ -66,7 +73,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
     }
 
     public void OnBeginDrag(PointerEventData eventData)
-    {
+    {   
         OnBeginDragIcon?.Invoke();
         _hasDrag = true;
         _itemDragImage.transform.SetParent(_canvasController.gameObject.transform);
