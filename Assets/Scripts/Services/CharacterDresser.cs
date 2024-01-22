@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ public class CharacterDresser
         _characterOnSceneHolder = characterHolder;
         _characterOnSceneHolder.OnInstantiateCharacter += OnInstantiateCharacter;
 
-        ItemIcon.OnDragItemOnCharacterIcon += OnDragItenOnCharacter;
+        ItemIcon.OnDragItemOnCharacterIcon += OnDragItemOnCharacter;
     }
 
     public event Action<CharacterItemSo> OnItemEquiped;
@@ -24,30 +23,18 @@ public class CharacterDresser
     private CharacterChanger _characterChanger;
 
     public bool CanEquipItem(CharacterItemSo itemSo) =>
-        CanEquipItem(itemSo, out WearLevel itemWearLevel, out ItemOnWearLevel item);
+        CanEquipItem(itemSo, out ItemOnCharacter item);
 
-    public bool CanEquipItem(CharacterItemSo itemSo, out WearLevel itemWearLevel, out ItemOnWearLevel item)
+    public bool CanEquipItem(CharacterItemSo itemSo, out ItemOnCharacter itemOnCharacter)
     {
-        List<LinkedList<WearLevel>> abstractWearLevels = CurrentCharacterMb.AbstractWearLevelGroups;
-        WearLevel[] allWearLevels = CurrentCharacterMb.WearLevelsInInspector;
-
-        //ищем уровень одежды из общего списка
-        itemWearLevel = allWearLevels.FirstOrDefault(x => x.ItemsOnLevel.Any(y => y.Id == itemSo.Id));
-        item = itemWearLevel.ItemsOnLevel.FirstOrDefault(x => x.Id == itemSo.Id);
-        string wearLevelName = itemWearLevel.LevelGroupId;
-
-        //ищем группу уровней где лежит этот item
-        LinkedList<WearLevel> currentListOfWearLevel = abstractWearLevels.FirstOrDefault(x => x.First().LevelGroupId == wearLevelName);
-        LinkedListNode<WearLevel> currentNode = currentListOfWearLevel.Find(itemWearLevel);
-        LinkedListNode<WearLevel> previousNode = currentNode.Previous;
-
-        if (previousNode == null)
-            return true;
-
-        if (previousNode.Value.LevelIsFullyEquipped())
-            return true;
-
-        return false;
+        itemOnCharacter = CurrentCharacterMb.ItemsOnCharacter.FirstOrDefault(x => x.Id == itemSo.Id);
+        if (itemOnCharacter.ItemsBeforeEquip.Count > 0)
+        {
+            foreach (var item in itemOnCharacter.ItemsBeforeEquip)
+                if (!item.IsEquipped)
+                    return false;
+        }
+        return true;
     }
 
     private void OnShowNewCharacter(CharacterSo character) =>
@@ -56,28 +43,25 @@ public class CharacterDresser
     private void OnInstantiateCharacter(CharacterModelMb characterMb)
     {
         CurrentCharacterMb = characterMb;
-        CurrentCharacterMb.BuildWearLevels();
+        CurrentCharacterMb.BuildItems();
     }
 
-
-    private void OnDragItenOnCharacter(CharacterItemSo itemSo)
+    private void OnDragItemOnCharacter(CharacterItemSo itemSo)
     {
         Debug.Log("закидываем на персонажа " + itemSo.name);
         string id = itemSo.Id;
 
-        //нужно найти предмет на персонаже
-        //нужно узнать закрыт ли предыдущий уровень
-        //если уровень закрыт, то показываем предмет
-        //если есть предмет, который нужно убрать взамен, то убрать его
+        //нужно проверить, предмет уже на персонаже или нет
 
-        if (CanEquipItem(itemSo, out WearLevel itemWearLevel, out ItemOnWearLevel item))
+        if (CanEquipItem(itemSo, out ItemOnCharacter item))
         {
-            OnItemEquiped?.Invoke(itemSo);
             item.IsEquipped = true;
             if (item.ItemOnModelToHideWhenDress != null)
                 item.ItemOnModelToHideWhenDress.SetActive(false);
 
             item.ItemOnCharacterModel.SetActive(true);
+
+            OnItemEquiped?.Invoke(itemSo);
         }
         else
         {

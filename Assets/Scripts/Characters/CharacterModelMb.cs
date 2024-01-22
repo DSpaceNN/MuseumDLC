@@ -5,86 +5,40 @@ using UnityEngine;
 
 public class CharacterModelMb : MonoBehaviour
 {
-    public List<LinkedList<WearLevel>> AbstractWearLevelGroups { get; set; } = new List<LinkedList<WearLevel>>();
-    public WearLevel[] WearLevelsInInspector => _wearLevels;
+    public ItemOnCharacter[] ItemsOnCharacter => _items;
 
-    [SerializeField] private WearLevel[] _wearLevels;
+    [SerializeField] private ItemOnCharacter[] _items;
 
-    public void BuildWearLevels()
+    public void BuildItems()
     {
-        //берем количество слоёв
-        List<string> levelsNames = new List<string>();
-
-        //максимальная вложенность
-        int maxLevelInsert = 0;
-
-        foreach (var level in _wearLevels)
+        foreach (var item in _items)
         {
-            if (!levelsNames.Contains(level.LevelGroupId))
-                levelsNames.Add(level.LevelGroupId);
-
-            if (level.LevelInsertNumber > maxLevelInsert)
-                maxLevelInsert = level.LevelInsertNumber;
-        }
-
-        //раскидываем уровни одежды по вложенности
-        foreach (var levelsName in levelsNames)
-        {
-            string levelGroupId = levelsName;
-
-            LinkedList<WearLevel> wearLevels = new LinkedList<WearLevel>();
-
-            //берем по порядку из общей кучи, формируем связаный список
-            for (int i = 0; i <= maxLevelInsert; i++)
+            item.ItemsBeforeEquip = new List<ItemOnCharacter>();
+            if (item.ItemsBeforeEquipIds.Length > 0)
             {
-                foreach (var level in _wearLevels)
+                foreach (string id in item.ItemsBeforeEquipIds)
                 {
-                    if (level.LevelGroupId == levelGroupId && level.LevelInsertNumber == i)
-                        wearLevels.AddLast(level);
+                    ItemOnCharacter beforeItem = _items.FirstOrDefault(x => x.Id == id);
+                    if (beforeItem == null) 
+                    {
+                        Debug.Log("Не нашёлся в инвентаре предмет с ID = " + id);
+                        continue;
+                    }
+                    item.ItemsBeforeEquip.Add(beforeItem);
                 }
             }
-            AbstractWearLevelGroups.Add(wearLevels);
-
-            //Debug.Log("wearLevels.Count = " + wearLevels.Count);
-            //var tempLevel = wearLevels.First;
-            //while (tempLevel != null)
-            //{
-            //    Debug.Log("tempLevel.ItemsOnLevel.Length = " + tempLevel.Value.ItemsOnLevel.Length);
-            //    tempLevel = tempLevel.Next;
-            //}
         }
     }
 }
 
 [Serializable]
-public class WearLevel
+public class ItemOnCharacter
 {
-    public string LevelGroupId;
-    public int LevelInsertNumber;
-    public ItemOnWearLevel[] ItemsOnLevel;
-
-    public bool LevelIsFullyEquipped()
-    {
-        foreach (var item in ItemsOnLevel)
-            if (!item.IsEquipped)
-                return false;
-        return true;
-    }
-
-    public bool HasItemOnCurrenLevel(string id)
-    {
-        foreach (var item in ItemsOnLevel)
-            if (item.Id == id)
-                return true;
-        return false;
-    }
-}
-
-[Serializable]
-public class ItemOnWearLevel
-{
+    public List<ItemOnCharacter> ItemsBeforeEquip { get; set; }
     public bool IsEquipped { get; set; }
+
     public string Id;
+    public string[] ItemsBeforeEquipIds;
     public GameObject ItemOnCharacterModel;
     public GameObject ItemOnModelToHideWhenDress;
 }

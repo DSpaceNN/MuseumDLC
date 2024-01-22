@@ -48,8 +48,15 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IPointer
 
         _itemHolder = ServiceLocator.Instance.ItemOnSceneHolder;
 
-        bool test = ServiceLocator.Instance.CharacterDresser.CanEquipItem(item);
+        bool test = ServiceLocator.Instance.CharacterDresser.CanEquipItem(_item);
+        ServiceLocator.Instance.CharacterDresser.OnItemEquiped += OnItemEquiped;
         Debug.Log($"can equip {item.Id} = {test}");
+    }
+
+    private void OnItemEquiped(CharacterItemSo obj)
+    {
+        bool test = ServiceLocator.Instance.CharacterDresser.CanEquipItem(_item);
+        Debug.Log($"can equip {_item.Id} = {test}");
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData)
