@@ -7,6 +7,9 @@ public class CharacterSo : ScriptableObject
     public string CharacterName;
     public string CharacterDescription;
 
+    public string Task;
+    public string Purpose;
+
     public GameObject CharacterPrefab;
     public Sprite CharacterSprite;
     public AudioClip CharacterTaskAudioClip;

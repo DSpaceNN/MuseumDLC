@@ -8,21 +8,26 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
 {
     public static event Action OnBeginDragIcon;
     public static event Action OnEndDragIcon;
-    
+
     public static event Action OnHoverEnterDragIcon;
     public static event Action OnHoverExitDragIcon;
 
     public static event Action<CharacterItemSo> OnDragItemOnCharacterIcon;
+    public static event Action<CharacterItemSo> OnClickOnItem;
 
     [SerializeField] private Image _itemIconImage;
     [SerializeField] private Image _itemDragImage;
+    [SerializeField] private Image _greenHaloDragImage;
 
     [SerializeField] private Image _infoImage;
     [SerializeField] private Image _blockImage;
     [SerializeField] private Image _equipedImage;
+    [SerializeField] private Image _selectedImage;
+
+    private Color _fullColor = Color.white;
+    private Color _blockedColor = Color.white;
 
     private RectTransform _dragRectTransform;
-    private Vector3 _startRectDragPosition;
 
     private CharacterItemSo _item;
     private ItemsPanelBehaviour _parentPanel;
@@ -50,23 +55,36 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
         _itemIconImage.sprite = _item.ItemSprite;
         _itemDragImage.sprite = _item.ItemSprite;
 
-        _dragRectTransform = _itemDragImage.GetComponent<RectTransform>();
-        _startRectDragPosition = _dragRectTransform.position;
+        _dragRectTransform = _greenHaloDragImage.GetComponent<RectTransform>();
+        _greenHaloDragImage.gameObject.SetActive(false);
 
         _itemHolder = ServiceLocator.Instance.ItemOnSceneHolder;
 
         _canEquip = ServiceLocator.Instance.CharacterDresser.CanEquipItem(_item);
         ServiceLocator.Instance.CharacterDresser.OnItemEquiped += OnItemEquiped;
 
+        _selectedImage.gameObject.SetActive(false);
         _equipedImage.gameObject.SetActive(false);
-        _blockImage.gameObject.SetActive(!_canEquip);
+
+        _blockedColor.a = 0.7f;
+
+        //_blockImage.gameObject.SetActive(!_canEquip);
+        SetEquipState(_canEquip);
+
+        ItemIcon.OnClickOnItem += ItemIcon_OnClickOnItem;
+    }
+
+    private void ItemIcon_OnClickOnItem(CharacterItemSo itemSo)
+    {
+        if (itemSo != _item)
+            _selectedImage.gameObject.SetActive(false);
     }
 
     private void OnItemEquiped(CharacterItemSo itemSo)
     {
         _canEquip = ServiceLocator.Instance.CharacterDresser.CanEquipItem(_item);
-        _blockImage.gameObject.SetActive(!_canEquip);
-
+        //_blockImage.gameObject.SetActive(!_canEquip);
+        SetEquipState(_canEquip);
         if (itemSo == _item)
         {
             _equipedImage.gameObject.SetActive(true);
@@ -85,8 +103,9 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
         if (_canEquip && !_isEquipped)
         {
             OnBeginDragIcon?.Invoke();
-            _itemDragImage.transform.SetParent(_canvasController.gameObject.transform);
-            _itemDragImage.transform.SetAsLastSibling();
+            _greenHaloDragImage.gameObject.SetActive(true);
+            _greenHaloDragImage.transform.SetParent(_canvasController.gameObject.transform);
+            _greenHaloDragImage.transform.SetAsLastSibling();
         }
     }
 
@@ -107,17 +126,23 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
                 OnDragItemOnCharacterIcon?.Invoke(_item);
 
             OnEndDragIcon?.Invoke();
-            _itemDragImage.transform.SetParent(this.transform);
-            _dragRectTransform.position = _startRectDragPosition;
+            _greenHaloDragImage.gameObject.SetActive(false);
+            _greenHaloDragImage.transform.SetParent(this.transform);
+            _greenHaloDragImage.transform.SetAsFirstSibling();
+            _dragRectTransform.localPosition = Vector3.zero;
         }
     }
 
     public void OnPointerClick(PointerEventData eventData) =>
         OnIconClick();
 
-    private void OnIconClick() =>
+    private void OnIconClick()
+    {
         _itemHolder.ShowItem(_item.ItemPrefab);
-    
+        _selectedImage.gameObject.SetActive(true);
+        OnClickOnItem?.Invoke(_item);
+    }
+
     private void RaycastToCanvas()
     {
         List<RaycastResult> results = new List<RaycastResult>();
@@ -155,5 +180,14 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
                 Debug.Log("убрали с персонажа");
             }
         }
+    }
+
+    private void SetEquipState(bool canEquip)
+    {
+        if (canEquip)
+            _itemIconImage.color = _fullColor;
+        else
+            _itemIconImage.color = _blockedColor;
+        _blockImage.gameObject.SetActive(!canEquip);
     }
 }
