@@ -15,9 +15,7 @@ public class CharacterChanger
         if (characterSo == null)
             return;
 
-        if (CurrentCharacter != null)
-            CurrentCharacter = characterSo;
-
+        CurrentCharacter = characterSo;
         ShowNewCharacter?.Invoke(characterSo);
     }
 }

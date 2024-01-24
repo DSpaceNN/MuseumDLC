@@ -22,6 +22,7 @@ public class CharacterOnSceneHolder : MonoBehaviour
 
     public void ShowCharacter(CharacterSo characterSo)
     {
+        Destroy(_characterModel);
         _characterModel = Instantiate(characterSo.CharacterPrefab, Vector3.zero, Quaternion.identity, this.transform);
         CharacterModelMb characterMb = _characterModel.GetComponent<CharacterModelMb>();
         OnInstantiateCharacter?.Invoke(characterMb);

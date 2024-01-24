@@ -15,3 +15,5 @@ MonoBehaviour:
   Panels:
   - PanelId: ViewCharacterPanel
     Panel: {fileID: 2390018658118908858, guid: 32ae2da3fb063414c9dc92e441d6767c, type: 3}
+  - PanelId: StartMenuPanel
+    Panel: {fileID: 6500863920671013200, guid: 165cbbe7956929d4094dcde89049e309, type: 3}

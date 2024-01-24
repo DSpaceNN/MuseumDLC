@@ -21,12 +21,13 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _itemsPanel.Init(canvasController);
         _topButtonsPanel.Init(canvasController);
 
-        //TODO тут могут быть проблемы, возможно брать перса из _characterChanger.CurrentCharacter
         _characterChanger = ServiceLocator.Instance.CharacterChanger;
+
         _characterChanger.ShowNewCharacter += OnChangeCharacter;
         ItemIcon.OnClickOnItem += ItemIcon_OnClickOnItem;
-
         _resetButton.onClick.AddListener(() => ResetButton());
+
+        OnChangeCharacter(_characterChanger.CurrentCharacter);
 
         ShowCharacterInfoPanel();
     }

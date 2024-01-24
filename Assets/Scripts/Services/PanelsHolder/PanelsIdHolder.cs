@@ -1,5 +1,5 @@
 public static class PanelsIdHolder
 {
-    public const string MainPanelId = "MainPanel";
+    public const string StartMenuPanelPanelId = "StartMenuPanel";
     public const string ViewCharacterPanelId = "ViewCharacterPanel";
 }

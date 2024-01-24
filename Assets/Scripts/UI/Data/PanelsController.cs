@@ -39,19 +39,17 @@ public class PanelsController
         GameObject panelGo = GameObject.Instantiate(panelPrefab, _canvasController.transform);
         PanelBase panelMb = panelGo.GetComponent<PanelBase>();
 
-        if (panelMb is IMainPanel || panelMb is IPopupPanel)
+        if (panelMb is IPopupPanel)
             panelGo.transform.SetAsFirstSibling();
 
         if (panelMb is IMainPanel)
+        {
+            ClearPanels();
             _mainPanel = panelMb;
+        }
 
         panelMb.Initialize(_canvasController, this, dataForOpen);
         _panelsOnScene.Add(panelMb.GetType(), panelMb);
-    }
-
-    public void DeletePanelOnScene(string id)
-    {
-
     }
 
     public void DeletePanelOnScene(Type type)
