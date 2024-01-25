@@ -7,16 +7,24 @@ public abstract class CharacterTopButton : MonoBehaviour
     [SerializeField] private Image _previewImage;
     [SerializeField] private Image _greenBottomImage;
 
-    protected CanvasController _canvasController;
+    public string CharacterId { get; protected set; }
+
+    protected CanvasController CanvasController;
     
     public virtual void Init(CanvasController canvasController) 
     {
-        _canvasController = canvasController;
+        CanvasController = canvasController;
         _iconButton.onClick.AddListener(() => OnIconClick());
         ServiceLocator.Instance.CharacterChanger.ShowNewCharacter += OnCharacterChange;
     }
 
-    public virtual void OnCharacterChange(CharacterSo obj) { }
+    public virtual void OnCharacterChange(CharacterSo characterSo) 
+    {
+        if (CharacterId != characterSo.Id)
+            ShowInactiveState();
+        else
+            ShowActiveState();
+    }
 
     public virtual void OnIconClick() { }
 

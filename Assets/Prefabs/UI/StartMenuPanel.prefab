@@ -2893,7 +2893,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 188341920111826357, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: _characterId
-      value: 3
+      value: Saver
+      objectReference: {fileID: 0}
+    - target: {fileID: 369505825350127889, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
+      propertyPath: m_Text
+      value: "\u043C\u0447\u0441"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500797260700209377, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.699997
       objectReference: {fileID: 0}
     - target: {fileID: 3053866942000249595, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: m_Name
@@ -3012,6 +3020,10 @@ PrefabInstance:
       propertyPath: _characterId
       value: TestMan
       objectReference: {fileID: 0}
+    - target: {fileID: 369505825350127889, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
+      propertyPath: m_Text
+      value: "\u0432\u043E\u0435\u043D\u043D\u043E-\n\u0441\u043B\u0443\u0436\u0430\u0449\u0438\u0439"
+      objectReference: {fileID: 0}
     - target: {fileID: 3053866942000249595, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: m_Name
       value: CharacterIcon
@@ -3127,7 +3139,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 188341920111826357, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: _characterId
-      value: 2
+      value: Med
       objectReference: {fileID: 0}
     - target: {fileID: 3053866942000249595, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: m_Name
@@ -3244,7 +3256,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 188341920111826357, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: _characterId
-      value: 4
+      value: TestMan3
+      objectReference: {fileID: 0}
+    - target: {fileID: 369505825350127889, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
+      propertyPath: m_Text
+      value: "\u0432\u043E\u043B\u043E\u043D\u0442\u0451\u0440"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500797260700209377, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.7
       objectReference: {fileID: 0}
     - target: {fileID: 3053866942000249595, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: m_Name

@@ -17,6 +17,7 @@ public class CharacterDresser
 
     public CharacterSo CurrentCharacter { get; private set; }
     public CharacterModelMb CurrentCharacterMb { get; private set; }
+    public int CharacterDressCounter { get; private set; }
 
     public event Action<CharacterItemSo> OnItemEquiped;
 
@@ -29,6 +30,9 @@ public class CharacterDresser
     public bool CanEquipItem(CharacterItemSo itemSo, out ItemOnCharacter itemOnCharacter)
     {
         itemOnCharacter = CurrentCharacterMb.ItemsOnCharacter.FirstOrDefault(x => x.Id == itemSo.Id);
+
+        if (itemOnCharacter == null)
+            Debug.LogError($"Скорее всего неправильный ID у предмета {itemSo.Id};");
         if (itemOnCharacter.ItemsBeforeEquip.Count > 0)
         {
             foreach (var item in itemOnCharacter.ItemsBeforeEquip)
@@ -38,8 +42,11 @@ public class CharacterDresser
         return true;
     }
 
-    private void OnShowNewCharacter(CharacterSo character) =>
+    private void OnShowNewCharacter(CharacterSo character)
+    {
         CurrentCharacter = character;
+        CharacterDressCounter = 0;
+    }
 
     private void OnInstantiateCharacter(CharacterModelMb characterMb)
     {
@@ -52,16 +59,18 @@ public class CharacterDresser
         Debug.Log("закидываем на персонажа " + itemSo.name);
         string id = itemSo.Id;
 
-        //нужно проверить, предмет уже на персонаже или нет
-
-        if (CanEquipItem(itemSo, out ItemOnCharacter item))
+        if (CanEquipItem(itemSo, out ItemOnCharacter itemsOnCharacter))
         {
-            item.IsEquipped = true;
-            if (item.ItemOnModelToHideWhenDress != null)
-                item.ItemOnModelToHideWhenDress.SetActive(false);
+            itemsOnCharacter.IsEquipped = true;
+            if (itemsOnCharacter.ItemsOnModelToHideWhenDress != null && itemsOnCharacter.ItemsOnModelToHideWhenDress.Length > 0)
+                foreach(var item in itemsOnCharacter.ItemsOnModelToHideWhenDress)
+                    item.SetActive(false);
 
-            item.ItemOnCharacterModel.SetActive(true);
+            if (itemsOnCharacter.ItemsOnCharacterModel != null && itemsOnCharacter.ItemsOnCharacterModel.Length > 0)
+                foreach(var item in itemsOnCharacter.ItemsOnCharacterModel)
+                    item.SetActive(true);
 
+            CharacterDressCounter++;
             OnItemEquiped?.Invoke(itemSo);
         }
         else

@@ -47,7 +47,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         _characterChanger.ShowNewCharacter -= OnChangeCharacter;
         ItemIcon.OnClickOnItem -= ItemIcon_OnClickOnItem;
-    }   
+    }
 
     private void ShowItemInfoPanel()
     {
@@ -63,6 +63,9 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
 
     private void ResetButton()
     {
-        Debug.Log("ресет, включаем попап панель и все дела");
+        if (ServiceLocator.Instance.CharacterDresser.CharacterDressCounter == 0)
+            return;
+
+        CanvasController.ShowPanelById(PanelsIdHolder.ResetGamePopupPanelId);
     }
 }

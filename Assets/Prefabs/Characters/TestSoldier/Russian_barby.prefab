@@ -19915,23 +19915,29 @@ MonoBehaviour:
   _items:
   - Id: Outwear
     ItemsBeforeEquipIds: []
-    ItemOnCharacterModel: {fileID: 2832162318905325071}
-    ItemOnModelToHideWhenDress: {fileID: 6804678024024300815}
+    ItemsOnCharacterModel:
+    - {fileID: 2832162318905325071}
+    ItemsOnModelToHideWhenDress:
+    - {fileID: 6804678024024300815}
+    - {fileID: 5825553940581182929}
   - Id: Helmet
     ItemsBeforeEquipIds:
     - Outwear
-    ItemOnCharacterModel: {fileID: 4220993459236532605}
-    ItemOnModelToHideWhenDress: {fileID: 0}
+    ItemsOnCharacterModel:
+    - {fileID: 4220993459236532605}
+    ItemsOnModelToHideWhenDress: []
   - Id: Belt
     ItemsBeforeEquipIds:
     - Outwear
-    ItemOnCharacterModel: {fileID: 7925895924378560744}
-    ItemOnModelToHideWhenDress: {fileID: 0}
+    ItemsOnCharacterModel:
+    - {fileID: 7925895924378560744}
+    ItemsOnModelToHideWhenDress: []
   - Id: Armor
     ItemsBeforeEquipIds:
     - Outwear
-    ItemOnCharacterModel: {fileID: 5287147950166032054}
-    ItemOnModelToHideWhenDress: {fileID: 0}
+    ItemsOnCharacterModel:
+    - {fileID: 5287147950166032054}
+    ItemsOnModelToHideWhenDress: []
 --- !u!1 &9066951256729757998
 GameObject:
   m_ObjectHideFlags: 0

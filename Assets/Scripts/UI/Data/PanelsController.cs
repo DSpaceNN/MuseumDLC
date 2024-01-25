@@ -40,7 +40,7 @@ public class PanelsController
         PanelBase panelMb = panelGo.GetComponent<PanelBase>();
 
         if (panelMb is IPopupPanel)
-            panelGo.transform.SetAsFirstSibling();
+            panelGo.transform.SetAsLastSibling();
 
         if (panelMb is IMainPanel)
         {

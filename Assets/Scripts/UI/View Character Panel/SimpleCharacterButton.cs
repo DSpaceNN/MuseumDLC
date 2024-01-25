@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class SimpleCharacterButton : CharacterTopButton
 {
@@ -7,16 +8,21 @@ public class SimpleCharacterButton : CharacterTopButton
     public override void Init(CanvasController canvasController)
     {
         base.Init(canvasController);
-
+        CharacterId = _characterId;
+        OnCharacterChange(ServiceLocator.Instance.CharacterChanger.CurrentCharacter);
     }
 
     public override void OnIconClick()
     {
-        Debug.Log("открываем попап панель, кешируя Action со спауном персонажа");
-    }
-
-    public override void OnCharacterChange(CharacterSo characterSo)
-    {
-
+        if (ServiceLocator.Instance.CharacterDresser.CharacterDressCounter == 0)
+        {
+            ServiceLocator.Instance.CharacterChanger.ShowCharacterById(_characterId);
+        }
+        else
+        {
+            Action action = () => ServiceLocator.Instance.CharacterChanger.ShowCharacterById(_characterId);
+            DataForChangeCharacter data = new DataForChangeCharacter(action);
+            CanvasController.ShowPanelById(PanelsIdHolder.ChooseAnotherCharacterPopupPanelId, data);
+        }
     }
 }

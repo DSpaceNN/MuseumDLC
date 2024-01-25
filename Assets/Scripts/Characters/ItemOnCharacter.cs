@@ -10,6 +10,6 @@ public class ItemOnCharacter
 
     public string Id;
     public string[] ItemsBeforeEquipIds;
-    public GameObject ItemOnCharacterModel;
-    public GameObject ItemOnModelToHideWhenDress;
+    public GameObject[] ItemsOnCharacterModel;
+    public GameObject[] ItemsOnModelToHideWhenDress;
 }

@@ -35,10 +35,8 @@ public class StartMenuPanelBehaviour : PanelBase, IMainPanel
     private void OnStartCharacterIconClick(string characterId) =>
         StartCharacterId = characterId;
 
-    private void ExitButton()
-    {
-
-    }
+    private void ExitButton() =>
+        CanvasController.ShowPanelById(PanelsIdHolder.ExitPopupPanellId);
 
     private void StartButton()
     {

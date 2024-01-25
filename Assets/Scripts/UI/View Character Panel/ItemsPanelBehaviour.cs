@@ -19,6 +19,9 @@ public class ItemsPanelBehaviour : MonoBehaviour
 
     public void ShowIcons(CharacterSo characterSo)
     {
+        Tools.DestroyAllChilds(_scrollContentHolder);
+        _itemIcons.Clear();
+
         for (int i = 0; i < characterSo.Items.Length; i++)
             InstantiateIcon(characterSo.Items[i]);
     }
@@ -28,10 +31,5 @@ public class ItemsPanelBehaviour : MonoBehaviour
         ItemIcon iconMb = Instantiate(_itemIconPrefab, _scrollContentHolder);
         iconMb.ShowItem(itemSo, this, _canvasController);
         _itemIcons.Add(iconMb);
-    }
-
-    private void DestroyIcons()
-    {
-
     }
 }

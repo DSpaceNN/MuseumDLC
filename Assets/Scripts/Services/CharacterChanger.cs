@@ -9,6 +9,9 @@ public class CharacterChanger
     public void ShowStartCharacter() =>
         ShowCharacterById("TestMan");
 
+    public void ResetCharacter() =>
+        ShowCharacterById(CurrentCharacter.Id);
+
     public void ShowCharacterById(string id)
     {
         CharacterSo characterSo = ServiceLocator.Instance.CharactersStorage.GetCharacterById(id);

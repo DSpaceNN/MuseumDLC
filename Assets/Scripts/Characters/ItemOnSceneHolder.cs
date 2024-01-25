@@ -27,6 +27,9 @@ public class ItemOnSceneHolder : MonoBehaviour
         _itemModel.transform.localRotation = Quaternion.identity;
 
         BoxCollider collider = _itemModel.GetComponentInChildren<BoxCollider>();
+        if (collider == null)
+            Debug.LogError("На префабе нет коллайдера");
+
         _itemModel.transform.localScale /= collider.size.magnitude;
         _itemModel.transform.localScale *= sizeInMeters;
     }

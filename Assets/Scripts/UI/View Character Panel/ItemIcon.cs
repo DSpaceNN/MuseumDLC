@@ -190,4 +190,10 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
             _itemIconImage.color = _blockedColor;
         _blockImage.gameObject.SetActive(!canEquip);
     }
+
+    private void OnDestroy()
+    {
+        ServiceLocator.Instance.CharacterDresser.OnItemEquiped -= OnItemEquiped;
+        ItemIcon.OnClickOnItem -= ItemIcon_OnClickOnItem;
+    }
 }

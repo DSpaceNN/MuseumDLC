@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13b081b4874d2140a25a665a52d1787, type: 3}
+  m_Name: Stetoskop
+  m_EditorClassIdentifier: 
+  Id: Stetoscop
+  ItemName: 
+  ItemDescription: 
+  ItemPrefab: {fileID: 9046640893335116220, guid: d3b2f9f6799227348909ac1516f83c48, type: 3}
+  ItemSprite: {fileID: 21300000, guid: cafda091ee930584db60c86e67df2b27, type: 3}
+  ItemAudioClip: {fileID: 0}
