@@ -18,7 +18,7 @@ MonoBehaviour:
   Task: 
   Purpose: 
   CharacterPrefab: {fileID: 5308502127723547417, guid: ff392d083dc80194b8ef7e200d50ff3b, type: 3}
-  CharacterSprite: {fileID: 0}
+  CharacterSprite: {fileID: 21300000, guid: 2a8bdb72529d9b3448320619ec2d5bfc, type: 3}
   CharacterTaskAudioClip: {fileID: 0}
   Items:
   - {fileID: 11400000, guid: 7de0266acbe68a34f8e8576cd824dd89, type: 2}

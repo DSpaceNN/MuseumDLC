@@ -2,21 +2,30 @@ using UnityEngine;
 
 public class AudioPlayerService : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    public bool IsPlaying => _audioSource.isPlaying;
 
-    public void Init()
+    private AudioSource _audioSource;
+    private CharacterChanger _characterChanger;
+
+    public void Init(CharacterChanger characterChanger)
     {
         _audioSource = GetComponent<AudioSource>();
+        _characterChanger = characterChanger;
+        _characterChanger.ShowNewCharacter += OnShowNewCharacter;
     }
 
-    public void PlayAudio(AudioClip clip)
+    private void OnShowNewCharacter(CharacterSo obj) =>
+        Stop();
+
+    public void Play(AudioClip clip)
     {
         _audioSource.clip = clip;
         _audioSource.Play();
     }
 
-    public void StopAudio()
+    public void Stop()
     {
-        _audioSource.Stop();
+        if (_audioSource.isPlaying)
+            _audioSource.Stop();
     }
 }

@@ -256,6 +256,7 @@ MonoBehaviour:
   _chooseIcon: {fileID: 1320756347787438705}
   _choosenIcon: {fileID: 3552889403223841363}
   _iconButton: {fileID: 7059798085108430364}
+  _characterIcon: {fileID: 874915524725239693}
 --- !u!114 &7059798085108430364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,7 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.41960785}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -44,6 +44,7 @@ public class ServiceLocator : MonoBehaviour
         _characterChanger = new CharacterChanger();
         _characterDresser = new CharacterDresser(CharacterOnSceneHolder, CharacterChanger);
         _audioPlayer = GetComponent<AudioPlayerService>();
+        _audioPlayer.Init(_characterChanger);
     }
 
     private void Update()

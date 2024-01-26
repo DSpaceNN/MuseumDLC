@@ -9,6 +9,7 @@ public class SimpleCharacterButton : CharacterTopButton
     {
         base.Init(canvasController);
         CharacterId = _characterId;
+        _previewImage.sprite = ServiceLocator.Instance.CharactersStorage.GetCharacterById(CharacterId).CharacterSprite;
         OnCharacterChange(ServiceLocator.Instance.CharacterChanger.CurrentCharacter);
     }
 

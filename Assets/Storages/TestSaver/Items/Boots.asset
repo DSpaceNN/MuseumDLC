@@ -17,4 +17,4 @@ MonoBehaviour:
   ItemDescription: 
   ItemPrefab: {fileID: 5389742521083134709, guid: e4c4d80d2db9cf34d8cfb45d4bd1fa51, type: 3}
   ItemSprite: {fileID: 21300000, guid: e5bbeaf948a8bc342b27ae7a95e4eda9, type: 3}
-  ItemAudioClip: {fileID: 0}
+  ItemAudioClip: {fileID: 8300000, guid: 2ce6a13b0c9d561418fa2e867e479eea, type: 3}

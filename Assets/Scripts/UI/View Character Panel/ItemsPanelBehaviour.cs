@@ -1,20 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 public class ItemsPanelBehaviour : MonoBehaviour
 {
     [SerializeField] private ScrollView _itemsScroll;
     [SerializeField] private Transform _scrollContentHolder;
     [SerializeField] private ItemIcon _itemIconPrefab;
+    [SerializeField] private Button _questionButton;
 
     private CanvasController _canvasController;
+    private ViewCharacterPanelBehaviour _characterPanelMb;
     private CharacterSo _characterSo;
     private List<ItemIcon> _itemIcons = new List<ItemIcon>();
 
-    public void Init(CanvasController canvasController)
+    public void Init(CanvasController canvasController, ViewCharacterPanelBehaviour characterPanelMb)
     {
         _canvasController = canvasController;
+        _characterPanelMb = characterPanelMb;
+        _questionButton.onClick.AddListener(() => characterPanelMb.ShowCharacterInfoPanel());
     }
 
     public void ShowIcons(CharacterSo characterSo)

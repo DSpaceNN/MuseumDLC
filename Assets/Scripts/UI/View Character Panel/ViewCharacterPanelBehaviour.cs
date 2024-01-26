@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,15 +12,18 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     [SerializeField] private Button _resetButton;
 
     private CharacterChanger _characterChanger;
+    private AudioPlayerService _audioPlayerService;
 
     public override void Initialize(CanvasController canvasController, PanelsController panelsController, IPanelBaseData dataForOpen = null)
     {
         base.Initialize(canvasController, panelsController, dataForOpen);
 
-        _itemsPanel.Init(canvasController);
+        _itemsPanel.Init(canvasController, this);
         _topButtonsPanel.Init(canvasController);
+        _characterInfoPanel.Init();
 
         _characterChanger = ServiceLocator.Instance.CharacterChanger;
+        _audioPlayerService = ServiceLocator.Instance.AudioPlayerService;
 
         _characterChanger.ShowNewCharacter += OnChangeCharacter;
         ItemIcon.OnClickOnItem += ItemIcon_OnClickOnItem;
@@ -30,6 +32,13 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         OnChangeCharacter(_characterChanger.CurrentCharacter);
 
         ShowCharacterInfoPanel();
+    }
+
+    public void ShowCharacterInfoPanel()
+    {
+        _viewItemInfoPanel.gameObject.SetActive(false);
+        _characterInfoPanel.gameObject.SetActive(true);
+        _audioPlayerService.Stop();
     }
 
     private void ItemIcon_OnClickOnItem(CharacterItemSo obj)
@@ -53,12 +62,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         _viewItemInfoPanel.gameObject.SetActive(true);
         _characterInfoPanel.gameObject.SetActive(false);
-    }
-
-    private void ShowCharacterInfoPanel()
-    {
-        _viewItemInfoPanel.gameObject.SetActive(false);
-        _characterInfoPanel.gameObject.SetActive(true);
+        _audioPlayerService.Stop();
     }
 
     private void ResetButton()

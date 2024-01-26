@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public abstract class CharacterTopButton : MonoBehaviour
 {   
-    [SerializeField] private Button _iconButton;
-    [SerializeField] private Image _previewImage;
-    [SerializeField] private Image _greenBottomImage;
+    [SerializeField] protected Button _iconButton;
+    [SerializeField] protected Image _previewImage;
+    [SerializeField] protected Image _greenBottomImage;
 
     public string CharacterId { get; protected set; }
 

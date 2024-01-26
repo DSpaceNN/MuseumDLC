@@ -9,6 +9,7 @@ public class StartPanelCharacterIcon : MonoBehaviour
     [SerializeField] private GameObject _chooseIcon;
     [SerializeField] private GameObject _choosenIcon;
     [SerializeField] private Button _iconButton;
+    [SerializeField] private Image _characterIcon;
 
     private StartMenuPanelBehaviour _startMenuMb;
 
@@ -20,6 +21,7 @@ public class StartPanelCharacterIcon : MonoBehaviour
 
         _iconButton.onClick.AddListener(() => { OnStartCharacterIconClick?.Invoke(_characterId); });
         StartPanelCharacterIcon.OnStartCharacterIconClick += OnCharcterIconClick;
+        _characterIcon.sprite = ServiceLocator.Instance.CharactersStorage.GetCharacterById(_characterId).CharacterSprite;
 
         OnCharcterIconClick(startMenuBehaviour.StartCharacterId);
     }
