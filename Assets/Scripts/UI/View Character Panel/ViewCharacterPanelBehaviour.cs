@@ -21,6 +21,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _itemsPanel.Init(canvasController, this);
         _topButtonsPanel.Init(canvasController);
         _characterInfoPanel.Init();
+        _viewItemInfoPanel.Init();
 
         _characterChanger = ServiceLocator.Instance.CharacterChanger;
         _audioPlayerService = ServiceLocator.Instance.AudioPlayerService;
@@ -38,12 +39,14 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         _viewItemInfoPanel.gameObject.SetActive(false);
         _characterInfoPanel.gameObject.SetActive(true);
+        _characterInfoPanel.OnShowCharacter(_characterChanger.CurrentCharacter);
         _audioPlayerService.Stop();
     }
 
     private void ItemIcon_OnClickOnItem(CharacterItemSo obj)
     {
         ShowItemInfoPanel();
+        _viewItemInfoPanel.OnClickOnItem(obj);
     }
 
     private void OnChangeCharacter(CharacterSo characterSo)

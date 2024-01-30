@@ -12,4 +12,12 @@ public static class Tools
             children.ForEach(child => Object.Destroy(child));
         }
     }
+
+    public static bool CheckEqualWithThreshold(float value1, float value2, float thresholdInPersent)
+    {
+        float result = Mathf.Abs(value1 - value2);
+        if (result < value1 * (thresholdInPersent / 100f))
+            return true;
+        return false;
+    }
 }

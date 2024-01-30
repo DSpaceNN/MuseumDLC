@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: Boots
   m_EditorClassIdentifier: 
   Id: Boots
-  ItemName: 
-  ItemDescription: 
+  ItemName: "\u0411\u043E\u0442\u0438\u043D\u043A\u0438"
+  ItemDescription: "\u0411\u043E\u0442\u0438\u043D\u043A\u0438 \u0411\u043E\u0442\u0438\u043D\u043A\u0438
+    \u0411\u043E\u0442\u0438\u043D\u043A\u0438 \u0411\u043E\u0442\u0438\u043D\u043A\u0438
+    \u0411\u043E\u0442\u0438\u043D\u043A\u0438 \u0411\u043E\u0442\u0438\u043D\u043A\u0438
+    \u0411\u043E\u0442\u0438\u043D\u043A\u0438 \u0411\u043E\u0442\u0438\u043D\u043A\u0438
+    \u0411\u043E\u0442\u0438\u043D\u043A\u0438 \u0411\u043E\u0442\u0438\u043D\u043A\u0438
+    \u0411\u043E\u0442\u0438\u043D\u043A\u0438 \u0411\u043E\u0442\u0438\u043D\u043A\u0438
+    \u0411\u043E\u0442\u0438\u043D\u043A\u0438 "
   ItemPrefab: {fileID: 6608539080959727860, guid: 956bff9362f0a6d4f986f12790da766c, type: 3}
   ItemSprite: {fileID: 21300000, guid: 61e2def20cf98e94a87813041d91dfc7, type: 3}
-  ItemAudioClip: {fileID: 0}
+  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
