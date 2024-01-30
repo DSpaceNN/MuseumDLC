@@ -22,6 +22,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _topButtonsPanel.Init(canvasController);
         _characterInfoPanel.Init();
         _viewItemInfoPanel.Init();
+        _mainCharacterIcon.Init();
 
         _characterChanger = ServiceLocator.Instance.CharacterChanger;
         _audioPlayerService = ServiceLocator.Instance.AudioPlayerService;

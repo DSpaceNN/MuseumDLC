@@ -20,12 +20,21 @@ public class CharacterDresser
     public int CharacterDressCounter { get; private set; }
 
     public event Action<CharacterItemSo> OnItemEquiped;
+    public event Action CharacterIsFullyEquiped;
 
     private CharacterOnSceneHolder _characterOnSceneHolder;
     private CharacterChanger _characterChanger;
 
     public bool CanEquipItem(CharacterItemSo itemSo) =>
         CanEquipItem(itemSo, out ItemOnCharacter item);
+
+    public bool CharacterIsFullyEquipped()
+    {
+        foreach (var item in CurrentCharacterMb.ItemsOnCharacter)
+            if (!item.IsEquipped)
+                return false;
+        return true;
+    }
 
     public bool CanEquipItem(CharacterItemSo itemSo, out ItemOnCharacter itemOnCharacter)
     {
@@ -63,15 +72,17 @@ public class CharacterDresser
         {
             itemsOnCharacter.IsEquipped = true;
             if (itemsOnCharacter.ItemsOnModelToHideWhenDress != null && itemsOnCharacter.ItemsOnModelToHideWhenDress.Length > 0)
-                foreach(var item in itemsOnCharacter.ItemsOnModelToHideWhenDress)
+                foreach (var item in itemsOnCharacter.ItemsOnModelToHideWhenDress)
                     item.SetActive(false);
 
             if (itemsOnCharacter.ItemsOnCharacterModel != null && itemsOnCharacter.ItemsOnCharacterModel.Length > 0)
-                foreach(var item in itemsOnCharacter.ItemsOnCharacterModel)
+                foreach (var item in itemsOnCharacter.ItemsOnCharacterModel)
                     item.SetActive(true);
 
             CharacterDressCounter++;
             OnItemEquiped?.Invoke(itemSo);
+            if (CharacterIsFullyEquipped())
+                CharacterIsFullyEquiped?.Invoke();
         }
         else
         {
