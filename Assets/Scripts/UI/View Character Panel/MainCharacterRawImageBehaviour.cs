@@ -41,11 +41,17 @@ public class MainCharacterRawImageBehaviour : MonoBehaviour, IPointerMoveHandler
             ServiceLocator.Instance.InputFromImagesService.SetCharacterInput(eventData.delta);
     }
 
-    public void ShowVictoryParticles() =>
+    public void ShowVictoryParticles()
+    {
         _particlesImage.SetActive(true);
+        _greenCircleImage.gameObject.SetActive(true);
+    }   
 
-    public void HideVictoryParticles() =>
+    public void HideVictoryParticles()
+    {
         _particlesImage.SetActive(false);
+        _greenCircleImage.gameObject.SetActive(false);
+    }   
 
     public void OnDestroy()
     {

@@ -9,6 +9,9 @@ public class ItemOnSceneHolder : MonoBehaviour
     private GameObject _itemModel;
 
     private float _rotationSpeed = 100f;
+    private float _backRotationSpeed = 3f;
+    private float _backTransitionCoolDown = 2f;
+    private float _timerToBackTransition;
 
     public void Init()
     {
@@ -37,7 +40,22 @@ public class ItemOnSceneHolder : MonoBehaviour
     private void Update()
     {
         if (_itemModel != null)
+        {
             HandleInputRotation();
+            ReturnStartRotation();
+        }
+            
+    }
+
+    private void ReturnStartRotation()
+    {
+        _timerToBackTransition -= Time.deltaTime;
+        if (_timerToBackTransition < 0 && _itemModel.transform.eulerAngles.y != 0)
+        {
+            Vector3 rot = _itemModel.transform.rotation.eulerAngles;
+            Vector3 newRot = new Vector3(GetÑoordinate(rot.x), GetÑoordinate(rot.y), GetÑoordinate(rot.z));
+            _itemModel.transform.rotation = Quaternion.Euler(newRot);
+        }
     }
 
     private void HandleInputRotation()
@@ -46,6 +64,19 @@ public class ItemOnSceneHolder : MonoBehaviour
         {
             _itemModel.transform.RotateAround(_itemModel.transform.position, Vector2.up, -_inputService.ItemDeltaInput.x * _rotationSpeed * Time.deltaTime);
             _itemModel.transform.RotateAround(_itemModel.transform.position, _itemCamera.gameObject.transform.right, _inputService.ItemDeltaInput.y * _rotationSpeed * Time.deltaTime);
+            _timerToBackTransition = _backTransitionCoolDown;
         }
+    }
+
+    private float GetÑoordinate(float x)
+    {
+        float newRot = x >= 180f ? 360f : 0f;
+
+        x = Mathf.Lerp(x, newRot, Time.deltaTime * _backRotationSpeed);
+
+        if (x < 1f)
+            x = 0f;
+
+        return x;
     }
 }

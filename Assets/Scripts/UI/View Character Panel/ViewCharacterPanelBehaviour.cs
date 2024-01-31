@@ -9,6 +9,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     [SerializeField] private TopButtonsPanel _topButtonsPanel;
     [SerializeField] private ViewItemInfoPanel _viewItemInfoPanel;
     [SerializeField] private ViewCharacterInfoPanel _characterInfoPanel;
+    [SerializeField] private WinCharacterInfoPanel _winCharacterInfoPanel;
     [SerializeField] private Button _resetButton;
 
     private CharacterChanger _characterChanger;
@@ -23,12 +24,15 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _characterInfoPanel.Init();
         _viewItemInfoPanel.Init();
         _mainCharacterIcon.Init();
+        _winCharacterInfoPanel.Init();
 
         _characterChanger = ServiceLocator.Instance.CharacterChanger;
         _audioPlayerService = ServiceLocator.Instance.AudioPlayerService;
 
         _characterChanger.ShowNewCharacter += OnChangeCharacter;
         ItemIcon.OnClickOnItem += ItemIcon_OnClickOnItem;
+        ServiceLocator.Instance.CharacterDresser.CharacterIsFullyEquiped += OnCharacterFullyEquipped;
+
         _resetButton.onClick.AddListener(() => ResetButton());
 
         OnChangeCharacter(_characterChanger.CurrentCharacter);
@@ -36,10 +40,15 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         ShowCharacterInfoPanel();
     }
 
+    private void OnCharacterFullyEquipped() =>
+        ShowCharacterWinPanel();
+
     public void ShowCharacterInfoPanel()
     {
         _viewItemInfoPanel.gameObject.SetActive(false);
         _characterInfoPanel.gameObject.SetActive(true);
+        _winCharacterInfoPanel.gameObject.SetActive(false);
+
         _characterInfoPanel.OnShowCharacter(_characterChanger.CurrentCharacter);
         _audioPlayerService.Stop();
     }
@@ -66,6 +75,15 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         _viewItemInfoPanel.gameObject.SetActive(true);
         _characterInfoPanel.gameObject.SetActive(false);
+        _winCharacterInfoPanel.gameObject.SetActive(false);
+        _audioPlayerService.Stop();
+    }
+
+    private void ShowCharacterWinPanel()
+    {
+        _viewItemInfoPanel.gameObject.SetActive(false);
+        _characterInfoPanel.gameObject.SetActive(false);
+        _winCharacterInfoPanel.gameObject.SetActive(true);
         _audioPlayerService.Stop();
     }
 
