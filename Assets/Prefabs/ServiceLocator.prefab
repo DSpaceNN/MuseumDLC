@@ -60,7 +60,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Characters:
-  - {fileID: 11400000, guid: cdb4d05347d61a246ad6fb4e9f87b811, type: 2}
+  - {fileID: 11400000, guid: 1b39085c75493b8459121015b21f255a, type: 2}
+  - {fileID: 11400000, guid: 9d9a7b6cdc5fb7e4abe1a4d506dcc657, type: 2}
+  - {fileID: 11400000, guid: 5c0b1eef96dcb5a4d832d323b8fd215f, type: 2}
+  - {fileID: 11400000, guid: 97a5a1467fc6ccb47b909ad5c19ec836, type: 2}
 --- !u!114 &7124892350142989959
 MonoBehaviour:
   m_ObjectHideFlags: 0

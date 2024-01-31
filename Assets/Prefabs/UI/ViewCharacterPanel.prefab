@@ -6762,7 +6762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7264606490038806111, guid: 94f6f421eb2ccbb4e84efc95695e8a7b, type: 3}
       propertyPath: _characterId
-      value: TestMan3
+      value: Volunteer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6887,7 +6887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7264606490038806111, guid: 94f6f421eb2ccbb4e84efc95695e8a7b, type: 3}
       propertyPath: _characterId
-      value: TestMan
+      value: Soldier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

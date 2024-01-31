@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d7fd958b90eb44997736ada1c9d63, type: 3}
+  m_Name: SaverCharacter
+  m_EditorClassIdentifier: 
+  Id: Saver
+  CharacterName: 
+  CharacterDescription: 
+  Task: 
+  Purpose: 
+  CharacterPrefab: {fileID: 5778758241298531581, guid: 932f4dfba1ec28746af8d0c0204fa4a7, type: 3}
+  CharacterSprite: {fileID: 21300000, guid: 2a8bdb72529d9b3448320619ec2d5bfc, type: 3}
+  CharacterTaskAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  Items:
+  - {fileID: 11400000, guid: f034c6a01101e3d48a604bd37110c1f4, type: 2}
+  - {fileID: 11400000, guid: babbd2ee244f39a448812b5010bc1636, type: 2}
+  - {fileID: 11400000, guid: 3d76b365e2e055e4f8aca667dc8d4ccf, type: 2}
+  - {fileID: 11400000, guid: 2b32758fde9f52b44914868e131f11ec, type: 2}
+  - {fileID: 11400000, guid: 921fac04b442a69488ba826d409443b9, type: 2}
+  - {fileID: 11400000, guid: 48b2f52f7f72fed4bac97dc4acd5553d, type: 2}
+  - {fileID: 11400000, guid: 8e1a4fee33f300946a79ee2a0f459670, type: 2}
+  - {fileID: 11400000, guid: 007d580cc6825254b8c603cb556e1581, type: 2}

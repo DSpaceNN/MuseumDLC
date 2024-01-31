@@ -1021,22 +1021,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ServiceLocator
       objectReference: {fileID: 0}
-    - target: {fileID: 8945615343184386073, guid: b51bd24aec277c14ca7c0a388f358eba, type: 3}
-      propertyPath: Characters.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8945615343184386073, guid: b51bd24aec277c14ca7c0a388f358eba, type: 3}
-      propertyPath: Characters.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0fe25d99bc3156d4faac710986c8c505, type: 2}
-    - target: {fileID: 8945615343184386073, guid: b51bd24aec277c14ca7c0a388f358eba, type: 3}
-      propertyPath: Characters.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3034c1930022f8a44a43c5f1ebc78b1d, type: 2}
-    - target: {fileID: 8945615343184386073, guid: b51bd24aec277c14ca7c0a388f358eba, type: 3}
-      propertyPath: Characters.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: cb170446ae0d2474e93bc8d85db87304, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

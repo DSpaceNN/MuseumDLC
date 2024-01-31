@@ -975,7 +975,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4869589995560687420}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.85263157
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3018,7 +3018,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 188341920111826357, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: _characterId
-      value: TestMan
+      value: Soldier
       objectReference: {fileID: 0}
     - target: {fileID: 369505825350127889, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: m_Text
@@ -3256,7 +3256,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 188341920111826357, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: _characterId
-      value: TestMan3
+      value: Volunteer
       objectReference: {fileID: 0}
     - target: {fileID: 369505825350127889, guid: 4be78a80660ea624e8f6c84b0e78ee8c, type: 3}
       propertyPath: m_Text

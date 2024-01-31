@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13b081b4874d2140a25a665a52d1787, type: 3}
+  m_Name: Boots
+  m_EditorClassIdentifier: 
+  Id: Boots
+  ItemName: 
+  ItemDescription: 
+  ItemPrefab: {fileID: 6992237933819379439, guid: 2cce13f6948c8064a81c6300b46960ed, type: 3}
+  ItemSprite: {fileID: 21300000, guid: 3e02673c60af76b4dafaa407e3f647cb, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

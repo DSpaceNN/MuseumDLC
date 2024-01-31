@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13b081b4874d2140a25a665a52d1787, type: 3}
+  m_Name: Clocks
+  m_EditorClassIdentifier: 
+  Id: Clocks
+  ItemName: 
+  ItemDescription: 
+  ItemPrefab: {fileID: 7758438555533300725, guid: 7f75f412e7ae9b04daea0e74b02b9fd3, type: 3}
+  ItemSprite: {fileID: 21300000, guid: ee8bfb38de3129b4daeb36623f34a345, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

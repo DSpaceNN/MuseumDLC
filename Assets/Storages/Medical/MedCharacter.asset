@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d7fd958b90eb44997736ada1c9d63, type: 3}
+  m_Name: MedCharacter
+  m_EditorClassIdentifier: 
+  Id: Med
+  CharacterName: 
+  CharacterDescription: 
+  Task: 
+  Purpose: 
+  CharacterPrefab: {fileID: 5046516333443750095, guid: 9dcea01e40e2e08478a1ee01452826a4, type: 3}
+  CharacterSprite: {fileID: 21300000, guid: 8672a7f143c6d894b8baf5afe09a1fec, type: 3}
+  CharacterTaskAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  Items:
+  - {fileID: 11400000, guid: bc05d4754a103ad478f255ac9b6ce246, type: 2}
+  - {fileID: 11400000, guid: 758e9d55153ef6746a081e3e9bb671ce, type: 2}
+  - {fileID: 11400000, guid: 81705a9f5429db14fae4fe69b0f0f20f, type: 2}
+  - {fileID: 11400000, guid: 40533d6ba4910654f8f0cd4168c36c78, type: 2}
+  - {fileID: 11400000, guid: 8f1adb09147f30a479cc8d7ae5c11b9a, type: 2}
+  - {fileID: 11400000, guid: 3b9b6a33c19d1c849bd74b0b321b7888, type: 2}
+  - {fileID: 11400000, guid: 16e2cf9f76974a04ab42938834b47bab, type: 2}
+  - {fileID: 11400000, guid: 99b2544d21347bf47be6895c27cb1c34, type: 2}
