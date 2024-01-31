@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,4 +31,7 @@ public class ViewCharacterInfoPanel : MonoBehaviour
         _purposeText.text = _currentCharacter.Purpose;
         _audioButton.SetContent(characterSo.CharacterTaskAudioClip);
     }
+
+    private void OnDestroy() =>
+        _characterChanger.ShowNewCharacter -= OnShowCharacter;
 }

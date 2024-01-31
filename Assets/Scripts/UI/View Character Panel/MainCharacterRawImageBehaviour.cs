@@ -11,9 +11,12 @@ public class MainCharacterRawImageBehaviour : MonoBehaviour, IPointerMoveHandler
     {
         ItemIcon.OnHoverEnterDragIcon += ItemIcon_OnHoverEnterDragIcon;
         ItemIcon.OnHoverExitDragIcon += ItemIcon_OnHoverExitDragIcon;
-        _greenCircleImage.gameObject.SetActive(false);
+        
         ServiceLocator.Instance.CharacterChanger.ShowNewCharacter += OnShowNewCharacter;
         ServiceLocator.Instance.CharacterDresser.CharacterIsFullyEquiped += OnCharacterFullyEquiped;
+
+        _greenCircleImage.gameObject.SetActive(false);
+
         HideVictoryParticles();
     }
 
