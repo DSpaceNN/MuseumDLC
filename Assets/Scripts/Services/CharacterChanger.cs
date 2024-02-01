@@ -6,9 +6,6 @@ public class CharacterChanger
 
     public event Action<CharacterSo> ShowNewCharacter;
 
-    public void ShowStartCharacter() =>
-        ShowCharacterById("TestMan");
-
     public void ResetCharacter() =>
         ShowCharacterById(CurrentCharacter.Id);
 

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Clocks
   m_EditorClassIdentifier: 
   Id: Clocks
-  ItemName: 
-  ItemDescription: 
+  ItemName: "\u0424\u0438\u0442\u043D\u0435\u0441 \u0431\u0440\u0430\u0441\u043B\u0435\u0442
+    Xiaomi mi band 8"
+  ItemDescription: "\u0424\u0438\u0442\u043D\u0435\u0441 \u0431\u0440\u0430\u0441\u043B\u0435\u0442
+    Xiaomi mi band 8"
   ItemPrefab: {fileID: 7758438555533300725, guid: 7f75f412e7ae9b04daea0e74b02b9fd3, type: 3}
   ItemSprite: {fileID: 21300000, guid: ee8bfb38de3129b4daeb36623f34a345, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

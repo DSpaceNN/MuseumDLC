@@ -13018,39 +13018,49 @@ MonoBehaviour:
   - Id: Armor
     ItemsBeforeEquipIds:
     - Cloth
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 238736390966172760}
     ItemsOnModelToHideWhenDress: []
   - Id: Belt
     ItemsBeforeEquipIds:
     - Cloth
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 2987278088681133239}
     ItemsOnModelToHideWhenDress: []
   - Id: Cloth
     ItemsBeforeEquipIds: []
-    ItemsOnCharacterModel: []
-    ItemsOnModelToHideWhenDress: []
+    ItemsOnCharacterModel:
+    - {fileID: 1622276099322561561}
+    ItemsOnModelToHideWhenDress:
+    - {fileID: 7967594977266078128}
+    - {fileID: 7665543954993380168}
   - Id: DopArmor
     ItemsBeforeEquipIds:
     - Cloth
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 1480786589087823200}
     ItemsOnModelToHideWhenDress: []
   - Id: Helmet
     ItemsBeforeEquipIds: []
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 3044590546834738881}
     ItemsOnModelToHideWhenDress: []
   - Id: Mask
     ItemsBeforeEquipIds:
     - Helmet
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 449109803404122413}
     ItemsOnModelToHideWhenDress: []
   - Id: Radio
     ItemsBeforeEquipIds:
     - Armor
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 1979099372635690455}
     ItemsOnModelToHideWhenDress: []
   - Id: Weapon
     ItemsBeforeEquipIds: []
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 6560299455397609428}
     ItemsOnModelToHideWhenDress: []
 --- !u!1 &5228591179201788967
 GameObject:

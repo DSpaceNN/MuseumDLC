@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Boots
   m_EditorClassIdentifier: 
   Id: Boots
-  ItemName: 
-  ItemDescription: 
+  ItemName: "\u0411\u043E\u0442\u0438\u043D\u043A\u0438"
+  ItemDescription: "\u0417\u0430\u0449\u0438\u0442\u043D\u044B\u0435 \u0431\u043E\u0442\u0438\u043D\u043A\u0438
+    \u043F\u043E\u0436\u0430\u0440\u043D\u043E\u0433\u043E, \u0443\u0441\u0438\u043B\u0435\u043D\u043D\u044B\u0435"
   ItemPrefab: {fileID: 1605629217831804247, guid: 7f1fe9096b320d142b6b549477a3715a, type: 3}
   ItemSprite: {fileID: 21300000, guid: f59857425476cdd4190d316ccaa5d32c, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

@@ -473,39 +473,49 @@ MonoBehaviour:
   - Id: Bag
     ItemsBeforeEquipIds:
     - Cloth
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 2646896446139552570}
     ItemsOnModelToHideWhenDress: []
   - Id: Boots
     ItemsBeforeEquipIds: []
-    ItemsOnCharacterModel: []
-    ItemsOnModelToHideWhenDress: []
+    ItemsOnCharacterModel:
+    - {fileID: 6710354366468784515}
+    ItemsOnModelToHideWhenDress:
+    - {fileID: 357982790402835826}
   - Id: Cap
     ItemsBeforeEquipIds: []
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 2591035272762830992}
     ItemsOnModelToHideWhenDress: []
   - Id: Clocks
-    ItemsBeforeEquipIds:
-    - Cloth
-    ItemsOnCharacterModel: []
+    ItemsBeforeEquipIds: []
+    ItemsOnCharacterModel:
+    - {fileID: 5525618833034615483}
     ItemsOnModelToHideWhenDress: []
   - Id: Cloth
     ItemsBeforeEquipIds: []
-    ItemsOnCharacterModel: []
-    ItemsOnModelToHideWhenDress: []
+    ItemsOnCharacterModel:
+    - {fileID: 8375316914957461584}
+    ItemsOnModelToHideWhenDress:
+    - {fileID: 1446607024881667780}
   - Id: Flashlight
     ItemsBeforeEquipIds:
     - Cap
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 8386567477525852527}
     ItemsOnModelToHideWhenDress: []
   - Id: Medpuck
     ItemsBeforeEquipIds:
     - Cloth
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 3918371055385632034}
     ItemsOnModelToHideWhenDress: []
   - Id: Pants
     ItemsBeforeEquipIds: []
-    ItemsOnCharacterModel: []
-    ItemsOnModelToHideWhenDress: []
+    ItemsOnCharacterModel:
+    - {fileID: 5284396411959082466}
+    ItemsOnModelToHideWhenDress:
+    - {fileID: 3715254874683073654}
 --- !u!1 &325047290139568671
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2538844700375371447
 Transform:
   m_ObjectHideFlags: 0

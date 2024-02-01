@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pants
   m_EditorClassIdentifier: 
   Id: Pants
-  ItemName: 
-  ItemDescription: 
+  ItemName: "\u0428\u0442\u0430\u043D\u044B"
+  ItemDescription: "\u0428\u0442\u0430\u043D\u044B"
   ItemPrefab: {fileID: 4677185754945845581, guid: bd78c9b2847f7ff4c97440b8ac947a80, type: 3}
   ItemSprite: {fileID: 21300000, guid: 090ea4b40a746b849b233b0c8c703fd2, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

@@ -15900,42 +15900,54 @@ MonoBehaviour:
   - Id: Axe
     ItemsBeforeEquipIds:
     - Suit
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 4640121437269728357}
     ItemsOnModelToHideWhenDress: []
   - Id: Belt
     ItemsBeforeEquipIds:
     - Suit
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 2057808507806850272}
     ItemsOnModelToHideWhenDress: []
   - Id: Boots
     ItemsBeforeEquipIds:
     - Suit
-    ItemsOnCharacterModel: []
-    ItemsOnModelToHideWhenDress: []
+    ItemsOnCharacterModel:
+    - {fileID: 5604735798801675774}
+    ItemsOnModelToHideWhenDress:
+    - {fileID: 508594925172893014}
   - Id: Breath
     ItemsBeforeEquipIds:
     - Helmet
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 3175885300255265072}
     ItemsOnModelToHideWhenDress: []
   - Id: Gloves
     ItemsBeforeEquipIds:
     - Suit
-    ItemsOnCharacterModel: []
-    ItemsOnModelToHideWhenDress: []
+    ItemsOnCharacterModel:
+    - {fileID: 3122315991912129881}
+    ItemsOnModelToHideWhenDress:
+    - {fileID: 4466141554975993270}
   - Id: Helmet
     ItemsBeforeEquipIds:
     - Mask
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 8960882830379744460}
     ItemsOnModelToHideWhenDress: []
   - Id: Mask
     ItemsBeforeEquipIds:
     - Suit
-    ItemsOnCharacterModel: []
+    ItemsOnCharacterModel:
+    - {fileID: 6281997305032067909}
     ItemsOnModelToHideWhenDress: []
   - Id: Suit
     ItemsBeforeEquipIds: []
-    ItemsOnCharacterModel: []
-    ItemsOnModelToHideWhenDress: []
+    ItemsOnCharacterModel:
+    - {fileID: 4157720896437850496}
+    ItemsOnModelToHideWhenDress:
+    - {fileID: 1665736339118316025}
+    - {fileID: 6423897134652860395}
 --- !u!1 &5779544549707990402
 GameObject:
   m_ObjectHideFlags: 0

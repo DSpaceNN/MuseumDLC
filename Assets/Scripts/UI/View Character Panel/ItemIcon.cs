@@ -23,6 +23,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
     [SerializeField] private Image _blockImage;
     [SerializeField] private Image _equipedImage;
     [SerializeField] private Image _selectedImage;
+    [SerializeField] private Image _selectedFrameImage;
 
     private Color _fullColor = Color.white;
     private Color _blockedColor = Color.white;
@@ -64,6 +65,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
         ServiceLocator.Instance.CharacterDresser.OnItemEquiped += OnItemEquiped;
 
         _selectedImage.gameObject.SetActive(false);
+        _selectedFrameImage.gameObject.SetActive(false);
         _equipedImage.gameObject.SetActive(false);
 
         _blockedColor.a = 0.7f;
@@ -77,7 +79,10 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
     private void ItemIcon_OnClickOnItem(CharacterItemSo itemSo)
     {
         if (itemSo != _item)
+        {
             _selectedImage.gameObject.SetActive(false);
+            _selectedFrameImage.gameObject.SetActive(false);
+        }   
     }
 
     private void OnItemEquiped(CharacterItemSo itemSo)
@@ -100,6 +105,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        OnIconClick();
         if (_canEquip && !_isEquipped)
         {
             OnBeginDragIcon?.Invoke();
@@ -140,6 +146,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
     {
         _itemHolder.ShowItem(_item.ItemPrefab);
         _selectedImage.gameObject.SetActive(true);
+        _selectedFrameImage.gameObject.SetActive(true);
         OnClickOnItem?.Invoke(_item);
     }
 

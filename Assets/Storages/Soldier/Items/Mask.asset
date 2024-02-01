@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mask
   m_EditorClassIdentifier: 
   Id: Mask
-  ItemName: 
-  ItemDescription: 
+  ItemName: "\u0417\u0430\u0449\u0438\u0442\u043D\u044B\u0435 \u043E\u0447\u043A\u0438"
+  ItemDescription: "\u0417\u0430\u0449\u0438\u0442\u043D\u044B\u0435 \u043E\u0447\u043A\u0438"
   ItemPrefab: {fileID: 1675328187190319530, guid: de3a0a1394d9aae41b6ff1e252aae5a2, type: 3}
   ItemSprite: {fileID: 21300000, guid: a3527e0b80885844abba2a41ceefc59f, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

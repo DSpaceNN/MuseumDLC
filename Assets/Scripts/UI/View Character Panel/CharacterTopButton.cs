@@ -6,6 +6,7 @@ public abstract class CharacterTopButton : MonoBehaviour
     [SerializeField] protected Button _iconButton;
     [SerializeField] protected Image _previewImage;
     [SerializeField] protected Image _greenBottomImage;
+    [SerializeField] protected Image _selectedFrameImage;
 
     public string CharacterId { get; protected set; }
 
@@ -28,11 +29,17 @@ public abstract class CharacterTopButton : MonoBehaviour
 
     public virtual void OnIconClick() { }
 
-    public virtual void ShowActiveState() =>
+    public virtual void ShowActiveState()
+    {
         _greenBottomImage.gameObject.SetActive(true);
+        _selectedFrameImage.gameObject.SetActive(true);
+    }   
 
-    public virtual void ShowInactiveState() =>
+    public virtual void ShowInactiveState()
+    {
         _greenBottomImage.gameObject.SetActive(false);
+        _selectedFrameImage.gameObject.SetActive(false);
+    }   
 
     private void OnDestroy() =>
         ServiceLocator.Instance.CharacterChanger.ShowNewCharacter -= OnCharacterChange;

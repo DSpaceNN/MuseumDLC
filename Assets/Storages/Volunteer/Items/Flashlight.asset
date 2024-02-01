@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Flashlight
   m_EditorClassIdentifier: 
   Id: Flashlight
-  ItemName: 
-  ItemDescription: 
+  ItemName: "\u0424\u043E\u043D\u0430\u0440\u0438\u043A"
+  ItemDescription: "\u0424\u043E\u043D\u0430\u0440\u0438\u043A"
   ItemPrefab: {fileID: 4649083174571862381, guid: a0bdf800d74eef04085d17293ed3ace6, type: 3}
   ItemSprite: {fileID: 21300000, guid: 9c1ae06e27db9e642bceabbdcd45333d, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

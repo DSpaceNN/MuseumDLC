@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Boots
   m_EditorClassIdentifier: 
   Id: Boots
-  ItemName: 
-  ItemDescription: 
+  ItemName: "\u041A\u0440\u043E\u043A\u0441\u044B"
+  ItemDescription: "\u0423\u0434\u043E\u0431\u043D\u0430\u044F \u043E\u0431\u0443\u0432\u044C,
+    \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E \u0441 \u0437\u0430\u043A\u0440\u044B\u0442\u044B\u043C
+    \u043D\u043E\u0441\u043A\u043E\u043C \u0438 \u043F\u043E\u0434\u043F\u044F\u0442\u043D\u0438\u043A\u043E\u043C"
   ItemPrefab: {fileID: 2866508496259602427, guid: 741bee2f82ed95945944fafe2f0fe128, type: 3}
   ItemSprite: {fileID: 21300000, guid: 771ccf30c8af23d40a206b3fb743eca7, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

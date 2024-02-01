@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ItemOnSceneHolder : MonoBehaviour
 {
-    [SerializeField] private GameObject _testGo;
     [SerializeField] private Camera _itemCamera;
 
     private InputFromImagesService _inputService;
@@ -16,7 +15,6 @@ public class ItemOnSceneHolder : MonoBehaviour
     public void Init()
     {
         _inputService = ServiceLocator.Instance.InputFromImagesService;
-        _itemModel = _testGo;
     }
     
     float sizeInMeters = 2f;

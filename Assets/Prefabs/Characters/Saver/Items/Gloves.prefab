@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7654339654053293182
+--- !u!1 &3425401192012242064
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1894469836244064194}
-  - component: {fileID: 9002980101565967055}
-  - component: {fileID: 4888990243854176543}
+  - component: {fileID: 8693053355660451889}
+  - component: {fileID: 8756250158948143836}
+  - component: {fileID: 7432103874272804581}
   m_Layer: 0
   m_Name: Gloves
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1894469836244064194
+--- !u!4 &8693053355660451889
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7654339654053293182}
+  m_GameObject: {fileID: 3425401192012242064}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.754685, y: -0.07585307, z: 0.45844063, w: 0.46317288}
-  m_LocalPosition: {x: 1.4091263, y: 0.26905823, z: -0.39154053}
-  m_LocalScale: {x: 0.0095023345, y: 0.0095023345, z: 0.0095023345}
+  m_LocalRotation: {x: 0.183507, y: -0.60608834, z: 0.65417147, w: -0.41357213}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -140.983, y: 78.823, z: -43.942993}
---- !u!137 &9002980101565967055
+  m_Father: {fileID: 1894469836244064194}
+  m_LocalEulerAnglesHint: {x: 39.88, y: -284.95, z: -84.258}
+--- !u!137 &8756250158948143836
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7654339654053293182}
+  m_GameObject: {fileID: 3425401192012242064}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,13 +86,13 @@ SkinnedMeshRenderer:
     m_Center: {x: 5.0371017, y: 0.8699951, z: 4.0023947}
     m_Extent: {x: 27.70531, y: 16.031868, z: 30.857841}
   m_DirtyAABB: 0
---- !u!65 &4888990243854176543
+--- !u!65 &7432103874272804581
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7654339654053293182}
+  m_GameObject: {fileID: 3425401192012242064}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -105,5 +105,37 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 55.41064, y: 32.063744, z: 61.715702}
+  m_Size: {x: 63.62, y: 37.4, z: 63.2}
   m_Center: {x: 5.0371103, y: 0.8699969, z: 4.002396}
+--- !u!1 &7654339654053293182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894469836244064194}
+  m_Layer: 0
+  m_Name: Gloves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1894469836244064194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654339654053293182}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4091263, y: 0.26905823, z: -0.39154053}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8693053355660451889}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

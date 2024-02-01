@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Belt
   m_EditorClassIdentifier: 
   Id: Belt
-  ItemName: 
-  ItemDescription: 
+  ItemName: "\u0420\u0435\u043C\u0435\u043D\u044C"
+  ItemDescription: "\u041A\u043E\u0436\u0430\u043D\u044B\u0439 \u0440\u0435\u043C\u0435\u043D\u044C"
   ItemPrefab: {fileID: 2010891056196822424, guid: 931c5d5d75f83244d8f0ca294a9c9dd4, type: 3}
   ItemSprite: {fileID: 21300000, guid: 76b4dfdb938639f41a2774be522720f5, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

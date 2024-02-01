@@ -16,6 +16,5 @@ public class Bootstraper : MonoBehaviour
         _itemOnSceneHolder.Init();
 
         _canvasController.ShowStartPanel();
-        _serviceLocator.CharacterChanger.ShowStartCharacter();
     }
 }

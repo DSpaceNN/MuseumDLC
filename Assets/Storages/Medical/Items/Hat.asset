@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Hat
   m_EditorClassIdentifier: 
   Id: Hat
-  ItemName: 
-  ItemDescription: 
+  ItemName: "\u0413\u043E\u043B\u043E\u0432\u043D\u043E\u0439 \u0443\u0431\u043E\u0440"
+  ItemDescription: "\u041F\u043E \u043D\u043E\u0440\u043C\u0430\u043C \u043F\u043E\u043B\u043E\u0436\u0435\u043D\u043E"
   ItemPrefab: {fileID: 943133543186717016, guid: 436c33d62c094164bb4b5649e209ec58, type: 3}
   ItemSprite: {fileID: 21300000, guid: 59dcd3d308a81c748bcc903e59ad4e21, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
