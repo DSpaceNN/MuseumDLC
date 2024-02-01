@@ -11,13 +11,15 @@ public class AudioPlayerService : MonoBehaviour
 
     private AudioSource _audioSource;
     private CharacterChanger _characterChanger;
+    private DefaultPanelSwitcher _defaultPanelSwitcher;
     private float _timer;
     private bool _audioIsEndedFlag;
 
-    public void Init(CharacterChanger characterChanger)
+    public void Init(CharacterChanger characterChanger, DefaultPanelSwitcher defaultPanelSwitcher)
     {
         _audioSource = GetComponent<AudioSource>();
         _characterChanger = characterChanger;
+        _defaultPanelSwitcher = defaultPanelSwitcher;
         _characterChanger.ShowNewCharacter += OnShowNewCharacter;
         ItemIcon.OnClickOnItem += OnShowNewItem;
     }
@@ -30,14 +32,34 @@ public class AudioPlayerService : MonoBehaviour
 
     public void Play(AudioClip clip)
     {
+        _audioSource.Stop();
         _audioSource.clip = clip;
         _audioSource.Play();
+        _defaultPanelSwitcher.StopWatching();
+    }
+
+    public void PlayAfterPause()
+    {
+        _audioSource.Play();
+        _defaultPanelSwitcher.StopWatching();
+    }
+
+    public void Pause()
+    {
+        if (_audioSource.isPlaying)
+        {
+            _audioSource.Pause();
+            _defaultPanelSwitcher.StartWatching();
+        }   
     }
 
     public void Stop()
     {
         if (_audioSource.isPlaying)
+        {
             _audioSource.Stop();
+            _defaultPanelSwitcher.StartWatching();
+        }
     }
 
     private void Update()

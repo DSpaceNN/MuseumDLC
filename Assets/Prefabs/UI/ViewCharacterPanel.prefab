@@ -1046,6 +1046,7 @@ MonoBehaviour:
   _iconButton: {fileID: 1879866260662812205}
   _previewImage: {fileID: 7795763424645761134}
   _greenBottomImage: {fileID: 7021136821837839119}
+  _selectedFrameImage: {fileID: 0}
 --- !u!1 &1398726787569354670
 GameObject:
   m_ObjectHideFlags: 0
@@ -6844,11 +6845,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705823738393550309, guid: 94f6f421eb2ccbb4e84efc95695e8a7b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -13.9
+      value: -32.7
       objectReference: {fileID: 0}
     - target: {fileID: 6064644166376030277, guid: 94f6f421eb2ccbb4e84efc95695e8a7b, type: 3}
       propertyPath: m_Text
-      value: "\u043C\u0435\u0434.\n\u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A"
+      value: "\u0432\u0440\u0430\u0447"
       objectReference: {fileID: 0}
     - target: {fileID: 7264606490038806111, guid: 94f6f421eb2ccbb4e84efc95695e8a7b, type: 3}
       propertyPath: _characterId

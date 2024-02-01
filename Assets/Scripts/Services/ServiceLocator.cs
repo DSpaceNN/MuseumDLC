@@ -6,19 +6,14 @@ public class ServiceLocator : MonoBehaviour
     public CanvasController CanvasController { get; private set; }
     public CharacterOnSceneHolder CharacterOnSceneHolder { get; private set; }
     public ItemOnSceneHolder ItemOnSceneHolder { get; private set; }
-
-    public CharactersStorage CharactersStorage => _charactersStorage;
-    public InputFromImagesService InputFromImagesService => _inputFromImagesService;
-    public CharacterChanger CharacterChanger => _characterChanger;
-    public CharacterDresser CharacterDresser => _characterDresser;
-    public AudioPlayerService AudioPlayerService => _audioPlayer;
+    public CharactersStorage CharactersStorage { get; private set; }
+    public InputFromImagesService InputFromImagesService { get; private set; }
+    public CharacterChanger CharacterChanger { get; private set; }
+    public CharacterDresser CharacterDresser { get; private set; }
+    public AudioPlayerService AudioPlayerService { get; private set; }
+    public DefaultPanelSwitcher DefaultPanelSwitcher { get; private set; }
 
     //private InputService _inputService;
-    private CharactersStorage _charactersStorage;
-    private InputFromImagesService _inputFromImagesService;
-    private CharacterChanger _characterChanger;
-    private CharacterDresser _characterDresser;
-    private AudioPlayerService _audioPlayer;
 
     public void Init(CanvasController canvasController, CharacterOnSceneHolder characterHolder, ItemOnSceneHolder itemHolder)
     {
@@ -38,17 +33,24 @@ public class ServiceLocator : MonoBehaviour
     public void InitServices()
     {
         //_inputService = new InputService();
-        _charactersStorage = GetComponent<CharactersStorage>();
-        _inputFromImagesService = new InputFromImagesService();
-        _inputFromImagesService.Init();
-        _characterChanger = new CharacterChanger();
-        _characterDresser = new CharacterDresser(CharacterOnSceneHolder, CharacterChanger);
-        _audioPlayer = GetComponent<AudioPlayerService>();
-        _audioPlayer.Init(_characterChanger);
+        CharactersStorage = GetComponent<CharactersStorage>();
+        InputFromImagesService = new InputFromImagesService();
+        InputFromImagesService.Init();
+        CharacterChanger = new CharacterChanger();
+        CharacterDresser = new CharacterDresser(CharacterOnSceneHolder, CharacterChanger);
+        DefaultPanelSwitcher = new DefaultPanelSwitcher(CanvasController, CharacterChanger);
+        AudioPlayerService = GetComponent<AudioPlayerService>();
+        AudioPlayerService.Init(CharacterChanger, DefaultPanelSwitcher);
     }
+
+    public void InitDefaultPanelSwitcher(float durationTime, string defaultCharacterId)
+    {
+        DefaultPanelSwitcher.Init(durationTime, defaultCharacterId);
+    }   
 
     private void Update()
     {
-        _inputFromImagesService.Update();
+        InputFromImagesService.Update();
+        DefaultPanelSwitcher?.Update();
     }
 }

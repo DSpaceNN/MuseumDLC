@@ -12,6 +12,7 @@ public class AudioButton : MonoBehaviour
 
     private AudioClip _audioClip;
     private AudioPlayerService _audioPlayerService;
+    private bool _isFirstClick;
 
     public void Init()
     {
@@ -22,6 +23,7 @@ public class AudioButton : MonoBehaviour
 
     public void SetContent(AudioClip audioClip)
     {
+        _isFirstClick = true;
         _audioClip = audioClip;
         ShowInactiveState();
     }
@@ -30,13 +32,22 @@ public class AudioButton : MonoBehaviour
     {
         if (!_audioPlayerService.IsPlaying)
         {
-            _audioPlayerService.Play(_audioClip);
-            ShowActiveState();
+            if(_isFirstClick)
+            {
+                _audioPlayerService.Play(_audioClip);
+                ShowActiveState();
+                _isFirstClick = false;
+            }
+            else
+            {
+                _audioPlayerService.PlayAfterPause();
+                ShowActiveState();
+            }
         }
         else
         {
-            _audioPlayerService.Stop();
-            ShowInactiveState();
+            _audioPlayerService.Pause();
+            ShowPauseState();
         }
     }
 
@@ -46,10 +57,11 @@ public class AudioButton : MonoBehaviour
         _mediaLength.text = TimeSpan.FromSeconds(_audioClip.length).ToString("mm\\:ss");
     }
 
-    private void ShowActiveState()
-    {
+    private void ShowActiveState() =>
         _iconImage.sprite = _playSprite;
-    }
+    
+    private void ShowPauseState() =>
+        _iconImage.sprite = _pauseSprite;
 
     private void OnEnable()
     {

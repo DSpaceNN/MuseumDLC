@@ -37,16 +37,16 @@ public class ViewItemInfoPanel : MonoBehaviour
         StartCoroutine(ContentFitterHandler());
     }
 
-    private void CleanUpScroll()
-    {
+    private void CleanUpScroll() =>
         Destroy(_lockIcon);
-        _scrollRect.verticalNormalizedPosition = 0;
-    }
 
     private IEnumerator ContentFitterHandler()
     {
         _contentSizeFitter.enabled = false;
         yield return new WaitForEndOfFrame();
         _contentSizeFitter.enabled = true;
+
+        Canvas.ForceUpdateCanvases();
+        _scrollRect.verticalNormalizedPosition = 1;
     }
 }

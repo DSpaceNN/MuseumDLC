@@ -42,5 +42,18 @@ public class StartMenuPanelBehaviour : PanelBase, IMainPanel
     {
         ServiceLocator.Instance.CharacterChanger.ShowCharacterById(StartCharacterId);
         CanvasController.ShowPanelById(PanelsIdHolder.ViewCharacterPanelId);
+
+        string dropDownValue = _settingsDropDown.options[_settingsDropDown.value].text;
+        string[] temp = dropDownValue.Split(" ");
+        dropDownValue = temp[0];
+
+        float durationValue;
+
+        if (int.TryParse(dropDownValue, out int duration))
+            durationValue = (float)duration;
+        else
+            durationValue = float.PositiveInfinity;
+
+        ServiceLocator.Instance.InitDefaultPanelSwitcher(durationValue, StartCharacterId);
     }
 }

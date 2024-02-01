@@ -69,6 +69,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         _characterChanger.ShowNewCharacter -= OnChangeCharacter;
         ItemIcon.OnClickOnItem -= ItemIcon_OnClickOnItem;
+        ServiceLocator.Instance.CharacterDresser.CharacterIsFullyEquiped -= OnCharacterFullyEquipped;
     }
 
     private void ShowItemInfoPanel()
