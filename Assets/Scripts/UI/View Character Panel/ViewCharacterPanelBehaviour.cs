@@ -53,6 +53,23 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _audioPlayerService.Stop();
     }
 
+    public void ShowItemInfoPanel()
+    {
+        _viewItemInfoPanel.gameObject.SetActive(true);
+        _characterInfoPanel.gameObject.SetActive(false);
+        _winCharacterInfoPanel.gameObject.SetActive(false);
+        _audioPlayerService.Stop();
+    }
+
+    public void ShowCharacterWinPanel()
+    {
+        _itemsPanel.ActivateInfoButton();
+        _viewItemInfoPanel.gameObject.SetActive(false);
+        _characterInfoPanel.gameObject.SetActive(false);
+        _winCharacterInfoPanel.gameObject.SetActive(true);
+        _audioPlayerService.Stop();
+    }
+
     private void ItemIcon_OnClickOnItem(CharacterItemSo obj)
     {
         ShowItemInfoPanel();
@@ -70,22 +87,6 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _characterChanger.ShowNewCharacter -= OnChangeCharacter;
         ItemIcon.OnClickOnItem -= ItemIcon_OnClickOnItem;
         ServiceLocator.Instance.CharacterDresser.CharacterIsFullyEquiped -= OnCharacterFullyEquipped;
-    }
-
-    private void ShowItemInfoPanel()
-    {
-        _viewItemInfoPanel.gameObject.SetActive(true);
-        _characterInfoPanel.gameObject.SetActive(false);
-        _winCharacterInfoPanel.gameObject.SetActive(false);
-        _audioPlayerService.Stop();
-    }
-
-    private void ShowCharacterWinPanel()
-    {
-        _viewItemInfoPanel.gameObject.SetActive(false);
-        _characterInfoPanel.gameObject.SetActive(false);
-        _winCharacterInfoPanel.gameObject.SetActive(true);
-        _audioPlayerService.Stop();
     }
 
     private void ResetButton()
