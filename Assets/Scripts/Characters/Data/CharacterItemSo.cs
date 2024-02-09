@@ -4,8 +4,8 @@
 public class CharacterItemSo : ScriptableObject
 {
     public string Id;
-    public string ItemName;
-    public string ItemDescription;
+    [TextArea(1, 10)] public string ItemName;
+    [TextArea(3, 20)] public string ItemDescription;
     public GameObject ItemPrefab;
     public Sprite ItemSprite;
     public AudioClip ItemAudioClip;

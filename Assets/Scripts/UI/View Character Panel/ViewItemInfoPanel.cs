@@ -31,7 +31,7 @@ public class ViewItemInfoPanel : MonoBehaviour
         }
 
         _itemNameText.text = itemSo.ItemName;
-        _descriptionText.text = itemSo.ItemDescription;
+        _descriptionText.text = $"{itemSo.ItemDescription}";
 
         _audioButton.SetContent(itemSo.ItemAudioClip);
         StartCoroutine(ContentFitterHandler());
