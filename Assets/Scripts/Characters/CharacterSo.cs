@@ -9,8 +9,8 @@ public class CharacterSo : ScriptableObject
     public string CharacterProf;
     public string WinDescription;
 
-    public string Task;
-    public string Purpose;
+    [TextArea(1, 10)] public string Task;
+    [TextArea(1, 10)] public string Purpose;
 
     public GameObject CharacterPrefab;
     public Sprite CharacterSprite;
