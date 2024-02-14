@@ -13023,7 +13023,7 @@ MonoBehaviour:
     ItemsOnModelToHideWhenDress: []
   - Id: Belt
     ItemsBeforeEquipIds:
-    - Cloth
+    - Armor
     ItemsOnCharacterModel:
     - {fileID: 2987278088681133239}
     ItemsOnModelToHideWhenDress: []

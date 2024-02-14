@@ -15900,6 +15900,12 @@ MonoBehaviour:
   - Id: Axe
     ItemsBeforeEquipIds:
     - Suit
+    - Belt
+    - Boots
+    - Breath
+    - Gloves
+    - Helmet
+    - Mask
     ItemsOnCharacterModel:
     - {fileID: 4640121437269728357}
     ItemsOnModelToHideWhenDress: []
