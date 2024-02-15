@@ -88,7 +88,7 @@ MonoBehaviour:
     \u0435\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u044B, \u043E\u0431\u043C\u0443\u043D\u0434\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F
     \u0438 \u043E\u0442\u043B\u0438\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445
     \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A."
-  CharacterPrefab: {fileID: 5778758241298531581, guid: 932f4dfba1ec28746af8d0c0204fa4a7, type: 3}
+  CharacterPrefab: {fileID: 6362899138581926178, guid: 93d5ab677fce24e448c8008d9878c680, type: 3}
   CharacterSprite: {fileID: 21300000, guid: 2a8bdb72529d9b3448320619ec2d5bfc, type: 3}
   CharacterTaskAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
   WinAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

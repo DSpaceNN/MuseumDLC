@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: f89d5d62296718a42ad225777cfd4aaa
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: -8997676794639016194
+    second: _Voen_RIG.001|Armature.003|Take 001|BaseLayer
+  - first:
+      74: -2995473205750222585
+    second: _Voen_RIG.001|Armature|1645020791776_TempMotion.001
+  - first:
+      74: 2986702721418824982
+    second: _Voen_RIG.001|Dummy001|Take 001|BaseLayer
+  - first:
+      74: 7732428594117932619
+    second: _Voen_RIG.001|Dummy002|Take 001|BaseLayer
+  - first:
+      74: -1506270503295145423
+    second: _Voen_RIG.001|Dummy003|Take 001|BaseLayer
+  - first:
+      74: 2429368336255101382
+    second: _Voen_RIG.001|Fire_Axe|Take 001|BaseLayer
+  - first:
+      74: 8529383988039732091
+    second: _Voen_RIG.001|Key.011|1694750071952_TempMotion
+  - first:
+      74: 3750751825487898180
+    second: _Voen_RIG.001|Key.012|1645020791776_TempMotion
+  - first:
+      74: 5698109792707681500
+    second: _Voen_RIG.001|Key.013|1645020791776_TempMotion
+  - first:
+      74: 7612157037561355005
+    second: _Voen_RIG.001|Key.014|1645020791776_TempMotion
+  - first:
+      74: -8664354638265133481
+    second: _Voen_RIG.001|Key.015|1645020791776_TempMotion
+  - first:
+      74: -1504418623198483877
+    second: _Voen_RIG.001|Key.016|1645020791776_TempMotion
+  - first:
+      74: -8430462175985239870
+    second: _Voen_RIG.001|Key.017|1645020791776_TempMotion
+  - first:
+      74: -5860902747650977383
+    second: _Voen_RIG.001|Key|Take 001|BaseLayer
+  - first:
+      74: 6586493210593858679
+    second: _Voen_RIG.001|Manometr|Take 001|BaseLayer
+  - first:
+      74: -1565599434883298793
+    second: _Voen_RIG.001|mixamorig:HeadTop_End|Take 001|BaseLayer
+  - first:
+      74: 2700465605695361785
+    second: _Voen_RIG.001|mixamorig:LeftHandIndex4|Take 001|BaseLayer
+  - first:
+      74: 895497753615417497
+    second: _Voen_RIG.001|mixamorig:LeftHandMiddle4|Take 001|BaseLayer
+  - first:
+      74: -7208966612726165203
+    second: _Voen_RIG.001|mixamorig:LeftHandPinky4|Take 001|BaseLayer
+  - first:
+      74: 2518046684177230590
+    second: _Voen_RIG.001|mixamorig:LeftHandRing4|Take 001|BaseLayer
+  - first:
+      74: -3508577682528418573
+    second: _Voen_RIG.001|mixamorig:LeftHandThumb4|Take 001|BaseLayer
+  - first:
+      74: 6325206268711656884
+    second: _Voen_RIG.001|mixamorig:LeftToe_End|Take 001|BaseLayer
+  - first:
+      74: 3834986490491252679
+    second: _Voen_RIG.001|mixamorig:RightHandIndex4|Take 001|BaseLayer
+  - first:
+      74: 8013672137410111560
+    second: _Voen_RIG.001|mixamorig:RightHandMiddle4|Take 001|BaseLayer
+  - first:
+      74: -6841300498430994594
+    second: _Voen_RIG.001|mixamorig:RightHandPinky4|Take 001|BaseLayer
+  - first:
+      74: -2859536247968287534
+    second: _Voen_RIG.001|mixamorig:RightHandRing4|Take 001|BaseLayer
+  - first:
+      74: -3632788548554322798
+    second: _Voen_RIG.001|mixamorig:RightHandThumb4|Take 001|BaseLayer
+  - first:
+      74: -6065037148482598097
+    second: _Voen_RIG.001|mixamorig:RightToe_End|Take 001|BaseLayer
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
