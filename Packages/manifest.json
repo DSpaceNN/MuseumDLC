@@ -1,9 +1,11 @@
 {
   "dependencies": {
+    "com.soupday.cc3_unity_tools": "file:C:/Users/VR/Desktop/cc_unity_tools_HDRP-1.6.2.HDRP12",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.inputsystem": "1.7.0",
+    "com.unity.render-pipelines.high-definition": "14.0.9",
     "com.unity.render-pipelines.universal": "14.0.9",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.6",
