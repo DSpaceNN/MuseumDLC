@@ -11,7 +11,7 @@ public class WinCharacterInfoPanel : MonoBehaviour
     public void Init()
     {
         _audioButton.Init();
-        ServiceLocator.Instance.CharacterDresser.CharacterIsFullyEquiped += OnCharacterFullEquipe;
+        CharacterDresser.CharacterIsFullyEquiped += OnCharacterFullEquipe;
     }
 
     private void OnCharacterFullEquipe()
@@ -26,6 +26,6 @@ public class WinCharacterInfoPanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        ServiceLocator.Instance.CharacterDresser.CharacterIsFullyEquiped -= OnCharacterFullEquipe;
+        CharacterDresser.CharacterIsFullyEquiped -= OnCharacterFullEquipe;
     }
 }

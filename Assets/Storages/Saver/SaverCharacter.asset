@@ -101,3 +101,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 48b2f52f7f72fed4bac97dc4acd5553d, type: 2}
   - {fileID: 11400000, guid: 8e1a4fee33f300946a79ee2a0f459670, type: 2}
   - {fileID: 11400000, guid: 007d580cc6825254b8c603cb556e1581, type: 2}
+  CharacterBackground: {fileID: 21300000, guid: 6906ca242083ea3459a589ff9c93efa3, type: 3}

@@ -19,8 +19,8 @@ public class CharacterDresser
     public CharacterModelMb CurrentCharacterMb { get; private set; }
     public int CharacterDressCounter { get; private set; }
 
+    public static event Action CharacterIsFullyEquiped;
     public event Action<CharacterItemSo> OnItemEquiped;
-    public event Action CharacterIsFullyEquiped;
 
     private CharacterOnSceneHolder _characterOnSceneHolder;
     private CharacterChanger _characterChanger;
@@ -78,6 +78,8 @@ public class CharacterDresser
             if (itemsOnCharacter.ItemsOnCharacterModel != null && itemsOnCharacter.ItemsOnCharacterModel.Length > 0)
                 foreach (var item in itemsOnCharacter.ItemsOnCharacterModel)
                     item.SetActive(true);
+
+            itemsOnCharacter.OnEquip();
 
             CharacterDressCounter++;
             OnItemEquiped?.Invoke(itemSo);

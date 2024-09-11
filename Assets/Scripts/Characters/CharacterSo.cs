@@ -19,4 +19,6 @@ public class CharacterSo : ScriptableObject
     public AudioClip WinAudioClip;
 
     public CharacterItemSo[] Items;
+
+    public Sprite CharacterBackground;
 }

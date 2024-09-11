@@ -31,7 +31,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
 
         _characterChanger.ShowNewCharacter += OnChangeCharacter;
         ItemIcon.OnClickOnItem += ItemIcon_OnClickOnItem;
-        ServiceLocator.Instance.CharacterDresser.CharacterIsFullyEquiped += OnCharacterFullyEquipped;
+        CharacterDresser.CharacterIsFullyEquiped += OnCharacterFullyEquipped;
 
         _resetButton.onClick.AddListener(() => ResetButton());
 
@@ -86,7 +86,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         _characterChanger.ShowNewCharacter -= OnChangeCharacter;
         ItemIcon.OnClickOnItem -= ItemIcon_OnClickOnItem;
-        ServiceLocator.Instance.CharacterDresser.CharacterIsFullyEquiped -= OnCharacterFullyEquipped;
+        CharacterDresser.CharacterIsFullyEquiped -= OnCharacterFullyEquipped;
     }
 
     private void ResetButton()

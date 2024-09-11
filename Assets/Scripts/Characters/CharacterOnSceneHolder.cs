@@ -1,13 +1,18 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterOnSceneHolder : MonoBehaviour
 {
     public event Action<CharacterModelMb> OnInstantiateCharacter;
 
     [SerializeField] private Camera _characterCamera;
+    [SerializeField] private Image _backgroundImage;
+    [SerializeField] private Sprite _defaultBackgroundSprite;
+
     private InputFromImagesService _inputService;
     private GameObject _characterModel;
+    private CharacterSo _characterSo;
 
     private float _rotationSpeed = 100f;
     private float _backRotationSpeed = 3f;
@@ -17,17 +22,20 @@ public class CharacterOnSceneHolder : MonoBehaviour
     public void Init()
     {
         _inputService = ServiceLocator.Instance.InputFromImagesService;
+
         ServiceLocator.Instance.CharacterChanger.ShowNewCharacter += ShowCharacter;
+        CharacterDresser.CharacterIsFullyEquiped += OnCharacterIsFullyEquiped;
     }
 
     public void ShowCharacter(CharacterSo characterSo)
     {
         Destroy(_characterModel);
+        _characterSo = characterSo;
         _characterModel = Instantiate(characterSo.CharacterPrefab, Vector3.zero, Quaternion.identity, this.transform);
         CharacterModelMb characterMb = _characterModel.GetComponent<CharacterModelMb>();
+        _backgroundImage.sprite = _defaultBackgroundSprite;
         OnInstantiateCharacter?.Invoke(characterMb);
     }
-        
 
     private void Update()
     {
@@ -65,8 +73,12 @@ public class CharacterOnSceneHolder : MonoBehaviour
         }
     }
 
+    private void OnCharacterIsFullyEquiped() =>
+        _backgroundImage.sprite = _characterSo.CharacterBackground;
+
     private void OnDestroy()
     {
         ServiceLocator.Instance.CharacterChanger.ShowNewCharacter -= ShowCharacter;
-    }
+        CharacterDresser.CharacterIsFullyEquiped -= OnCharacterIsFullyEquiped;
+    }   
 }

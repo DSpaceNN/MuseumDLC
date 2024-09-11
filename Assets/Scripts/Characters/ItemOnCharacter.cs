@@ -12,4 +12,8 @@ public class ItemOnCharacter
     public string[] ItemsBeforeEquipIds;
     public GameObject[] ItemsOnCharacterModel;
     public GameObject[] ItemsOnModelToHideWhenDress;
+
+    //TODO не прокатит, надо думать, переписывать
+    //может быть всё-таки на монобехи в айтеме, всё равно все модельки переделывать
+    public virtual void OnEquip() { }
 }

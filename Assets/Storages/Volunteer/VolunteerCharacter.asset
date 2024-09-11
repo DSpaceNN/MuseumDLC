@@ -90,3 +90,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aacf1fd948b74514aa454d425478aff9, type: 2}
   - {fileID: 11400000, guid: 7a334d9393aa74b4eac418d8846767e5, type: 2}
   - {fileID: 11400000, guid: 1da0215b5c383cf4c9deb6858f3dd7fc, type: 2}
+  CharacterBackground: {fileID: 21300000, guid: f48ad130974842243bc8cd1dd6fe0472, type: 3}
