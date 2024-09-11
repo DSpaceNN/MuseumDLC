@@ -26,7 +26,7 @@ public class CharacterDresser
     private CharacterChanger _characterChanger;
 
     public bool CanEquipItem(CharacterItemSo itemSo) =>
-        CanEquipItem(itemSo, out ItemOnCharacter item);
+        CanEquipItem(itemSo, out ItemOnCharacterMb item);
 
     public bool CharacterIsFullyEquipped()
     {
@@ -36,7 +36,7 @@ public class CharacterDresser
         return true;
     }
 
-    public bool CanEquipItem(CharacterItemSo itemSo, out ItemOnCharacter itemOnCharacter)
+    public bool CanEquipItem(CharacterItemSo itemSo, out ItemOnCharacterMb itemOnCharacter)
     {
         itemOnCharacter = CurrentCharacterMb.ItemsOnCharacter.FirstOrDefault(x => x.Id == itemSo.Id);
 
@@ -68,7 +68,7 @@ public class CharacterDresser
         Debug.Log("закидываем на персонажа " + itemSo.name);
         string id = itemSo.Id;
 
-        if (CanEquipItem(itemSo, out ItemOnCharacter itemsOnCharacter))
+        if (CanEquipItem(itemSo, out ItemOnCharacterMb itemsOnCharacter))
         {
             itemsOnCharacter.IsEquipped = true;
             if (itemsOnCharacter.ItemsOnModelToHideWhenDress != null && itemsOnCharacter.ItemsOnModelToHideWhenDress.Length > 0)

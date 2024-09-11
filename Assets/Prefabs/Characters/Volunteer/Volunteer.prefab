@@ -516,6 +516,15 @@ MonoBehaviour:
     - {fileID: 5284396411959082466}
     ItemsOnModelToHideWhenDress:
     - {fileID: 3715254874683073654}
+  _itemsMb:
+  - {fileID: 1207999829321453812}
+  - {fileID: 2470553595267474156}
+  - {fileID: 532589651461112300}
+  - {fileID: 7010483071535542283}
+  - {fileID: 7951596824124065522}
+  - {fileID: 279274861845093708}
+  - {fileID: 4219304113951878743}
+  - {fileID: 6510874362665014433}
 --- !u!1 &325047290139568671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,6 +2487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1745107626302826468}
   - component: {fileID: 7657048219415674017}
+  - component: {fileID: 532589651461112300}
   m_Layer: 0
   m_Name: Cap
   m_TagString: Untagged
@@ -2654,6 +2664,23 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.6245699, y: 4.112583, z: 176.11618}
     m_Extent: {x: 9.045951, y: 16.376339, z: 11.47435}
   m_DirtyAABB: 0
+--- !u!114 &532589651461112300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2591035272762830992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Cap
+  ItemsBeforeEquipIds: []
+  ItemsOnCharacterModel:
+  - {fileID: 2591035272762830992}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &2609880223210530941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,6 +2723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4046073514780006454}
   - component: {fileID: 5657670659864945172}
+  - component: {fileID: 1207999829321453812}
   m_Layer: 0
   m_Name: Bag
   m_TagString: Untagged
@@ -2872,6 +2900,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.06022072, y: 12.507286, z: 128.74318}
     m_Extent: {x: 21.724915, y: 24.375843, z: 29.555866}
   m_DirtyAABB: 0
+--- !u!114 &1207999829321453812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646896446139552570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Bag
+  ItemsBeforeEquipIds:
+  - Cloth
+  ItemsOnCharacterModel:
+  - {fileID: 2646896446139552570}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &2675045725266911622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3609,6 +3655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7293932203791909403}
   - component: {fileID: 8525699049951988280}
+  - component: {fileID: 4219304113951878743}
   m_Layer: 0
   m_Name: Medpuck
   m_TagString: Untagged
@@ -3785,6 +3832,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.8511429, y: -1.5413151, z: 106.778564}
     m_Extent: {x: 21.923086, y: 17.850857, z: 9.801186}
   m_DirtyAABB: 0
+--- !u!114 &4219304113951878743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918371055385632034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Medpuck
+  ItemsBeforeEquipIds:
+  - Cloth
+  ItemsOnCharacterModel:
+  - {fileID: 3918371055385632034}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &3944592302348667504
 GameObject:
   m_ObjectHideFlags: 0
@@ -4495,6 +4560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1726698541255473184}
   - component: {fileID: 2851019518634128984}
+  - component: {fileID: 6510874362665014433}
   m_Layer: 0
   m_Name: Pants
   m_TagString: Untagged
@@ -4671,6 +4737,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.59783936, y: 0.96995544, z: 64.63545}
     m_Extent: {x: 23.68377, y: 18.418058, z: 54.82493}
   m_DirtyAABB: 0
+--- !u!114 &6510874362665014433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284396411959082466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Pants
+  ItemsBeforeEquipIds: []
+  ItemsOnCharacterModel:
+  - {fileID: 5284396411959082466}
+  ItemsOnModelToHideWhenDress:
+  - {fileID: 3715254874683073654}
 --- !u!1 &5300208695695035119
 GameObject:
   m_ObjectHideFlags: 0
@@ -4842,6 +4926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 822386392463043113}
   - component: {fileID: 3297293975785109799}
+  - component: {fileID: 7010483071535542283}
   m_Layer: 0
   m_Name: Clocks
   m_TagString: Untagged
@@ -5018,6 +5103,23 @@ SkinnedMeshRenderer:
     m_Center: {x: -27.066658, y: -2.8184247, z: 97.831436}
     m_Extent: {x: 4.7154036, y: 4.791715, z: 2.8534012}
   m_DirtyAABB: 0
+--- !u!114 &7010483071535542283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5525618833034615483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Clocks
+  ItemsBeforeEquipIds: []
+  ItemsOnCharacterModel:
+  - {fileID: 5525618833034615483}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &5570821671047530547
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,6 +5733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2602194688660761117}
   - component: {fileID: 7208230441402995582}
+  - component: {fileID: 2470553595267474156}
   m_Layer: 0
   m_Name: Boots
   m_TagString: Untagged
@@ -5807,6 +5910,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.030662537, y: -0.66010857, z: 11.738539}
     m_Extent: {x: 26.748894, y: 19.207598, z: 18.824055}
   m_DirtyAABB: 0
+--- !u!114 &2470553595267474156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710354366468784515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Boots
+  ItemsBeforeEquipIds: []
+  ItemsOnCharacterModel:
+  - {fileID: 6710354366468784515}
+  ItemsOnModelToHideWhenDress:
+  - {fileID: 357982790402835826}
 --- !u!1 &6735517665172303504
 GameObject:
   m_ObjectHideFlags: 0
@@ -6623,6 +6744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2457335895472377183}
   - component: {fileID: 1997232188194893209}
+  - component: {fileID: 7951596824124065522}
   m_Layer: 0
   m_Name: Cloth
   m_TagString: Untagged
@@ -6799,6 +6921,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 2.1882687, y: 2.6738758, z: 125.327934}
     m_Extent: {x: 36.71029, y: 26.055222, z: 43.379982}
   m_DirtyAABB: 0
+--- !u!114 &7951596824124065522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8375316914957461584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Cloth
+  ItemsBeforeEquipIds: []
+  ItemsOnCharacterModel:
+  - {fileID: 8375316914957461584}
+  ItemsOnModelToHideWhenDress:
+  - {fileID: 1446607024881667780}
 --- !u!1 &8375394328352165890
 GameObject:
   m_ObjectHideFlags: 0
@@ -6995,6 +7135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852177959483797030}
   - component: {fileID: 151010377858934982}
+  - component: {fileID: 279274861845093708}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -7173,6 +7314,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.72877884, y: 1.1671858, z: 178.12022}
     m_Extent: {x: 9.413577, y: 13.8799515, z: 4.8402863}
   m_DirtyAABB: 0
+--- !u!114 &279274861845093708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386567477525852527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Flashlight
+  ItemsBeforeEquipIds:
+  - Cap
+  ItemsOnCharacterModel:
+  - {fileID: 8386567477525852527}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &8432861559760914993
 GameObject:
   m_ObjectHideFlags: 0

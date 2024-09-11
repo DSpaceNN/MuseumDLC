@@ -1723,6 +1723,7 @@ GameObject:
   - component: {fileID: 2439657498008924105}
   - component: {fileID: 932633857537175012}
   - component: {fileID: 2493989902058357735}
+  - component: {fileID: 5617431107312345094}
   m_Layer: 0
   m_Name: helmet
   m_TagString: Untagged
@@ -1796,6 +1797,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5617431107312345094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675940536350038366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Helmet
+  ItemsBeforeEquipIds:
+  - Mask
+  ItemsOnCharacterModel:
+  - {fileID: 675940536350038366}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &678791775459521942
 GameObject:
   m_ObjectHideFlags: 0
@@ -8760,6 +8779,7 @@ GameObject:
   - component: {fileID: 7565455514794643776}
   - component: {fileID: 1161539530305066119}
   - component: {fileID: 9205294359026780180}
+  - component: {fileID: 6335424107304853220}
   m_Layer: 0
   m_Name: boots
   m_TagString: Untagged
@@ -8832,6 +8852,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6335424107304853220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339033427195995742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Boots
+  ItemsBeforeEquipIds:
+  - Suit
+  ItemsOnCharacterModel:
+  - {fileID: 3339033427195995742}
+  ItemsOnModelToHideWhenDress:
+  - {fileID: 5967020097838969909}
 --- !u!1 &3378669837640156197
 GameObject:
   m_ObjectHideFlags: 0
@@ -10144,6 +10183,7 @@ GameObject:
   - component: {fileID: 8844454296949737614}
   - component: {fileID: 4961098445542939787}
   - component: {fileID: 6520977321656123434}
+  - component: {fileID: 5254803609818812104}
   m_Layer: 0
   m_Name: GasMask
   m_TagString: Untagged
@@ -10217,6 +10257,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5254803609818812104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884638420810430303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Mask
+  ItemsBeforeEquipIds:
+  - Suit
+  ItemsOnCharacterModel:
+  - {fileID: 3884638420810430303}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &3898552325636084221
 GameObject:
   m_ObjectHideFlags: 0
@@ -10676,6 +10734,7 @@ GameObject:
   - component: {fileID: 8243187325339696084}
   - component: {fileID: 8250517404273223661}
   - component: {fileID: 7611384896856544647}
+  - component: {fileID: 7651914853434419438}
   m_Layer: 0
   m_Name: Belt
   m_TagString: Untagged
@@ -10748,6 +10807,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7651914853434419438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4084669495624362278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Belt
+  ItemsBeforeEquipIds:
+  - Suit
+  ItemsOnCharacterModel:
+  - {fileID: 4084669495624362278}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &4089832584080196944
 GameObject:
   m_ObjectHideFlags: 0
@@ -12960,6 +13037,7 @@ GameObject:
   - component: {fileID: 9026252836853593333}
   - component: {fileID: 5321209913924246410}
   - component: {fileID: 2780868064073550462}
+  - component: {fileID: 1503282419613973409}
   m_Layer: 0
   m_Name: breath_system
   m_TagString: Untagged
@@ -13033,6 +13111,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1503282419613973409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5096048036741538956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Breath
+  ItemsBeforeEquipIds:
+  - Helmet
+  ItemsOnCharacterModel:
+  - {fileID: 5096048036741538956}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &5118254192489655720
 GameObject:
   m_ObjectHideFlags: 0
@@ -15761,6 +15857,7 @@ GameObject:
   - component: {fileID: 7848690167536361881}
   - component: {fileID: 9122366953680071236}
   - component: {fileID: 8434652343467710287}
+  - component: {fileID: 1159607961655787168}
   m_Layer: 0
   m_Name: Suit
   m_TagString: Untagged
@@ -15833,6 +15930,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1159607961655787168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6013484845365468896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Suit
+  ItemsBeforeEquipIds: []
+  ItemsOnCharacterModel:
+  - {fileID: 6013484845365468896}
+  ItemsOnModelToHideWhenDress:
+  - {fileID: 3378669837640156197}
+  - {fileID: 6256064468846696155}
 --- !u!1 &6018315613070946132
 GameObject:
   m_ObjectHideFlags: 0
@@ -17382,6 +17498,15 @@ MonoBehaviour:
     ItemsOnModelToHideWhenDress:
     - {fileID: 3378669837640156197}
     - {fileID: 6256064468846696155}
+  _itemsMb:
+  - {fileID: 4381712252233958438}
+  - {fileID: 7651914853434419438}
+  - {fileID: 6335424107304853220}
+  - {fileID: 1503282419613973409}
+  - {fileID: 2182265721302412968}
+  - {fileID: 5254803609818812104}
+  - {fileID: 5617431107312345094}
+  - {fileID: 1159607961655787168}
 --- !u!1 &6366715028727787937
 GameObject:
   m_ObjectHideFlags: 0
@@ -19734,6 +19859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5904961434572854030}
   - component: {fileID: 4619409032959384751}
+  - component: {fileID: 2182265721302412968}
   m_Layer: 0
   m_Name: FireGloves
   m_TagString: Untagged
@@ -19809,6 +19935,25 @@ SkinnedMeshRenderer:
     m_Center: {x: 44.57555, y: -56.22335, z: 56.685677}
     m_Extent: {x: 27.70531, y: 16.031868, z: 30.857841}
   m_DirtyAABB: 0
+--- !u!114 &2182265721302412968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7207600698889578750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Gloves
+  ItemsBeforeEquipIds:
+  - Suit
+  ItemsOnCharacterModel:
+  - {fileID: 7207600698889578750}
+  ItemsOnModelToHideWhenDress:
+  - {fileID: 7475546815101255232}
 --- !u!1 &7239156753289442002
 GameObject:
   m_ObjectHideFlags: 0
@@ -20819,6 +20964,7 @@ GameObject:
   - component: {fileID: 3207724192495758935}
   - component: {fileID: 2089516957471326071}
   - component: {fileID: 3437194811706400143}
+  - component: {fileID: 4381712252233958438}
   m_Layer: 0
   m_Name: axe
   m_TagString: Untagged
@@ -20891,6 +21037,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4381712252233958438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7557735726954848976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e37dc0860c50c409ea695436987bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Axe
+  ItemsBeforeEquipIds:
+  - Gloves
+  ItemsOnCharacterModel:
+  - {fileID: 7557735726954848976}
+  ItemsOnModelToHideWhenDress: []
 --- !u!1 &7569934530073417603
 GameObject:
   m_ObjectHideFlags: 0
