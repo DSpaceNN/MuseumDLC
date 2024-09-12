@@ -37,6 +37,6 @@ MonoBehaviour:
     / \u0430\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439
     \u0441 \u043E\u0442\u0441\u0435\u0447\u043A\u043E\u0439 \u043F\u043E 2 \u0432\u044B\u0441\u0442\u0440\u0435\u043B\u0430
     / \u0430\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439."
-  ItemPrefab: {fileID: 817553953116546780, guid: 128f4f83fc66bdd4e83cdecb673a19f5, type: 3}
+  ItemPrefab: {fileID: 817553953116546780, guid: ba6c030fffd2f04499664ce4b05b82e6, type: 3}
   ItemSprite: {fileID: 21300000, guid: 12b6d65b169be8a40a0f946ebe048b12, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
