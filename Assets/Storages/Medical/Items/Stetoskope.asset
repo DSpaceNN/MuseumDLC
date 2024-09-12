@@ -23,6 +23,6 @@ MonoBehaviour:
     \u0438 \u0432\u044B\u044F\u0432\u043B\u0435\u043D\u0438\u044F \u0438\u043B\u0438
     \u0438\u0441\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F \u043F\u0430\u0442\u043E\u043B\u043E\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0445
     \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u043E\u0432."
-  ItemPrefab: {fileID: 7318210063545365507, guid: ca6ed09809079ce4295142b53a40552c, type: 3}
+  ItemPrefab: {fileID: 7318210063545365507, guid: e1b066ae82c24584e95a6ca25b277ad8, type: 3}
   ItemSprite: {fileID: 21300000, guid: efc8c9262f673aa4bbc0a6db8523f61c, type: 3}
   ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
