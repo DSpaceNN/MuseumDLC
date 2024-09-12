@@ -13062,6 +13062,7 @@ MonoBehaviour:
     ItemsOnCharacterModel:
     - {fileID: 6560299455397609428}
     ItemsOnModelToHideWhenDress: []
+  _itemsMb: []
 --- !u!1 &5228591179201788967
 GameObject:
   m_ObjectHideFlags: 0
