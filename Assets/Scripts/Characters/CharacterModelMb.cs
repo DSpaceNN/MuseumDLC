@@ -6,8 +6,6 @@ public class CharacterModelMb : MonoBehaviour
 {
     public ItemOnCharacterMb[] ItemsOnCharacter => _itemsMb;
 
-    [SerializeField] private ItemOnCharacter[] _items;          //TODO это под снос когда все модельки перенесутся
-
     [SerializeField] private ItemOnCharacterMb[] _itemsMb;
 
     public void BuildItems()
