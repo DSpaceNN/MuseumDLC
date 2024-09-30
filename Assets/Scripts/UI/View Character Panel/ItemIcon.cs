@@ -144,7 +144,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
 
     private void OnIconClick()
     {
-        _itemHolder.ShowItem(_item.ItemPrefab);
+        _itemHolder.ShowItem(_item.Id);
         _selectedImage.gameObject.SetActive(true);
         _selectedFrameImage.gameObject.SetActive(true);
         OnClickOnItem?.Invoke(_item);

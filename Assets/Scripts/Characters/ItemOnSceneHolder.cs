@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemOnSceneHolder : MonoBehaviour
@@ -12,27 +13,25 @@ public class ItemOnSceneHolder : MonoBehaviour
     private float _backTransitionCoolDown = 2f;
     private float _timerToBackTransition;
 
-    public void Init()
-    {
+    private Dictionary<string, GameObject> _itemOnScene = new Dictionary<string, GameObject>();
+
+    public void Init() =>
         _inputService = ServiceLocator.Instance.InputFromImagesService;
-    }
-    
-    float sizeInMeters = 2f;
-    public void ShowItem(GameObject itemModel)
+
+    public void ShowItem(string itemId)
     {
-        if (_itemModel != null)
-            Destroy(_itemModel);
-
-        _itemModel = Instantiate(itemModel, this.transform);
-        _itemModel.transform.localPosition = Vector3.zero;
-        _itemModel.transform.localRotation = Quaternion.identity;
-
-        BoxCollider collider = _itemModel.GetComponentInChildren<BoxCollider>();
-        if (collider == null)
-            Debug.LogError("На префабе нет коллайдера");
-
-        _itemModel.transform.localScale /= collider.size.magnitude;
-        _itemModel.transform.localScale *= sizeInMeters;
+        foreach (KeyValuePair<string, GameObject> item in _itemOnScene)
+        {
+            if (item.Key == itemId)
+            {
+                item.Value.SetActive(true);
+                _itemModel = item.Value;
+            }
+            else
+            {
+                item.Value.SetActive(false);
+            }
+        }
     }
 
     private void Update()
@@ -42,8 +41,53 @@ public class ItemOnSceneHolder : MonoBehaviour
             HandleInputRotation();
             ReturnStartRotation();
         }
-            
     }
+
+    private void OnShowNewCharacter(CharacterSo characterSo)
+    {
+        if (_itemOnScene.Count > 0)
+            CleanItemsOnScene();
+
+        _itemModel = null;
+
+        foreach (CharacterItemSo item in characterSo.Items)
+        {
+            GameObject itemGo = SpawnItem(item.ItemPrefab);
+            itemGo.SetActive(false);
+            _itemOnScene.Add(item.Id, itemGo);
+        }
+    }
+
+    float sizeInMeters = 2f;
+    private GameObject SpawnItem(GameObject prefab)
+    {
+        GameObject itemGo = Instantiate(prefab, this.transform);
+        itemGo.transform.localPosition = Vector3.zero;
+        itemGo.transform.localRotation = Quaternion.identity;
+
+        BoxCollider collider = itemGo.GetComponentInChildren<BoxCollider>();
+        if (collider == null)
+            Debug.LogError("На префабе нет коллайдера");
+
+        //это нужно, чтобы объект вписался в кадр
+        itemGo.transform.localScale /= collider.size.magnitude;
+        itemGo.transform.localScale *= sizeInMeters;
+        return itemGo;
+    }
+
+    private void CleanItemsOnScene()
+    {
+        foreach (KeyValuePair<string, GameObject> pair in _itemOnScene)
+            Destroy(pair.Value);
+
+        _itemOnScene.Clear();
+    }
+
+    private void Start() =>
+        ServiceLocator.Instance.CharacterChanger.ShowNewCharacter += OnShowNewCharacter;
+
+    private void OnDestroy() =>
+        ServiceLocator.Instance.CharacterChanger.ShowNewCharacter -= OnShowNewCharacter;
 
     private void ReturnStartRotation()
     {

@@ -15,6 +15,8 @@ public class CharacterChanger
         if (characterSo == null)
             return;
 
+        //TODO отсюда стартует появление персонажа
+
         CurrentCharacter = characterSo;
         ShowNewCharacter?.Invoke(characterSo);
     }
