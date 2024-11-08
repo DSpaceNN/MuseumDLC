@@ -8,5 +8,6 @@ public class CharacterItemSo : ScriptableObject
     [TextArea(3, 20)] public string ItemDescription;
     public GameObject ItemPrefab;
     public Sprite ItemSprite;
-    public AudioClip ItemAudioClip;
+    public AudioClip ItemNameAudioClip;
+    public AudioClip ItemAudioClip;         //TODO как начнётся заполнение - переименовать
 }

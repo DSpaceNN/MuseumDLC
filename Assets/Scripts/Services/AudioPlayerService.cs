@@ -24,11 +24,16 @@ public class AudioPlayerService : MonoBehaviour
         ItemIcon.OnClickOnItem += OnShowNewItem;
     }
 
-    private void OnShowNewCharacter(CharacterSo obj) =>
+    private void OnShowNewCharacter(CharacterSo itemSo) =>
         Stop();
 
-    private void OnShowNewItem(CharacterItemSo obj) =>
+    private void OnShowNewItem(CharacterItemSo itemSo)
+    {
         Stop();
+
+        if (itemSo.ItemNameAudioClip != null)
+            Play(itemSo.ItemNameAudioClip);
+    }   
 
     public void Play(AudioClip clip)
     {
