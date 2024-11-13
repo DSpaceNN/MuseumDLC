@@ -23,3 +23,5 @@ MonoBehaviour:
     Panel: {fileID: 543966112211266910, guid: 1f6849275e92e0549a1c3120733b2ec1, type: 3}
   - PanelId: ChooseAnotherCharacterPopupPanel
     Panel: {fileID: 543966112211266910, guid: 0400d6bdbad892b48a93986029e2b229, type: 3}
+  - PanelId: ChooseMenuWhitePanel
+    Panel: {fileID: 6500863920671013200, guid: 47dc6678e8dba2047a50038ebcf43b95, type: 3}

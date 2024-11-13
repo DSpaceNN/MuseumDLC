@@ -6,4 +6,7 @@ public static class PanelsIdHolder
     public const string ExitPopupPanellId = "ExitPopupPanel";
     public const string ResetGamePopupPanelId = "ResetGamePopupPanel";
     public const string ChooseAnotherCharacterPopupPanelId = "ChooseAnotherCharacterPopupPanel";
+
+
+    public const string ChooseMenuWhitePanelId = "ChooseMenuWhitePanel";
 }
