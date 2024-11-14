@@ -1,12 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartPanelCharacterIcon : MonoBehaviour
+public class StartPanelCharacterIcon : CharacterIconBase
 {
-    public static Action<string> OnStartCharacterIconClick;
-    public string CharacterId { get; private set; }
-
     [SerializeField] private GameObject _redHaloGo;
     [SerializeField] private GameObject _chooseIcon;
     [SerializeField] private GameObject _choosenIcon;
@@ -15,72 +11,26 @@ public class StartPanelCharacterIcon : MonoBehaviour
 
     private CharactersStorage _characterStorage;
 
-    public void Init(string characterId)
+    public override void Init(string characterId)
     {
-        _characterStorage = ServiceLocator.Instance.CharactersStorage;
-        CharacterId = characterId;
+        base.Init(characterId);
 
+        _characterStorage = ServiceLocator.Instance.CharactersStorage;
         _iconButton.onClick.AddListener(() => { OnStartCharacterIconClick?.Invoke(CharacterId); });
-        StartPanelCharacterIcon.OnStartCharacterIconClick += OnCharacterIconClick;
         _characterIcon.sprite = _characterStorage.GetCharacterById(CharacterId).CharacterSprite;
     }
 
-    public void SetChoosenState() =>
-        OnStartCharacterIconClick?.Invoke(CharacterId);
-
-    private void OnCharacterIconClick(string characterId)
-    {
-        if (CharacterId == characterId)
-            ShowChoosenIcon();
-        else
-            ShowUnchoosenIcon();
-    }
-
-    private void ShowUnchoosenIcon()
-    {
-        _redHaloGo.SetActive(false);
-        _chooseIcon.SetActive(true);
-        _choosenIcon.SetActive(false);
-    }
-
-    public void ShowChoosenIcon()
+    protected override void ShowChoosenState()
     {
         _redHaloGo.SetActive(true);
         _chooseIcon.SetActive(false);
         _choosenIcon.SetActive(true);
     }
 
-    private void OnDestroy() =>
-        StartPanelCharacterIcon.OnStartCharacterIconClick -= OnCharacterIconClick;
-}
-
-public class CharacterIconBase : MonoBehaviour
-{
-    public static Action<string> OnStartCharacterIconClick;
-    public string CharacterId { get; private set; }
-
-    public virtual void Init(string characterId)
+    protected override void ShowUnchoosenState()
     {
-        CharacterId = characterId;
-        CharacterIconBase.OnStartCharacterIconClick += OnCharacterIconClick;
-    }
-
-    public virtual void SetChoosenState() =>
-        OnStartCharacterIconClick?.Invoke(CharacterId);
-
-    protected virtual void OnCharacterIconClick(string characterId)
-    {
-        if (characterId == CharacterId)
-            ShowChoosenState();
-        else
-            ShowUnchoosenState();
-    }
-
-    protected virtual void ShowChoosenState() { }
-    protected virtual void ShowUnchoosenState() { }
-
-    protected virtual void OnDestroy()
-    {
-        CharacterIconBase.OnStartCharacterIconClick -= OnCharacterIconClick;
+        _redHaloGo.SetActive(false);
+        _chooseIcon.SetActive(true);
+        _choosenIcon.SetActive(false);
     }
 }
