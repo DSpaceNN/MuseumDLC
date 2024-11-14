@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PanelsStorage
   m_EditorClassIdentifier: 
   Panels:
-  - PanelId: ViewCharacterPanel
-    Panel: {fileID: 2390018658118908858, guid: 32ae2da3fb063414c9dc92e441d6767c, type: 3}
   - PanelId: StartMenuPanel
     Panel: {fileID: 6500863920671013200, guid: 165cbbe7956929d4094dcde89049e309, type: 3}
+  - PanelId: ViewCharacterPanel
+    Panel: {fileID: 2390018658118908858, guid: 32ae2da3fb063414c9dc92e441d6767c, type: 3}
   - PanelId: ExitPopupPanel
     Panel: {fileID: 543966112211266910, guid: a454d81cfcf55f245871052735fefab1, type: 3}
   - PanelId: ResetGamePopupPanel

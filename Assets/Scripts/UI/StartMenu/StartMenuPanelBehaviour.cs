@@ -17,7 +17,7 @@ public class StartMenuPanelBehaviour : PanelBase, IMainPanel
     public override void Initialize(CanvasController canvasController, PanelsController panelsController, IPanelBaseData dataForOpen = null)
     {
         base.Initialize(canvasController, panelsController, dataForOpen);
-        StartPanelCharacterIcon.OnStartCharacterIconClick += OnStartCharacterIconClick;
+        CharacterIconBase.OnStartCharacterIconClick += OnStartCharacterIconClick;
         StartCharacterId = _startCharacterId;
         _characterStorage = ServiceLocator.Instance.CharactersStorage;
 
@@ -25,7 +25,7 @@ public class StartMenuPanelBehaviour : PanelBase, IMainPanel
     }
 
     public override void CleanUpPanel() =>
-        StartPanelCharacterIcon.OnStartCharacterIconClick -= OnStartCharacterIconClick;
+        CharacterIconBase.OnStartCharacterIconClick -= OnStartCharacterIconClick;
 
     private void InitButtons()
     {
