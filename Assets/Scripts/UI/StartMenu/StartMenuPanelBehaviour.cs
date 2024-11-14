@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +12,14 @@ public class StartMenuPanelBehaviour : PanelBase, IMainPanel
     [SerializeField] private Button _exitButton;
     [SerializeField] private Button _startButton;
 
+    private CharactersStorage _characterStorage;
+
     public override void Initialize(CanvasController canvasController, PanelsController panelsController, IPanelBaseData dataForOpen = null)
     {
         base.Initialize(canvasController, panelsController, dataForOpen);
         StartPanelCharacterIcon.OnStartCharacterIconClick += OnStartCharacterIconClick;
         StartCharacterId = _startCharacterId;
+        _characterStorage = ServiceLocator.Instance.CharactersStorage;
 
         InitButtons();
     }
@@ -25,8 +29,11 @@ public class StartMenuPanelBehaviour : PanelBase, IMainPanel
 
     private void InitButtons()
     {
-        foreach (var icon in _characterIcons)
-            icon.Init(this);
+        for (int i = 0; i < _characterIcons.Length; i++)
+            _characterIcons[i].Init(_characterStorage.Characters[i].Id);
+
+        StartPanelCharacterIcon choosenIcon = _characterIcons.FirstOrDefault(x => x.CharacterId == _startCharacterId);
+        choosenIcon.SetChoosenState();
 
         _exitButton.onClick.AddListener(() => ExitButton());
         _startButton.onClick.AddListener(() => StartButton());

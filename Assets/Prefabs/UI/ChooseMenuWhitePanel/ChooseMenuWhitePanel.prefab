@@ -616,8 +616,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120, y: -31.8}
-  m_SizeDelta: {x: 130, y: 109}
+  m_AnchoredPosition: {x: -119.9, y: -32.7}
+  m_SizeDelta: {x: 108, y: 122.88}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &265042855269825484
 CanvasRenderer:
@@ -647,7 +647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fcfc8c97ad80f134fac2adf73624665a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0d371d39feeba7479481ecb818df239, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -656,7 +656,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 16
 --- !u!114 &4359373313943738899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,6 +1267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startButton: {fileID: 8056383275419936275}
   _quitButton: {fileID: 8775274505130020605}
+  _characterIcons: []
 --- !u!1 &8247926922457724241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1643,10 @@ PrefabInstance:
     - target: {fileID: 7186315036898022385, guid: b4a7dc249f2634c4b8fe3b3c80a70d3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574650719584406568, guid: b4a7dc249f2634c4b8fe3b3c80a70d3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

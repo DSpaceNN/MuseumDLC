@@ -14,6 +14,7 @@ public class CharacterSo : ScriptableObject
 
     public GameObject CharacterPrefab;
     public Sprite CharacterSprite;
+    public Sprite CharacterFullLength;
 
     public AudioClip CharacterTaskAudioClip;
     public AudioClip WinAudioClip;

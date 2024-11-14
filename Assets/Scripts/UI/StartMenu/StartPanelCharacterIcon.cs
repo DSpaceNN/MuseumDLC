@@ -4,37 +4,39 @@ using UnityEngine.UI;
 
 public class StartPanelCharacterIcon : MonoBehaviour
 {
-    [SerializeField] private string _characterId;
+    public static Action<string> OnStartCharacterIconClick;
+    public string CharacterId { get; private set; }
+
     [SerializeField] private GameObject _redHaloGo;
     [SerializeField] private GameObject _chooseIcon;
     [SerializeField] private GameObject _choosenIcon;
     [SerializeField] private Button _iconButton;
     [SerializeField] private Image _characterIcon;
 
-    private StartMenuPanelBehaviour _startMenuMb;
+    private CharactersStorage _characterStorage;
 
-    public static Action<string> OnStartCharacterIconClick;
-
-    public void Init(StartMenuPanelBehaviour startMenuBehaviour)
+    public void Init(string characterId)
     {
-        _startMenuMb = startMenuBehaviour;
+        _characterStorage = ServiceLocator.Instance.CharactersStorage;
+        CharacterId = characterId;
 
-        _iconButton.onClick.AddListener(() => { OnStartCharacterIconClick?.Invoke(_characterId); });
-        StartPanelCharacterIcon.OnStartCharacterIconClick += OnCharcterIconClick;
-        _characterIcon.sprite = ServiceLocator.Instance.CharactersStorage.GetCharacterById(_characterId).CharacterSprite;
-
-        OnCharcterIconClick(startMenuBehaviour.StartCharacterId);
+        _iconButton.onClick.AddListener(() => { OnStartCharacterIconClick?.Invoke(CharacterId); });
+        StartPanelCharacterIcon.OnStartCharacterIconClick += OnCharacterIconClick;
+        _characterIcon.sprite = _characterStorage.GetCharacterById(CharacterId).CharacterSprite;
     }
 
-    private void OnCharcterIconClick(string characterId)
+    public void SetChoosenState() =>
+        OnStartCharacterIconClick?.Invoke(CharacterId);
+
+    private void OnCharacterIconClick(string characterId)
     {
-        if (_characterId == characterId)
+        if (CharacterId == characterId)
             ShowChoosenIcon();
         else
-            ShowChooseIcon();
+            ShowUnchoosenIcon();
     }
 
-    public void ShowChooseIcon()
+    private void ShowUnchoosenIcon()
     {
         _redHaloGo.SetActive(false);
         _chooseIcon.SetActive(true);
@@ -49,5 +51,36 @@ public class StartPanelCharacterIcon : MonoBehaviour
     }
 
     private void OnDestroy() =>
-        StartPanelCharacterIcon.OnStartCharacterIconClick -= OnCharcterIconClick;
+        StartPanelCharacterIcon.OnStartCharacterIconClick -= OnCharacterIconClick;
+}
+
+public class CharacterIconBase : MonoBehaviour
+{
+    public static Action<string> OnStartCharacterIconClick;
+    public string CharacterId { get; private set; }
+
+    public virtual void Init(string characterId)
+    {
+        CharacterId = characterId;
+        CharacterIconBase.OnStartCharacterIconClick += OnCharacterIconClick;
+    }
+
+    public virtual void SetChoosenState() =>
+        OnStartCharacterIconClick?.Invoke(CharacterId);
+
+    protected virtual void OnCharacterIconClick(string characterId)
+    {
+        if (characterId == CharacterId)
+            ShowChoosenState();
+        else
+            ShowUnchoosenState();
+    }
+
+    protected virtual void ShowChoosenState() { }
+    protected virtual void ShowUnchoosenState() { }
+
+    protected virtual void OnDestroy()
+    {
+        CharacterIconBase.OnStartCharacterIconClick -= OnCharacterIconClick;
+    }
 }
