@@ -31,3 +31,5 @@ MonoBehaviour:
     Panel: {fileID: 6500863920671013200, guid: 3329c9ebebc77714da59dea021cddd6d, type: 3}
   - PanelId: ContinueTimesupPopupPanel
     Panel: {fileID: 543966112211266910, guid: 25a2b44866922d243909c0ac572fe6d9, type: 3}
+  - PanelId: ViewCharacterWhitePanel
+    Panel: {fileID: 2390018658118908858, guid: dd4544e182756234494de1ec80000275, type: 3}
