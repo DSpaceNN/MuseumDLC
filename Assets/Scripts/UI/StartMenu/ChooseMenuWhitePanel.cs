@@ -43,7 +43,7 @@ public class ChooseMenuWhitePanel : PanelBase, IMainPanel
     private void OnStartButtonClick()
     {
         ServiceLocator.Instance.CharacterChanger.ShowCharacterById(StartCharacterId);
-        CanvasController.ShowPanelById(PanelsIdHolder.ViewCharacterPanelId);
+        CanvasController.ShowPanelById(PanelsIdHolder.ViewCharacterWhitePanelId);
 
         //string dropDownValue = _settingsDropDown.options[_settingsDropDown.value].text;
         //string[] temp = dropDownValue.Split(" ");

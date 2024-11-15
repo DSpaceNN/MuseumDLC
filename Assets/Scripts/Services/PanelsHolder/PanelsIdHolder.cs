@@ -12,4 +12,6 @@ public static class PanelsIdHolder
     public const string StartWhiteScreenId = "StartWhiteScreen";
     public const string ChooseMenuWhitePanelId = "ChooseMenuWhitePanel";
     public const string ExitWhitePopupPanellId = "ExitWhitePopupPanel";
+    public const string ContinueTimesupPopupPanellId = "ContinueTimesupPopupPanel";
+    public const string ViewCharacterWhitePanelId = "ViewCharacterWhitePanel";
 }
