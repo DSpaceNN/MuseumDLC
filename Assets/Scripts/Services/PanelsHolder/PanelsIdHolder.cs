@@ -9,7 +9,7 @@ public static class PanelsIdHolder
     public const string ChooseAnotherCharacterPopupPanelId = "ChooseAnotherCharacterPopupPanel";
 
     //white design
-    public const string StartWhitePanelId = "StartWhitePanel";
+    public const string StartWhiteScreenId = "StartWhiteScreen";
     public const string ChooseMenuWhitePanelId = "ChooseMenuWhitePanel";
     public const string ExitWhitePopupPanellId = "ExitWhitePopupPanel";
 }

@@ -10,7 +10,7 @@ public class CanvasController : MonoBehaviour
         _panelsController = new PanelsController(this, _panelsStorage);
 
     public void ShowStartPanel() =>
-        ShowPanelById(PanelsIdHolder.ChooseMenuWhitePanelId);
+        ShowPanelById(PanelsIdHolder.StartWhiteScreenId);
 
     public void ShowPanelById(string id, IPanelBaseData dataForOpen = null) => 
         _panelsController.ShowPanelById(id, dataForOpen);

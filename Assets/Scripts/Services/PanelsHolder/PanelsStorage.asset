@@ -19,9 +19,13 @@ MonoBehaviour:
     Panel: {fileID: 2390018658118908858, guid: 32ae2da3fb063414c9dc92e441d6767c, type: 3}
   - PanelId: ExitPopupPanel
     Panel: {fileID: 543966112211266910, guid: a454d81cfcf55f245871052735fefab1, type: 3}
+  - PanelId: ExitWhitePopupPanel
+    Panel: {fileID: 543966112211266910, guid: d76a9c5c08d9d99498c7ab57c61c3f2e, type: 3}
   - PanelId: ResetGamePopupPanel
     Panel: {fileID: 543966112211266910, guid: 1f6849275e92e0549a1c3120733b2ec1, type: 3}
   - PanelId: ChooseAnotherCharacterPopupPanel
     Panel: {fileID: 543966112211266910, guid: 0400d6bdbad892b48a93986029e2b229, type: 3}
   - PanelId: ChooseMenuWhitePanel
     Panel: {fileID: 6500863920671013200, guid: 47dc6678e8dba2047a50038ebcf43b95, type: 3}
+  - PanelId: StartWhiteScreen
+    Panel: {fileID: 6500863920671013200, guid: 3329c9ebebc77714da59dea021cddd6d, type: 3}
