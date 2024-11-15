@@ -11,9 +11,9 @@ public class ItemsPanelBehaviour : MonoBehaviour
     [SerializeField] private Transform _scrollContentHolder;
     [SerializeField] private ItemIcon _itemIconPrefab;
     [SerializeField] private Button _questionButton;
-
     [SerializeField] private Button _infoButton;
     [SerializeField] private Text _infoButtonText;
+
     private Image _infoButtonImage;
     private float _fadeAlpha = 0.4f;
 
@@ -28,11 +28,10 @@ public class ItemsPanelBehaviour : MonoBehaviour
         _characterPanelMb = characterPanelMb;
 
         _infoButtonImage = _infoButton.gameObject.GetComponent<Image>();
-
-        _questionButton.onClick.AddListener(() => characterPanelMb.ShowCharacterInfoPanel());
-        _infoButton.onClick.AddListener(() => characterPanelMb.ShowCharacterWinPanel());
+        _questionButton.onClick.AddListener(() => _characterPanelMb.ShowCharacterInfoPanel());
+        _infoButton.onClick.AddListener(() => _characterPanelMb.ShowCharacterWinPanel());
     }
-
+    
     public void ShowIcons(CharacterSo characterSo)
     {
         Tools.DestroyAllChilds(_scrollContentHolder);
@@ -47,7 +46,7 @@ public class ItemsPanelBehaviour : MonoBehaviour
     public void InstantiateIcon(CharacterItemSo itemSo)
     {
         ItemIcon iconMb = Instantiate(_itemIconPrefab, _scrollContentHolder);
-        iconMb.ShowItem(itemSo, this, _canvasController);
+        iconMb.ShowItem(itemSo, _canvasController);
         _itemIcons.Add(iconMb);
     }
 

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ServiceLocator : MonoBehaviour
 {
+    [field: SerializeField] public Enums.InterfaceType InterfaceType { get; private set; }
     public static ServiceLocator Instance { get; private set; }
     public CanvasController CanvasController { get; private set; }
     public CharacterOnSceneHolder CharacterOnSceneHolder { get; private set; }

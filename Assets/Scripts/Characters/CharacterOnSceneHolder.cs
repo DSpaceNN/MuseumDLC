@@ -6,10 +6,16 @@ public class CharacterOnSceneHolder : MonoBehaviour
 {
     public event Action<CharacterModelMb> OnInstantiateCharacter;
 
+    [Header("Dependencies")]
     [SerializeField] private Camera _characterCamera;
     [SerializeField] private Image _backgroundImage;
-    [SerializeField] private Sprite _defaultBackgroundSprite;
 
+    [Space]
+    [Header("Settings")]
+    [SerializeField] private Sprite _defaultBackgroundSprite;
+    [SerializeField] private Color _backColor;
+
+    private ServiceLocator _serviceLocator;
     private InputFromImagesService _inputService;
     private GameObject _characterModel;
     private CharacterSo _characterSo;
@@ -21,9 +27,10 @@ public class CharacterOnSceneHolder : MonoBehaviour
 
     public void Init()
     {
-        _inputService = ServiceLocator.Instance.InputFromImagesService;
+        _serviceLocator = ServiceLocator.Instance;
+        _inputService = _serviceLocator.InputFromImagesService;
 
-        ServiceLocator.Instance.CharacterChanger.ShowNewCharacter += ShowCharacter;
+        _serviceLocator.CharacterChanger.ShowNewCharacter += ShowCharacter;
         CharacterDresser.CharacterIsFullyEquiped += OnCharacterIsFullyEquiped;
     }
 
@@ -33,8 +40,23 @@ public class CharacterOnSceneHolder : MonoBehaviour
         _characterSo = characterSo;
         _characterModel = Instantiate(characterSo.CharacterPrefab, Vector3.zero, Quaternion.identity, this.transform);
         CharacterModelMb characterMb = _characterModel.GetComponent<CharacterModelMb>();
-        _backgroundImage.sprite = _defaultBackgroundSprite;
+        HandleCharacterBackgroundOnStart();
         OnInstantiateCharacter?.Invoke(characterMb);
+    }
+
+    private void HandleCharacterBackgroundOnStart()
+    {
+        switch (_serviceLocator.InterfaceType)
+        {
+            case Enums.InterfaceType.DarkTheme:
+                _backgroundImage.sprite = _defaultBackgroundSprite;
+                break;
+
+            case Enums.InterfaceType.WhiteTheme:
+                _backgroundImage.sprite = null;
+                _backgroundImage.color = _backColor;
+                break;
+        }
     }
 
     private void Update()
@@ -73,12 +95,23 @@ public class CharacterOnSceneHolder : MonoBehaviour
         }
     }
 
-    private void OnCharacterIsFullyEquiped() =>
-        _backgroundImage.sprite = _characterSo.CharacterBackground;
+    private void OnCharacterIsFullyEquiped()
+    {
+        switch (_serviceLocator.InterfaceType)
+        {
+            case Enums.InterfaceType.DarkTheme:
+                _backgroundImage.sprite = _characterSo.CharacterBackground;
+                break;
+
+            case Enums.InterfaceType.WhiteTheme:
+
+                break;
+        }
+    }   
 
     private void OnDestroy()
     {
-        ServiceLocator.Instance.CharacterChanger.ShowNewCharacter -= ShowCharacter;
+        _serviceLocator.CharacterChanger.ShowNewCharacter -= ShowCharacter;
         CharacterDresser.CharacterIsFullyEquiped -= OnCharacterIsFullyEquiped;
     }   
 }

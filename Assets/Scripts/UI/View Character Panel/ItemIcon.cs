@@ -31,7 +31,6 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
     private RectTransform _dragRectTransform;
 
     private CharacterItemSo _item;
-    private ItemsPanelBehaviour _parentPanel;
     private ItemOnSceneHolder _itemHolder;
     private CanvasController _canvasController;
 
@@ -44,13 +43,12 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
     private EventSystem _eventSystem;
     private GraphicRaycaster _raycaster;
 
-    public void ShowItem(CharacterItemSo item, ItemsPanelBehaviour parentPanel, CanvasController canvasController)
+    public void ShowItem(CharacterItemSo item, CanvasController canvasController)
     {
         _eventSystem = EventSystem.current;
         _raycaster = GetComponent<GraphicRaycaster>();
 
         _item = item;
-        _parentPanel = parentPanel;
         _canvasController = canvasController;
 
         _itemIconImage.sprite = _item.ItemSprite;

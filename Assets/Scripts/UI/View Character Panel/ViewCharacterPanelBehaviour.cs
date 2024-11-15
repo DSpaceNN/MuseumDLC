@@ -6,11 +6,15 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     [SerializeField] private RawImage _mainCharacterImage;
     [SerializeField] private MainCharacterRawImageBehaviour _mainCharacterIcon;
     [SerializeField] private ItemsPanelBehaviour _itemsPanel;
+    [SerializeField] private ItemsWhitePanelBehaviour _itemsWhitePanel;
     [SerializeField] private TopButtonsPanel _topButtonsPanel;
     [SerializeField] private ViewItemInfoPanel _viewItemInfoPanel;
     [SerializeField] private ViewCharacterInfoPanel _characterInfoPanel;
     [SerializeField] private WinCharacterInfoPanel _winCharacterInfoPanel;
     [SerializeField] private Button _resetButton;
+
+    //TODO переделать потом на абстрактный класс, если такого много наберется
+    [SerializeField] private Button _backButton;
 
     private CharacterChanger _characterChanger;
     private AudioPlayerService _audioPlayerService;
@@ -19,8 +23,16 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         base.Initialize(canvasController, panelsController, dataForOpen);
 
-        _itemsPanel.Init(canvasController, this);
-        _topButtonsPanel.Init(canvasController);
+        if (ServiceLocator.Instance.InterfaceType == Enums.InterfaceType.DarkTheme)
+        {
+            _itemsPanel.Init(canvasController, this);
+            _topButtonsPanel.Init(canvasController);
+        }   
+        else
+        {
+            _itemsWhitePanel.Init(canvasController);
+        }
+
         _characterInfoPanel.Init();
         _viewItemInfoPanel.Init();
         _mainCharacterIcon.Init();
@@ -78,7 +90,16 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
 
     private void OnChangeCharacter(CharacterSo characterSo)
     {
-        _itemsPanel.ShowIcons(characterSo);
+        switch (ServiceLocator.Instance.InterfaceType)
+        {
+            case Enums.InterfaceType.DarkTheme:
+                _itemsPanel.ShowIcons(characterSo);
+                break;
+            case Enums.InterfaceType.WhiteTheme:
+                _itemsWhitePanel.ShowIcons(characterSo);
+                break;
+        }   
+
         ShowCharacterInfoPanel();
     }
 

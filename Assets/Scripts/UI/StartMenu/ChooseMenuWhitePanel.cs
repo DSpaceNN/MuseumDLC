@@ -12,6 +12,7 @@ public class ChooseMenuWhitePanel : PanelBase, IMainPanel
     [SerializeField] private Button _quitButton;
     [SerializeField] private List<CharacterIcon> _characterIcons;
 
+    private ServiceLocator _serviceLocator;
     private CharactersStorage _characterStorage;
 
     public override void Initialize(CanvasController canvasController, PanelsController panelsController, IPanelBaseData dataForOpen = null)
@@ -20,7 +21,8 @@ public class ChooseMenuWhitePanel : PanelBase, IMainPanel
 
         CharacterIconBase.OnStartCharacterIconClick += OnStartCharacterIconClick;
         StartCharacterId = _startCharacterId;
-        _characterStorage = ServiceLocator.Instance.CharactersStorage;
+        _serviceLocator = ServiceLocator.Instance;
+        _characterStorage = _serviceLocator.CharactersStorage;
 
         InitButtons();
     }
@@ -42,21 +44,11 @@ public class ChooseMenuWhitePanel : PanelBase, IMainPanel
 
     private void OnStartButtonClick()
     {
-        ServiceLocator.Instance.CharacterChanger.ShowCharacterById(StartCharacterId);
+        _serviceLocator.CharacterChanger.ShowCharacterById(StartCharacterId);
         CanvasController.ShowPanelById(PanelsIdHolder.ViewCharacterWhitePanelId);
 
-        //string dropDownValue = _settingsDropDown.options[_settingsDropDown.value].text;
-        //string[] temp = dropDownValue.Split(" ");
-        //dropDownValue = temp[0];
-
-        //float durationValue;
-
-        //if (int.TryParse(dropDownValue, out int duration))
-        //    durationValue = (float)duration;
-        //else
-        //    durationValue = float.PositiveInfinity;
-
-        ServiceLocator.Instance.InitDefaultPanelSwitcher(60f, StartCharacterId);
+        //TODO этим ещё нужно будет заняться
+        _serviceLocator.InitDefaultPanelSwitcher(60f, StartCharacterId);
     }
 
     private void OnQuitButtonClick() =>

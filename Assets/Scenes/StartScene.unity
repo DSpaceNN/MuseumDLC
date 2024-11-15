@@ -5741,6 +5741,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1544072738878967122, guid: 0625b3d2afbc20840adbc8921220484f, type: 3}
+      propertyPath: _backColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544072738878967122, guid: 0625b3d2afbc20840adbc8921220484f, type: 3}
+      propertyPath: _backColor.b
+      value: 0.91372555
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544072738878967122, guid: 0625b3d2afbc20840adbc8921220484f, type: 3}
+      propertyPath: _backColor.g
+      value: 0.91372555
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544072738878967122, guid: 0625b3d2afbc20840adbc8921220484f, type: 3}
+      propertyPath: _backColor.r
+      value: 0.91372555
+      objectReference: {fileID: 0}
     - target: {fileID: 5532146670795679774, guid: 0625b3d2afbc20840adbc8921220484f, type: 3}
       propertyPath: m_Name
       value: CharactersHolder
@@ -6022,6 +6038,10 @@ PrefabInstance:
     - target: {fileID: 3795427119131669061, guid: b51bd24aec277c14ca7c0a388f358eba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281721336215880410, guid: b51bd24aec277c14ca7c0a388f358eba, type: 3}
+      propertyPath: <InterfaceType>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4669571159376164021, guid: b51bd24aec277c14ca7c0a388f358eba, type: 3}
       propertyPath: m_Name
