@@ -15,6 +15,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
 
     //TODO переделать потом на абстрактный класс, если такого много наберется
     [SerializeField] private Button _backButton;
+    [SerializeField] private Button _tasksButton;
 
     private CharacterChanger _characterChanger;
     private AudioPlayerService _audioPlayerService;
@@ -23,14 +24,18 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         base.Initialize(canvasController, panelsController, dataForOpen);
 
-        if (ServiceLocator.Instance.InterfaceType == Enums.InterfaceType.DarkTheme)
+        switch (ServiceLocator.Instance.InterfaceType)
         {
-            _itemsPanel.Init(canvasController, this);
-            _topButtonsPanel.Init(canvasController);
-        }   
-        else
-        {
-            _itemsWhitePanel.Init(canvasController);
+            case Enums.InterfaceType.DarkTheme:
+                _itemsPanel.Init(canvasController, this);
+                _topButtonsPanel.Init(canvasController);
+                break;
+
+            case Enums.InterfaceType.WhiteTheme:
+                _itemsWhitePanel.Init(canvasController);
+                _backButton.onClick.AddListener(() => OnBackButtonClick());
+                _tasksButton.onClick.AddListener(() => OnTasksButtonClick());    
+                break;
         }
 
         _characterInfoPanel.Init();
@@ -50,6 +55,15 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         OnChangeCharacter(_characterChanger.CurrentCharacter);
 
         ShowCharacterInfoPanel();
+    }
+
+    private void OnBackButtonClick() =>
+        CanvasController.ShowPanelById(PanelsIdHolder.ChooseMenuWhitePanelId);
+
+    private void OnTasksButtonClick()
+    {
+        //TODO переименовать, смысл уже потерялся
+        ShowCharacterWinPanel();
     }
 
     private void OnCharacterFullyEquipped() =>

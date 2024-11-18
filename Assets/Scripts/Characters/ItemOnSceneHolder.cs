@@ -4,6 +4,12 @@ public class ItemOnSceneHolder : MonoBehaviour
 {
     [SerializeField] private Camera _itemCamera;
 
+    [SerializeField] private GameObject _darkBackGo;
+    [SerializeField] private GameObject _whiteBackGo;
+
+    [SerializeField] private GameObject _darkHaloGo;
+    [SerializeField] private GameObject _whiteHaloGo;
+
     private InputFromImagesService _inputService;
     private GameObject _itemModel;
 
@@ -15,8 +21,26 @@ public class ItemOnSceneHolder : MonoBehaviour
     public void Init()
     {
         _inputService = ServiceLocator.Instance.InputFromImagesService;
+
+        Enums.InterfaceType interfaceType = ServiceLocator.Instance.InterfaceType;
+        switch (interfaceType)
+        {
+            case Enums.InterfaceType.DarkTheme:
+                _darkBackGo.SetActive(true);
+                _whiteBackGo.SetActive(false);
+                _darkHaloGo.SetActive(true);
+                _whiteHaloGo.SetActive(false);
+                break;
+
+            case Enums.InterfaceType.WhiteTheme:
+                _darkBackGo.SetActive(false);
+                _whiteBackGo.SetActive(true);
+                _darkHaloGo.SetActive(false);
+                _whiteHaloGo.SetActive(true);
+                break;
+        }
     }
-    
+
     float sizeInMeters = 2f;
     public void ShowItem(GameObject itemModel)
     {
@@ -41,8 +65,7 @@ public class ItemOnSceneHolder : MonoBehaviour
         {
             HandleInputRotation();
             ReturnStartRotation();
-        }
-            
+        } 
     }
 
     private void ReturnStartRotation()

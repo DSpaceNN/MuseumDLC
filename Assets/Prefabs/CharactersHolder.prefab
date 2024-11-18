@@ -441,6 +441,7 @@ MonoBehaviour:
   _characterCamera: {fileID: 5143220368707733863}
   _backgroundImage: {fileID: 8479005380278609736}
   _defaultBackgroundSprite: {fileID: 21300000, guid: 1b2f2baa2e17a3041b0f12f8633c52cf, type: 3}
+  _backColor: {r: 0.9198113, g: 0.9661426, b: 1, a: 1}
 --- !u!1 &8509468081708212324
 GameObject:
   m_ObjectHideFlags: 0
