@@ -6025,7 +6025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4281721336215880410, guid: b51bd24aec277c14ca7c0a388f358eba, type: 3}
       propertyPath: <InterfaceType>k__BackingField
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4669571159376164021, guid: b51bd24aec277c14ca7c0a388f358eba, type: 3}
       propertyPath: m_Name

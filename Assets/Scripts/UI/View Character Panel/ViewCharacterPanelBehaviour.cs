@@ -5,15 +5,23 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
 {
     [SerializeField] private RawImage _mainCharacterImage;
     [SerializeField] private MainCharacterRawImageBehaviour _mainCharacterIcon;
+
+    [SerializeField] private ItemsPanelBase _itemPanelBase;
+
     [SerializeField] private ItemsPanelBehaviour _itemsPanel;
     [SerializeField] private ItemsWhitePanelBehaviour _itemsWhitePanel;
-    [SerializeField] private TopButtonsPanel _topButtonsPanel;
+
+
     [SerializeField] private ViewItemInfoPanel _viewItemInfoPanel;
     [SerializeField] private ViewCharacterInfoPanel _characterInfoPanel;
     [SerializeField] private WinCharacterInfoPanel _winCharacterInfoPanel;
     [SerializeField] private Button _resetButton;
 
-    //TODO переделать потом на абстрактный класс, если такого много наберется
+    //это для темного меню
+    [SerializeField] private TopButtonsPanel _topButtonsPanel;
+
+    
+    //это для белого меню
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _tasksButton;
 
@@ -24,10 +32,13 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     {
         base.Initialize(canvasController, panelsController, dataForOpen);
 
+        _itemPanelBase.Init(canvasController);  //будет ошибка, не назначено в инспекторе
+
         switch (ServiceLocator.Instance.InterfaceType)
         {
+
             case Enums.InterfaceType.DarkTheme:
-                _itemsPanel.Init(canvasController, this);
+                //_itemsPanel.Init(canvasController);
                 _topButtonsPanel.Init(canvasController);
                 break;
 
@@ -50,12 +61,22 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         ItemIcon.OnClickOnItem += ItemIcon_OnClickOnItem;
         CharacterDresser.CharacterIsFullyEquiped += OnCharacterFullyEquipped;
 
+        //это в белую идёт
+        ItemsPanelBase.OnInfoButtonClick += ItemsPanelBase_OnInfoButtonClick;
+        ItemsPanelBase.OnQuestionButtonClick += ItemsPanelBase_OnQuestionButtonClick;
+
         _resetButton.onClick.AddListener(() => ResetButton());
 
         OnChangeCharacter(_characterChanger.CurrentCharacter);
 
         ShowCharacterInfoPanel();
     }
+
+    private void ItemsPanelBase_OnQuestionButtonClick() =>
+        ShowCharacterInfoPanel();
+
+    private void ItemsPanelBase_OnInfoButtonClick() =>
+        ShowCharacterWinPanel();
 
     private void OnBackButtonClick() =>
         CanvasController.ShowPanelById(PanelsIdHolder.ChooseMenuWhitePanelId);
@@ -122,6 +143,8 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _characterChanger.ShowNewCharacter -= OnChangeCharacter;
         ItemIcon.OnClickOnItem -= ItemIcon_OnClickOnItem;
         CharacterDresser.CharacterIsFullyEquiped -= OnCharacterFullyEquipped;
+        ItemsPanelBase.OnInfoButtonClick -= ItemsPanelBase_OnInfoButtonClick;
+        ItemsPanelBase.OnQuestionButtonClick -= ItemsPanelBase_OnQuestionButtonClick;
     }
 
     private void ResetButton()

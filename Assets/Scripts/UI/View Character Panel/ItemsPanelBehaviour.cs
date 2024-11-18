@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
-public class ItemsPanelBehaviour : MonoBehaviour
+public class ItemsPanelBehaviour : ItemsPanelBase
 {
     [SerializeField] private ScrollView _itemsScroll;
     [SerializeField] private Transform _scrollContentHolder;
@@ -17,22 +17,21 @@ public class ItemsPanelBehaviour : MonoBehaviour
     private Image _infoButtonImage;
     private float _fadeAlpha = 0.4f;
 
-    private CanvasController _canvasController;
     private ViewCharacterPanelBehaviour _characterPanelMb;
     private CharacterSo _characterSo;
     private List<ItemIcon> _itemIcons = new List<ItemIcon>();
 
-    public void Init(CanvasController canvasController, ViewCharacterPanelBehaviour characterPanelMb)
+    public override void Init(CanvasController canvasController)
     {
         _canvasController = canvasController;
-        _characterPanelMb = characterPanelMb;
 
         _infoButtonImage = _infoButton.gameObject.GetComponent<Image>();
-        _questionButton.onClick.AddListener(() => _characterPanelMb.ShowCharacterInfoPanel());
-        _infoButton.onClick.AddListener(() => _characterPanelMb.ShowCharacterWinPanel());
+
+        _questionButton.onClick.AddListener(() => OnQuestionButton());
+        _infoButton.onClick.AddListener(() => OnInfoButton());
     }
-    
-    public void ShowIcons(CharacterSo characterSo)
+
+    public override void ShowIcons(CharacterSo characterSo)
     {
         Tools.DestroyAllChilds(_scrollContentHolder);
         _itemIcons.Clear();
