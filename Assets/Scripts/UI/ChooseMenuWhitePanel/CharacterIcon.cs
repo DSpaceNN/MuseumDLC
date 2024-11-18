@@ -22,6 +22,11 @@ public class CharacterIcon : CharacterIconBase
     {
         base.Init(characterId);
 
+        _currentCharacterSo = ServiceLocator.Instance.CharactersStorage.GetCharacterById(characterId);
+
+        if (_currentCharacterSo.CharacterFullLength != null)
+            _characterImage.sprite = _currentCharacterSo.CharacterFullLength;
+
         _iconButton.onClick.AddListener(() => { OnStartCharacterIconClick?.Invoke(CharacterId); });
     }
 
@@ -34,6 +39,6 @@ public class CharacterIcon : CharacterIconBase
     protected override void ShowUnchoosenState()
     {
         _fadeDarkImage.gameObject.SetActive(false);
-        _frameImage.color= _lightFrameColor;
+        _frameImage.color = _lightFrameColor;
     }
 }

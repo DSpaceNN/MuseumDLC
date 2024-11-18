@@ -94,6 +94,7 @@ MonoBehaviour:
     \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A."
   CharacterPrefab: {fileID: 698082960017851587, guid: 87ed118985f8a914eb7f306c83f79440, type: 3}
   CharacterSprite: {fileID: 21300000, guid: 8672a7f143c6d894b8baf5afe09a1fec, type: 3}
+  CharacterFullLength: {fileID: 21300000, guid: 5add1cf99cd053b47a6a699e4b46e93f, type: 3}
   CharacterTaskAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
   WinAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
   Items:

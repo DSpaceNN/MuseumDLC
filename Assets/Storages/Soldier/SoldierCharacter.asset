@@ -79,6 +79,7 @@ MonoBehaviour:
     \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A."
   CharacterPrefab: {fileID: 6255280081820719114, guid: ceb727542e67ca94daee87b0c93d0882, type: 3}
   CharacterSprite: {fileID: 21300000, guid: 0a7847de12df2f148a95a789f6f81d9d, type: 3}
+  CharacterFullLength: {fileID: 21300000, guid: 87e516bbc4c4fbc4984534679e23d97f, type: 3}
   CharacterTaskAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
   WinAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
   Items:
