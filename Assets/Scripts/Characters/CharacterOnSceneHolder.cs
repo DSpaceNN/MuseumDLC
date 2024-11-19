@@ -13,7 +13,7 @@ public class CharacterOnSceneHolder : MonoBehaviour
     [Space]
     [Header("Settings")]
     [SerializeField] private Sprite _defaultBackgroundSprite;
-    [SerializeField] private Color _backColor;
+    [SerializeField] private GameObject _whiteBackGo;
 
     private ServiceLocator _serviceLocator;
     private InputFromImagesService _inputService;
@@ -49,12 +49,14 @@ public class CharacterOnSceneHolder : MonoBehaviour
         switch (_serviceLocator.InterfaceType)
         {
             case Enums.InterfaceType.DarkTheme:
+                _backgroundImage.gameObject.SetActive(true);
                 _backgroundImage.sprite = _defaultBackgroundSprite;
+                _whiteBackGo.SetActive(false);
                 break;
 
             case Enums.InterfaceType.WhiteTheme:
-                _backgroundImage.sprite = null;
-                _backgroundImage.color = _backColor;
+                _backgroundImage.gameObject.SetActive(false);
+                _whiteBackGo.SetActive(true);
                 break;
         }
     }
