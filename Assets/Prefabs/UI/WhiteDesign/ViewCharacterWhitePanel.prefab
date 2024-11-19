@@ -1244,7 +1244,7 @@ GameObject:
   - component: {fileID: 5615923990699091896}
   - component: {fileID: 1012911262934669693}
   - component: {fileID: 7152412521810037244}
-  - component: {fileID: 6580978816625005115}
+  - component: {fileID: 2527461877500537795}
   m_Layer: 5
   m_Name: ViewCharacterWhitePanel
   m_TagString: Untagged
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6580978816625005115
+--- !u!114 &2527461877500537795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1329,14 +1329,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2390018658118908858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36c8c23606636548bf827d6818d4e49, type: 3}
+  m_Script: {fileID: 11500000, guid: 022ba2e700e3fcf42a91f12337b135f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCharacterImage: {fileID: 2965378911247650379}
   _mainCharacterIcon: {fileID: 1420178995848421607}
-  _itemsPanel: {fileID: 0}
-  _itemsWhitePanel: {fileID: 2328495834119261044}
-  _topButtonsPanel: {fileID: 0}
+  _itemPanelBase: {fileID: 2328495834119261044}
   _viewItemInfoPanel: {fileID: 3028867368075191888}
   _characterInfoPanel: {fileID: 274580667064958201}
   _winCharacterInfoPanel: {fileID: 9214807143777202841}

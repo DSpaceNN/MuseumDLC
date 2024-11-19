@@ -14,4 +14,5 @@ public static class PanelsIdHolder
     public const string ExitWhitePopupPanellId = "ExitWhitePopupPanel";
     public const string ContinueTimesupPopupPanellId = "ContinueTimesupPopupPanel";
     public const string ViewCharacterWhitePanelId = "ViewCharacterWhitePanel";
+    public const string ResetGameWhitePopupPanelId = "ResetGameWhitePopupPanel";
 }

@@ -27,6 +27,8 @@ public class CharacterIcon : CharacterIconBase
         if (_currentCharacterSo.CharacterFullLength != null)
             _characterImage.sprite = _currentCharacterSo.CharacterFullLength;
 
+        _characterNameText.text = _currentCharacterSo.CharacterName;
+
         _iconButton.onClick.AddListener(() => { OnStartCharacterIconClick?.Invoke(CharacterId); });
     }
 

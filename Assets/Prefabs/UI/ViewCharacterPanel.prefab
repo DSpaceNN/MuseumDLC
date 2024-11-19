@@ -1769,7 +1769,7 @@ GameObject:
   - component: {fileID: 5615923990699091896}
   - component: {fileID: 1012911262934669693}
   - component: {fileID: 7152412521810037244}
-  - component: {fileID: 6580978816625005115}
+  - component: {fileID: 7960414835005172789}
   m_Layer: 5
   m_Name: ViewCharacterPanel
   m_TagString: Untagged
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6580978816625005115
+--- !u!114 &7960414835005172789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1851,17 +1851,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2390018658118908858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36c8c23606636548bf827d6818d4e49, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b42c973ca697b84a9097e164a35e948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCharacterImage: {fileID: 2965378911247650379}
   _mainCharacterIcon: {fileID: 1420178995848421607}
-  _itemsPanel: {fileID: 2901344218651226556}
-  _topButtonsPanel: {fileID: 1032437193236630612}
+  _itemPanelBase: {fileID: 2901344218651226556}
   _viewItemInfoPanel: {fileID: 3028867368075191888}
   _characterInfoPanel: {fileID: 274580667064958201}
   _winCharacterInfoPanel: {fileID: 9214807143777202841}
   _resetButton: {fileID: 9202655276462276863}
+  _topButtonsPanel: {fileID: 1032437193236630612}
 --- !u!1 &2428331910157838367
 GameObject:
   m_ObjectHideFlags: 0
@@ -6629,8 +6629,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 850, y: 850}
+  m_AnchoredPosition: {x: 0, y: -20}
+  m_SizeDelta: {x: 794, y: 918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3401690989542750220
 CanvasRenderer:

@@ -52,7 +52,7 @@ public class ChooseMenuWhitePanel : PanelBase, IMainPanel
     }
 
     private void OnQuitButtonClick() =>
-        CanvasController.ShowPanelById(PanelsIdHolder.ExitPopupPanellId);
+        CanvasController.ShowPanelById(PanelsIdHolder.StartWhiteScreenId);
 
     public override void CleanUpPanel() =>
         CharacterIconBase.OnStartCharacterIconClick -= OnStartCharacterIconClick;

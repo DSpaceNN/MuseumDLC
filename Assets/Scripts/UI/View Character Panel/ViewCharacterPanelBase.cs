@@ -21,6 +21,7 @@ public class ViewCharacterPanelBase : PanelBase, IMainPanel
 
         OnInitialize();
 
+        _itemPanelBase.Init(canvasController);
         _characterInfoPanel.Init();
         _viewItemInfoPanel.Init();
         _mainCharacterIcon.Init();
@@ -83,7 +84,6 @@ public class ViewCharacterPanelBase : PanelBase, IMainPanel
 
     public virtual void ShowCharacterWinPanel()
     {
-        //_itemsPanel.ActivateInfoButton();                 //это в тёмную панель переезжает
         _viewItemInfoPanel.gameObject.SetActive(false);
         _characterInfoPanel.gameObject.SetActive(false);
         _winCharacterInfoPanel.gameObject.SetActive(true);
@@ -102,54 +102,6 @@ public class ViewCharacterPanelBase : PanelBase, IMainPanel
 
     protected virtual void ResetButton()
     {
-        if (ServiceLocator.Instance.CharacterDresser.CharacterDressCounter == 0)
-            return;
-
-        CanvasController.ShowPanelById(PanelsIdHolder.ResetGamePopupPanelId);
-    }
-}
-
-public class ViewCharacterDarkPanel : ViewCharacterPanelBase
-{
-    [SerializeField] private TopButtonsPanel _topButtonsPanel;
-
-    protected override void OnInitialize()
-    {
-        base.OnInitialize();
-        _topButtonsPanel.Init(CanvasController);
-    }
-
-    protected override void OnCleanup() 
-    {
-        base.OnCleanup();
-
-    }
-}
-
-public class ViewCharacterWhitePanel : ViewCharacterPanelBase
-{
-    [SerializeField] private Button _backButton;
-    [SerializeField] private Button _tasksButton;
-
-    protected override void OnInitialize()
-    {
-        base.OnInitialize();
-        _backButton.onClick.AddListener(() => OnBackButtonClick());
-        _tasksButton.onClick.AddListener(() => OnTasksButtonClick());
-    }
-
-    private void OnBackButtonClick() =>
-        CanvasController.ShowPanelById(PanelsIdHolder.ChooseMenuWhitePanelId);
-
-    private void OnTasksButtonClick()
-    {
-        //TODO переименовать, смысл уже потерялся
-        ShowCharacterWinPanel();
-    }
-
-    protected override void OnCleanup()
-    {
-        base.OnCleanup();
-
+        
     }
 }
