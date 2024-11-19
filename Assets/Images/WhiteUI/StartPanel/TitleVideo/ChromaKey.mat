@@ -145,14 +145,14 @@ Material:
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
-    - _ColorCutoff: 0.2
-    - _ColorFeathering: 0.33
+    - _ColorCutoff: 0.186
+    - _ColorFeathering: 0.125
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
-    - _Despill: 1
-    - _DespillLuminanceAdd: 0.2
+    - _Despill: 0.677
+    - _DespillLuminanceAdd: 0.68
     - _DetailAlbedoScale: 1
     - _DetailNormalScale: 1
     - _DetailSmoothnessScale: 1
@@ -257,7 +257,7 @@ Material:
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _KeyColor: {r: 0, g: 1, b: 0, a: 1}
+    - _KeyColor: {r: 0.08235294, g: 0.8000001, b: 0.011764707, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
