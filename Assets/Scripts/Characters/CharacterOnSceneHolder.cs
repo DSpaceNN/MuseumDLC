@@ -9,6 +9,7 @@ public class CharacterOnSceneHolder : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private Camera _characterCamera;
     [SerializeField] private Image _backgroundImage;
+    [SerializeField] private Transform _charPlace;
 
     [Space]
     [Header("Settings")]
@@ -38,7 +39,7 @@ public class CharacterOnSceneHolder : MonoBehaviour
     {
         Destroy(_characterModel);
         _characterSo = characterSo;
-        _characterModel = Instantiate(characterSo.CharacterPrefab, Vector3.zero, Quaternion.identity, this.transform);
+        _characterModel = Instantiate(characterSo.CharacterPrefab, Vector3.zero, Quaternion.identity, _charPlace);
         CharacterModelMb characterMb = _characterModel.GetComponent<CharacterModelMb>();
         HandleCharacterBackgroundOnStart();
         OnInstantiateCharacter?.Invoke(characterMb);
@@ -74,7 +75,7 @@ public class CharacterOnSceneHolder : MonoBehaviour
     {
         if (_inputService.CharacterDeltaInput != Vector2.zero)
         {
-            _characterModel.transform.Rotate(0, -_inputService.CharacterDeltaInput.x * _rotationSpeed * Time.deltaTime, 0);
+            _charPlace.Rotate(0, -_inputService.CharacterDeltaInput.x * _rotationSpeed * Time.deltaTime, 0);
             _timerToBackTransition = _backTransitionCoolDown;
         }
     }
@@ -82,18 +83,18 @@ public class CharacterOnSceneHolder : MonoBehaviour
     private void ReturnStartRotation()
     {
         _timerToBackTransition -= Time.deltaTime;
-        if (_timerToBackTransition < 0 && _characterModel.transform.eulerAngles.y != 0)
+        if (_timerToBackTransition < 0 && _charPlace.eulerAngles.y != 0)
         {
-            float y = _characterModel.transform.eulerAngles.y;
+            float y = _charPlace.eulerAngles.y;
             float newRot = y >= 180f ? 360f : 0f;
 
             y = Mathf.Lerp(y, newRot, Time.deltaTime * _backRotationSpeed);
-            Vector3 rot = new Vector3(_characterModel.transform.eulerAngles.x, y, _characterModel.transform.eulerAngles.z);
+            Vector3 rot = new Vector3(_charPlace.eulerAngles.x, y, _charPlace.eulerAngles.z);
 
             if (y < 1f)
                 rot = Vector3.zero;
 
-            _characterModel.transform.rotation = Quaternion.Euler(rot);
+            _charPlace.rotation = Quaternion.Euler(rot);
         }
     }
 
