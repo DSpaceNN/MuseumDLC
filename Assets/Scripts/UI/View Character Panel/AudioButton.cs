@@ -10,7 +10,7 @@ public class AudioButton : MonoBehaviour
     [SerializeField] private Sprite _playSprite;
     [SerializeField] private Text _mediaLength;
 
-    private AudioClip _audioClip;
+    [SerializeField] private AudioClip _audioClip;
     private AudioPlayerService _audioPlayerService;
     private bool _isFirstClick;
 
@@ -23,6 +23,10 @@ public class AudioButton : MonoBehaviour
 
     public void SetContent(AudioClip audioClip)
     {
+        Debug.Log("SetContent");
+        if (audioClip == null)
+            Debug.Log("SetContent audioClip == null");
+
         _isFirstClick = true;
         _audioClip = audioClip;
         ShowInactiveState();
@@ -54,6 +58,17 @@ public class AudioButton : MonoBehaviour
     private void ShowInactiveState()
     {
         _iconImage.sprite = _pauseSprite;
+
+        Debug.Log("ShowInactiveState()");
+
+        if (_audioClip == null)
+        {
+            Debug.Log("_audioClip == null");
+            Transform parent = this.transform.parent;
+            Transform grandParent = parent.parent;
+            Debug.Log($"parent = {parent.name}; grandParent = {grandParent.name};");
+        }
+
         _mediaLength.text = TimeSpan.FromSeconds(_audioClip.length).ToString("mm\\:ss");
     }
 

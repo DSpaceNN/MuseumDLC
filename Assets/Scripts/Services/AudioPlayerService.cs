@@ -14,6 +14,7 @@ public class AudioPlayerService : MonoBehaviour
     private DefaultPanelSwitcher _defaultPanelSwitcher;
     private float _timer;
     private bool _audioIsEndedFlag;
+    private AudioButton _currentAudioButton;
 
     public void Init(CharacterChanger characterChanger, DefaultPanelSwitcher defaultPanelSwitcher)
     {
