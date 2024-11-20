@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//TODO проверить и удалить класс
 public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
 {
     [SerializeField] private RawImage _mainCharacterImage;
@@ -97,7 +98,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _winCharacterInfoPanel.gameObject.SetActive(false);
 
         _characterInfoPanel.OnShowCharacter(_characterChanger.CurrentCharacter);
-        _audioPlayerService.Stop();
+        //_audioPlayerService.Stop();
     }
 
     public void ShowItemInfoPanel()
@@ -105,7 +106,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _viewItemInfoPanel.gameObject.SetActive(true);
         _characterInfoPanel.gameObject.SetActive(false);
         _winCharacterInfoPanel.gameObject.SetActive(false);
-        _audioPlayerService.Stop();
+        //_audioPlayerService.Stop();
     }
 
     public void ShowCharacterWinPanel()
@@ -114,7 +115,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _viewItemInfoPanel.gameObject.SetActive(false);
         _characterInfoPanel.gameObject.SetActive(false);
         _winCharacterInfoPanel.gameObject.SetActive(true);
-        _audioPlayerService.Stop();
+        //_audioPlayerService.Stop();
     }
 
     private void ItemIcon_OnClickOnItem(CharacterItemSo obj)

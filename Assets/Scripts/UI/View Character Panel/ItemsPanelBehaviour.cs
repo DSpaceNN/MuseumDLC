@@ -17,7 +17,6 @@ public class ItemsPanelBehaviour : ItemsPanelBase
     private Image _infoButtonImage;
     private float _fadeAlpha = 0.4f;
 
-    private ViewCharacterPanelBehaviour _characterPanelMb;
     private CharacterSo _characterSo;
     private List<ItemIcon> _itemIcons = new List<ItemIcon>();
 

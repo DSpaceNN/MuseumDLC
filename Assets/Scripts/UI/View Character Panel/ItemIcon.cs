@@ -137,6 +137,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
         }
     }
 
+    //TODO здесь переписывать, чтобы дельта мышки бралась по таймеру
     public void OnPointerClick(PointerEventData eventData) =>
         OnIconClick();
 

@@ -65,7 +65,7 @@ public class ViewCharacterPanelBase : PanelBase, IMainPanel
         _winCharacterInfoPanel.gameObject.SetActive(false);
 
         _characterInfoPanel.OnShowCharacter(_characterChanger.CurrentCharacter);
-        _audioPlayerService.Stop();
+        //_audioPlayerService.Stop();
     }
 
     protected virtual void ItemIcon_OnClickOnItem(CharacterItemSo obj)
@@ -79,7 +79,7 @@ public class ViewCharacterPanelBase : PanelBase, IMainPanel
         _viewItemInfoPanel.gameObject.SetActive(true);
         _characterInfoPanel.gameObject.SetActive(false);
         _winCharacterInfoPanel.gameObject.SetActive(false);
-        _audioPlayerService.Stop();
+        //_audioPlayerService.Stop();
     }
 
     public virtual void ShowCharacterWinPanel()
@@ -87,7 +87,7 @@ public class ViewCharacterPanelBase : PanelBase, IMainPanel
         _viewItemInfoPanel.gameObject.SetActive(false);
         _characterInfoPanel.gameObject.SetActive(false);
         _winCharacterInfoPanel.gameObject.SetActive(true);
-        _audioPlayerService.Stop();
+        //_audioPlayerService.Stop();
     }
 
     protected virtual void OnCleanup()

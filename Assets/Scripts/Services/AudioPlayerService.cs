@@ -33,7 +33,15 @@ public class AudioPlayerService : MonoBehaviour
         Stop();
 
         if (itemSo.ItemNameAudioClip != null)
-            Play(itemSo.ItemNameAudioClip);
+            PlayAudioFromEvents(itemSo.ItemNameAudioClip);
+    }
+
+    private void PlayAudioFromEvents(AudioClip audioClip)
+    {
+        Debug.Log("PlayAudioFromEvents");
+        _currentAudioButton = null;
+        _audioClip = audioClip;
+        Play(audioClip);
     }
 
     public void WorkWithAudioButton(AudioButton audioButton)
@@ -44,18 +52,18 @@ public class AudioPlayerService : MonoBehaviour
             {
                 Pause();
                 _currentAudioButton.ShowPauseState();
-            }   
+            }
             else if (_audioClip == audioButton.AudioClip)
             {
                 PlayAfterPause();
                 _currentAudioButton.ShowActiveState();
-            }   
+            }
             else
             {
                 _audioClip = audioButton.AudioClip;
                 Play(_audioClip);
                 _currentAudioButton.ShowActiveState();
-            }   
+            }
         }
         else
         {
