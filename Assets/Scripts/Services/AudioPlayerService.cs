@@ -7,14 +7,14 @@ public class AudioPlayerService : MonoBehaviour
     public string MediaCurrentTime { get; private set; }
     public string MediaLength { get; private set; }
 
-    public event Action AudioEnd;
-
     private AudioSource _audioSource;
     private CharacterChanger _characterChanger;
     private DefaultPanelSwitcher _defaultPanelSwitcher;
     private float _timer;
     private bool _audioIsEndedFlag;
+
     private AudioButton _currentAudioButton;
+    private AudioClip _audioClip;
 
     public void Init(CharacterChanger characterChanger, DefaultPanelSwitcher defaultPanelSwitcher)
     {
@@ -34,7 +34,40 @@ public class AudioPlayerService : MonoBehaviour
 
         if (itemSo.ItemNameAudioClip != null)
             Play(itemSo.ItemNameAudioClip);
-    }   
+    }
+
+    public void WorkWithAudioButton(AudioButton audioButton)
+    {
+        if (_currentAudioButton == audioButton)
+        {
+            if (_audioSource.isPlaying)
+            {
+                Pause();
+                _currentAudioButton.ShowPauseState();
+            }   
+            else if (_audioClip == audioButton.AudioClip)
+            {
+                PlayAfterPause();
+                _currentAudioButton.ShowActiveState();
+            }   
+            else
+            {
+                _audioClip = audioButton.AudioClip;
+                Play(_audioClip);
+                _currentAudioButton.ShowActiveState();
+            }   
+        }
+        else
+        {
+            if (_currentAudioButton != null)
+                _currentAudioButton.ShowInactiveState();
+
+            _audioClip = audioButton.AudioClip;
+            _currentAudioButton = audioButton;
+            _currentAudioButton.ShowActiveState();
+            Play(_currentAudioButton.AudioClip);
+        }
+    }
 
     public void Play(AudioClip clip)
     {
@@ -56,7 +89,7 @@ public class AudioPlayerService : MonoBehaviour
         {
             _audioSource.Pause();
             _defaultPanelSwitcher.StartWatching();
-        }   
+        }
     }
 
     public void Stop()
@@ -77,6 +110,9 @@ public class AudioPlayerService : MonoBehaviour
             MediaCurrentTime = TimeSpan.FromSeconds(currentTime).ToString("mm\\:ss");
             MediaLength = TimeSpan.FromSeconds(totalLength).ToString("mm\\:ss");
 
+            if (_currentAudioButton != null)
+                _currentAudioButton.ShowTextInPlay(MediaCurrentTime, MediaLength);
+
             if (Tools.CheckEqualWithThreshold(currentTime, totalLength, 1f))
                 _audioIsEndedFlag = true;
         }
@@ -84,9 +120,15 @@ public class AudioPlayerService : MonoBehaviour
         {
             if (_audioIsEndedFlag)
             {
-                AudioEnd?.Invoke();
                 _audioIsEndedFlag = false;
-            }   
+
+                if (_currentAudioButton != null)
+                    _currentAudioButton.ShowInactiveState();
+
+                _audioClip = null;
+
+                Debug.Log("аудио закончилось");
+            }
         }
     }
 }
