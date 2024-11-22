@@ -50,5 +50,5 @@ MonoBehaviour:
     900"
   ItemPrefab: {fileID: 6255280081820719114, guid: 06f7d21733e94fb4fa107bda935041b1, type: 3}
   ItemSprite: {fileID: 21300000, guid: 00715f773db9c6646a0c03e339d07de3, type: 3}
-  ItemNameAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
-  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  ItemNameAudioClip: {fileID: 8300000, guid: 1352e9f6a171c1f47bb6e26d6614ea4e, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: fa0e53402ae688b4d97925e7b54cdf5f, type: 3}

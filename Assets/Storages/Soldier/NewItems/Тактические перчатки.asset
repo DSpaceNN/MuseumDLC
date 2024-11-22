@@ -27,5 +27,5 @@ MonoBehaviour:
     \u0433: 50"
   ItemPrefab: {fileID: 6255280081820719114, guid: a5e5cf2e7272b5e409fbcfaf70859d9c, type: 3}
   ItemSprite: {fileID: 21300000, guid: a3ee9c23dc1280846913c18bdf143852, type: 3}
-  ItemNameAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
-  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  ItemNameAudioClip: {fileID: 8300000, guid: b4a4c26fc07d2e44485840078b14800b, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: 896fea49530adda4ab4a46dde761452a, type: 3}

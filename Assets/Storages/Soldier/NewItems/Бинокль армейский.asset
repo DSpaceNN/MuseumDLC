@@ -36,5 +36,5 @@ MonoBehaviour:
     (FMC)\r\n\u0423\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u0435 x10"
   ItemPrefab: {fileID: 6255280081820719114, guid: 12feeb1cb5663bd49bf311f65590ab13, type: 3}
   ItemSprite: {fileID: 21300000, guid: a55a3431b75fe6b448412eb8be0f5052, type: 3}
-  ItemNameAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
-  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  ItemNameAudioClip: {fileID: 8300000, guid: f4aa96560d22a24458c271c5b6be2772, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: e07c3163bf1b1b6418f1143c4c464e17, type: 3}

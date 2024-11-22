@@ -34,5 +34,5 @@ MonoBehaviour:
     \u0441\u043C: 30 x 30 x 2"
   ItemPrefab: {fileID: 6255280081820719114, guid: 0b9d6d07857d628439b043e6337294e2, type: 3}
   ItemSprite: {fileID: 21300000, guid: 23d6affa22b062e45b5e150ad7d93481, type: 3}
-  ItemNameAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
-  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  ItemNameAudioClip: {fileID: 8300000, guid: c2c9e80946e7e5c4194be37829c5ea5c, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: 036c7b69afdfaf9459890c15e8fa654e, type: 3}
