@@ -27,7 +27,7 @@ MonoBehaviour:
     \u043A\u0433: 1.\r\n\u0414\u043B\u0438\u043D\u0430, \u0441\u043C: 36.\r\n\u0428\u0438\u0440\u0438\u043D\u0430,
     \u0441\u043C: 20.\r\n\u0422\u043E\u043B\u0449\u0438\u043D\u0430, \u043C\u043C:
     26."
-  ItemPrefab: {fileID: 0}
+  ItemPrefab: {fileID: 3742616205206807592, guid: 30aeae4da87a76e4baa33e454ad21c80, type: 3}
   ItemSprite: {fileID: 0}
   ItemNameAudioClip: {fileID: 0}
   ItemAudioClip: {fileID: 0}

@@ -40,7 +40,7 @@ MonoBehaviour:
     \u043A\u0433: 0,95\r\n\u0414\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C
     \u0441\u0432\u0435\u0442\u043E\u0432\u043E\u0433\u043E \u043B\u0443\u0447\u0430,
     \u043C: 300"
-  ItemPrefab: {fileID: 0}
+  ItemPrefab: {fileID: 3742616205206807592, guid: 915c6aee8497aef4b9e5391a8615dfe9, type: 3}
   ItemSprite: {fileID: 0}
   ItemNameAudioClip: {fileID: 0}
   ItemAudioClip: {fileID: 0}
