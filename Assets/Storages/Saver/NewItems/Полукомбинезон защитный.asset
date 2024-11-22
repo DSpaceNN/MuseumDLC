@@ -41,6 +41,6 @@ MonoBehaviour:
     \u0437\u0430\u0433\u0440\u044F\u0437\u043D\u0435\u043D\u0438\u0439 \u0438 \u043C\u0435\u0445\u0430\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0445
     \u0432\u043E\u0437\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439"
   ItemPrefab: {fileID: 3742616205206807592, guid: d8edef9d9b6eb4043913b3785f13fa96, type: 3}
-  ItemSprite: {fileID: 0}
-  ItemNameAudioClip: {fileID: 0}
-  ItemAudioClip: {fileID: 0}
+  ItemSprite: {fileID: 21300000, guid: b3f5046be9f759242a987883b292c38d, type: 3}
+  ItemNameAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}

@@ -35,6 +35,6 @@ MonoBehaviour:
     \u043C\u043C: 65,5 x 136 x 37,5\r\n\u0412\u0435\u0441 (\u0441 \u0410\u041A\u0411
     \u0438 \u0430\u043D\u0442\u0435\u043D\u043D\u043E\u0439), \u0433: 285"
   ItemPrefab: {fileID: 3742616205206807592, guid: 47fa10720949e4d46b002df55176eda8, type: 3}
-  ItemSprite: {fileID: 0}
-  ItemNameAudioClip: {fileID: 0}
-  ItemAudioClip: {fileID: 0}
+  ItemSprite: {fileID: 21300000, guid: ea9ad90f6c8261449989b22c582fc54f, type: 3}
+  ItemNameAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
