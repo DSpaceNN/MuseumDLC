@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemIcon : MonoBehaviour/*, IDragHandler, IBeginDragHandler, IInitializePotentialDragHandler, IEndDragHandler*/,
-    IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
+public class ItemIcon : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
 {
     public static event Action OnBeginDragIcon;
     public static event Action OnEndDragIcon;
@@ -35,17 +34,17 @@ public class ItemIcon : MonoBehaviour/*, IDragHandler, IBeginDragHandler, IIniti
     private ItemOnSceneHolder _itemHolder;
     private CanvasController _canvasController;
     private InputService _inputService;
-
-    private bool _isScrolling;
-    private bool _isListeningTouch;
+    private EventSystem _eventSystem;
 
     private bool _canEquip;
     private bool _isEquipped;
-
-    private float _dragThreshold = 3;
     private bool _dragOnCharacter;
+    private bool _isCheckingForChoose;
+    private bool _isDragging;
 
-    private EventSystem _eventSystem;
+    private const float _durationForChoose = 0.2f;
+    private float _timerForChoose = 0;
+    private float _deltaInputTheshold = 5f;
 
     public void ShowItem(CharacterItemSo item, CanvasController canvasController)
     {
@@ -100,57 +99,11 @@ public class ItemIcon : MonoBehaviour/*, IDragHandler, IBeginDragHandler, IIniti
         }
     }
 
-    public void OnInitializePotentialDrag(PointerEventData eventData)
-    {
-        eventData.useDragThreshold = true;
-        eventData.tangentialPressure = _dragThreshold;
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        OnIconClick();
-        if (_canEquip && !_isEquipped)
-        {
-            OnBeginDragIcon?.Invoke();
-            _greenHaloDragImage.gameObject.SetActive(true);
-            _greenHaloDragImage.transform.SetParent(_canvasController.gameObject.transform);
-            _greenHaloDragImage.transform.SetAsLastSibling();
-        }
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (_canEquip && !_isEquipped)
-        {
-            _dragRectTransform.position = eventData.position;
-            RaycastToCanvas();
-        }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (_canEquip && !_isEquipped)
-        {
-            if (_dragOnCharacter)
-                OnDragItemOnCharacterIcon?.Invoke(_item);
-            //TODO MissingReferenceException: The object of type 'Text' has been destroyed but you are still trying to access it.
-            //Your script should either check if it is null or you should not destroy the object.
-
-            OnEndDragIcon?.Invoke();
-            _greenHaloDragImage.gameObject.SetActive(false);
-            _greenHaloDragImage.transform.SetParent(this.transform);
-            _greenHaloDragImage.transform.SetAsFirstSibling();
-            _dragRectTransform.localPosition = Vector3.zero;
-        }
-    }
-
-    //TODO здесь переписывать, чтобы дельта мышки бралась по таймеру
     public void OnPointerClick(PointerEventData eventData) =>
         OnIconClick();
 
     private void OnIconClick()
     {
-        //StartTimerToChoose();
         ChooseItem();
     }
 
@@ -218,15 +171,9 @@ public class ItemIcon : MonoBehaviour/*, IDragHandler, IBeginDragHandler, IIniti
         _inputService.OnPointerUp -= OnEndDragFromInputSystem;
     }
 
-    private bool _isCheckingForChoose;
-    private bool _isDragging;
 
-    private const float _durationForChoose = 0.2f;
-    private float _timerForChoose = 0;
-    private float _deltaInputTheshold = 5f;
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
         _isCheckingForChoose = true;
     }
 
@@ -296,22 +243,7 @@ public class ItemIcon : MonoBehaviour/*, IDragHandler, IBeginDragHandler, IIniti
     public void OnPointerUp(PointerEventData eventData)
     {
         if (_isCheckingForChoose)
-        {
             ResetChoose();
-        }
-        //if (_canEquip && !_isEquipped)
-        //{
-        //    if (_dragOnCharacter)
-        //        OnDragItemOnCharacterIcon?.Invoke(_item);
-        //    //TODO MissingReferenceException: The object of type 'Text' has been destroyed but you are still trying to access it.
-        //    //Your script should either check if it is null or you should not destroy the object.
-
-        //    OnEndDragIcon?.Invoke();
-        //    _greenHaloDragImage.gameObject.SetActive(false);
-        //    _greenHaloDragImage.transform.SetParent(this.transform);
-        //    _greenHaloDragImage.transform.SetAsFirstSibling();
-        //    _dragRectTransform.localPosition = Vector3.zero;
-        //}
     }
 
     private void OnEndDragFromInputSystem(Vector2 position)
@@ -328,8 +260,6 @@ public class ItemIcon : MonoBehaviour/*, IDragHandler, IBeginDragHandler, IIniti
             _greenHaloDragImage.transform.SetParent(this.transform);
             _greenHaloDragImage.transform.SetAsFirstSibling();
             _dragRectTransform.localPosition = Vector3.zero;
-
-            //TODO дропнуть драг
         }
     }
 }

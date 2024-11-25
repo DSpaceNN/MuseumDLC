@@ -36,5 +36,5 @@ MonoBehaviour:
     \u0438 \u0430\u043D\u0442\u0435\u043D\u043D\u043E\u0439), \u0433: 285"
   ItemPrefab: {fileID: 3742616205206807592, guid: 47fa10720949e4d46b002df55176eda8, type: 3}
   ItemSprite: {fileID: 21300000, guid: ea9ad90f6c8261449989b22c582fc54f, type: 3}
-  ItemNameAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
-  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  ItemNameAudioClip: {fileID: 8300000, guid: 343b9f20dc1e7c640a6ab9b8b17e93ec, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: ffb8848219b9a4a409f83c888b9ee82a, type: 3}

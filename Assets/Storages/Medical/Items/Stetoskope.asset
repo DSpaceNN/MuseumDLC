@@ -38,5 +38,5 @@ MonoBehaviour:
     \u0443\u0442\u043E\u043B\u0449\u0435\u043D\u043D\u0430\u044F "
   ItemPrefab: {fileID: 7318210063545365507, guid: e1b066ae82c24584e95a6ca25b277ad8, type: 3}
   ItemSprite: {fileID: 21300000, guid: 15c5729714990004ca08998a73047f81, type: 3}
-  ItemNameAudioClip: {fileID: 0}
-  ItemAudioClip: {fileID: 8300000, guid: 89a9814f9ea0fd14dadbbf6b9fdcb9e7, type: 3}
+  ItemNameAudioClip: {fileID: 8300000, guid: ea55400157f803e40a01eb76bf5ce30e, type: 3}
+  ItemAudioClip: {fileID: 8300000, guid: 08765904cceed50448a72e161ff35367, type: 3}
