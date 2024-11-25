@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitializePotentialDragHandler, IEndDragHandler, IPointerClickHandler
+public class ItemIcon : MonoBehaviour/*, IDragHandler, IBeginDragHandler, IInitializePotentialDragHandler, IEndDragHandler*/,
+    IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
 {
     public static event Action OnBeginDragIcon;
     public static event Action OnEndDragIcon;
@@ -13,7 +14,7 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
     public static event Action OnHoverExitDragIcon;
 
     public static event Action<CharacterItemSo> OnDragItemOnCharacterIcon;
-    public static event Action<CharacterItemSo> OnClickOnItem;
+    public static event Action<CharacterItemSo> OnChooseItem;
 
     [SerializeField] private Image _itemIconImage;
     [SerializeField] private Image _itemDragImage;
@@ -33,6 +34,10 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
     private CharacterItemSo _item;
     private ItemOnSceneHolder _itemHolder;
     private CanvasController _canvasController;
+    private InputService _inputService;
+
+    private bool _isScrolling;
+    private bool _isListeningTouch;
 
     private bool _canEquip;
     private bool _isEquipped;
@@ -41,12 +46,11 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
     private bool _dragOnCharacter;
 
     private EventSystem _eventSystem;
-    private GraphicRaycaster _raycaster;
 
     public void ShowItem(CharacterItemSo item, CanvasController canvasController)
     {
         _eventSystem = EventSystem.current;
-        _raycaster = GetComponent<GraphicRaycaster>();
+        _inputService = ServiceLocator.Instance.InputService;
 
         _item = item;
         _canvasController = canvasController;
@@ -71,16 +75,17 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
         //_blockImage.gameObject.SetActive(!_canEquip);
         SetEquipState(_canEquip);
 
-        ItemIcon.OnClickOnItem += ItemIcon_OnClickOnItem;
+        ItemIcon.OnChooseItem += ItemIcon_OnChooseItem;
+        _inputService.OnPointerUp += OnEndDragFromInputSystem;
     }
 
-    private void ItemIcon_OnClickOnItem(CharacterItemSo itemSo)
+    private void ItemIcon_OnChooseItem(CharacterItemSo itemSo)
     {
         if (itemSo != _item)
         {
             _selectedImage.gameObject.SetActive(false);
             _selectedFrameImage.gameObject.SetActive(false);
-        }   
+        }
     }
 
     private void OnItemEquiped(CharacterItemSo itemSo)
@@ -128,6 +133,8 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
         {
             if (_dragOnCharacter)
                 OnDragItemOnCharacterIcon?.Invoke(_item);
+            //TODO MissingReferenceException: The object of type 'Text' has been destroyed but you are still trying to access it.
+            //Your script should either check if it is null or you should not destroy the object.
 
             OnEndDragIcon?.Invoke();
             _greenHaloDragImage.gameObject.SetActive(false);
@@ -143,17 +150,24 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
 
     private void OnIconClick()
     {
+        //StartTimerToChoose();
+        ChooseItem();
+    }
+
+    private void ChooseItem()
+    {
         _itemHolder.ShowItem(_item.ItemPrefab);
         _selectedImage.gameObject.SetActive(true);
         _selectedFrameImage.gameObject.SetActive(true);
-        OnClickOnItem?.Invoke(_item);
+        OnChooseItem?.Invoke(_item);
     }
 
     private void RaycastToCanvas()
     {
         List<RaycastResult> results = new List<RaycastResult>();
         var pointerEventData = new PointerEventData(_eventSystem);
-        pointerEventData.position = Input.mousePosition;
+        pointerEventData.position = _inputService.InputPosition;
+
         _eventSystem.RaycastAll(pointerEventData, results);
 
         if (results.Count > 0)
@@ -200,6 +214,122 @@ public class ItemIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IInitial
     private void OnDestroy()
     {
         ServiceLocator.Instance.CharacterDresser.OnItemEquiped -= OnItemEquiped;
-        ItemIcon.OnClickOnItem -= ItemIcon_OnClickOnItem;
+        ItemIcon.OnChooseItem -= ItemIcon_OnChooseItem;
+        _inputService.OnPointerUp -= OnEndDragFromInputSystem;
+    }
+
+    private bool _isCheckingForChoose;
+    private bool _isDragging;
+
+    private const float _durationForChoose = 0.2f;
+    private float _timerForChoose = 0;
+    private float _deltaInputTheshold = 5f;
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("OnPointerDown");
+        _isCheckingForChoose = true;
+    }
+
+    private void Update()
+    {
+        HandleTimerForChoose();
+        HandleDrag();
+    }
+
+    private void HandleTimerForChoose()
+    {
+        if (_isCheckingForChoose)
+        {
+            _timerForChoose += Time.deltaTime;
+            Debug.Log("_inputService.InputDeltaResult.magnitude = " + _inputService.InputDeltaResult.magnitude);
+            if (_inputService.InputDeltaResult.magnitude > _deltaInputTheshold)
+                FailToChoose();
+
+            if (_timerForChoose > _durationForChoose)
+                ChooseIcon();
+        }
+    }
+
+    private void FailToChoose()
+    {
+        Debug.Log("FailToChoose");
+        _isCheckingForChoose = false;
+        ResetChoose();
+    }
+
+    private void ChooseIcon()
+    {
+        Debug.Log("Choose Icon");
+        ResetChoose();
+        _isDragging = true;
+
+        _dragRectTransform.position = _inputService.InputPosition;
+
+        OnIconClick();
+        if (_canEquip && !_isEquipped)
+        {
+            OnBeginDragIcon?.Invoke();
+            _greenHaloDragImage.gameObject.SetActive(true);
+            _greenHaloDragImage.transform.SetParent(_canvasController.gameObject.transform);
+            _greenHaloDragImage.transform.SetAsLastSibling();
+        }
+    }
+
+    private void HandleDrag()
+    {
+        if (_isDragging)
+        {
+            if (_canEquip && !_isEquipped)
+            {
+                _dragRectTransform.position = _inputService.InputPosition;
+                RaycastToCanvas();
+            }
+        }
+    }
+
+    private void ResetChoose()
+    {
+        _isCheckingForChoose = false;
+        _timerForChoose = 0;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (_isCheckingForChoose)
+        {
+            ResetChoose();
+        }
+        //if (_canEquip && !_isEquipped)
+        //{
+        //    if (_dragOnCharacter)
+        //        OnDragItemOnCharacterIcon?.Invoke(_item);
+        //    //TODO MissingReferenceException: The object of type 'Text' has been destroyed but you are still trying to access it.
+        //    //Your script should either check if it is null or you should not destroy the object.
+
+        //    OnEndDragIcon?.Invoke();
+        //    _greenHaloDragImage.gameObject.SetActive(false);
+        //    _greenHaloDragImage.transform.SetParent(this.transform);
+        //    _greenHaloDragImage.transform.SetAsFirstSibling();
+        //    _dragRectTransform.localPosition = Vector3.zero;
+        //}
+    }
+
+    private void OnEndDragFromInputSystem(Vector2 position)
+    {
+        if (_isDragging && _canEquip && !_isEquipped)
+        {
+            if (_dragOnCharacter)
+                OnDragItemOnCharacterIcon?.Invoke(_item);
+            //TODO MissingReferenceException: The object of type 'Text' has been destroyed but you are still trying to access it.
+            //Your script should either check if it is null or you should not destroy the object.
+
+            OnEndDragIcon?.Invoke();
+            _greenHaloDragImage.gameObject.SetActive(false);
+            _greenHaloDragImage.transform.SetParent(this.transform);
+            _greenHaloDragImage.transform.SetAsFirstSibling();
+            _dragRectTransform.localPosition = Vector3.zero;
+
+            //TODO дропнуть драг
+        }
     }
 }

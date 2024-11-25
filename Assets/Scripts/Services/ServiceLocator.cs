@@ -13,8 +13,7 @@ public class ServiceLocator : MonoBehaviour
     public CharacterDresser CharacterDresser { get; private set; }
     public AudioPlayerService AudioPlayerService { get; private set; }
     public DefaultPanelSwitcher DefaultPanelSwitcher { get; private set; }
-
-    //private InputService _inputService;
+    public InputService InputService { get; private set; }
 
     public void Init(CanvasController canvasController, CharacterOnSceneHolder characterHolder, ItemOnSceneHolder itemHolder)
     {
@@ -33,7 +32,8 @@ public class ServiceLocator : MonoBehaviour
 
     public void InitServices()
     {
-        //_inputService = new InputService();
+        InputService = new InputService();
+        InputService.Init();
         CharactersStorage = GetComponent<CharactersStorage>();
         InputFromImagesService = new InputFromImagesService();
         InputFromImagesService.Init();
@@ -51,7 +51,13 @@ public class ServiceLocator : MonoBehaviour
 
     private void Update()
     {
+        InputService.Update();
         InputFromImagesService.Update();
         DefaultPanelSwitcher?.Update();
+    }
+
+    private void OnDestroy()
+    {
+        InputService.Dispose();
     }
 }

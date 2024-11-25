@@ -1,0 +1,51 @@
+{
+    "name": "Control_IA",
+    "maps": [
+        {
+            "name": "Map",
+            "id": "c0c74820-1a70-4d5d-8acd-2e05a805d7ea",
+            "actions": [
+                {
+                    "name": "LeftMouseButton",
+                    "type": "Button",
+                    "id": "5624c4db-3c6f-4283-8755-36087b36be97",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "520a1abb-2d8f-43e7-b229-e29a57247ffc",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Action",
+                    "action": "LeftMouseButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a69ca39e-31cc-4a25-8d81-1e542b896153",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Action",
+                    "action": "LeftMouseButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Action",
+            "bindingGroup": "Action",
+            "devices": []
+        }
+    ]
+}

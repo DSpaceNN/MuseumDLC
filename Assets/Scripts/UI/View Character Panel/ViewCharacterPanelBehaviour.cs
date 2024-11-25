@@ -59,7 +59,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
         _audioPlayerService = ServiceLocator.Instance.AudioPlayerService;
 
         _characterChanger.ShowNewCharacter += OnChangeCharacter;
-        ItemIcon.OnClickOnItem += ItemIcon_OnClickOnItem;
+        ItemIcon.OnChooseItem += ItemIcon_OnClickOnItem;
         CharacterDresser.CharacterIsFullyEquiped += OnCharacterFullyEquipped;
 
         //это в белую идёт
@@ -142,7 +142,7 @@ public class ViewCharacterPanelBehaviour : PanelBase, IMainPanel
     public override void CleanUpPanel()
     {
         _characterChanger.ShowNewCharacter -= OnChangeCharacter;
-        ItemIcon.OnClickOnItem -= ItemIcon_OnClickOnItem;
+        ItemIcon.OnChooseItem -= ItemIcon_OnClickOnItem;
         CharacterDresser.CharacterIsFullyEquiped -= OnCharacterFullyEquipped;
         ItemsPanelBase.OnInfoButtonClick -= ItemsPanelBase_OnInfoButtonClick;
         ItemsPanelBase.OnQuestionButtonClick -= ItemsPanelBase_OnQuestionButtonClick;

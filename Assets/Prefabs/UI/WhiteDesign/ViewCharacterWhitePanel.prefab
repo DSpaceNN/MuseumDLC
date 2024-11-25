@@ -3267,6 +3267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8befadbbddc8ed44947473f09174aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scroll: {fileID: 6255506752709556248}
   _scrollContentHolder: {fileID: 4521307775862406530}
   _itemIconPrefab: {fileID: 5745314412709729142, guid: 456a3b75bb5ee2444b686f64a97de188, type: 3}
 --- !u!1 &5505423652300925470

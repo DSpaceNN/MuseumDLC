@@ -1,35 +1,47 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
-public class InputService
+public class InputService : IDisposable
 {
-    public InputService() 
+    public InputService()
     {
         EnhancedTouchSupport.Enable();
     }
 
-    public Vector2 MouseInput { get; private set; }
-    public Vector2 TouchInput { get; private set; }
-    public Vector2 InputResult { get; private set; }
+    public event Action<Vector2> OnPointerDown;
+    public event Action<Vector2> OnPointerUp;
+
+    public Vector2 InputDeltaResult { get; private set; }
+    public Vector2 InputPosition { get; private set; }
 
     public Vector2 StartTouchPosition { get; private set; }
 
-    //private bool _isListening;
+    private Vector2 _mouseDeltaInput;
+    private Vector2 _touchDeltaInput;
 
-    public void SetLimitationFrame()
+    private Vector2 _mousePosition;
+    private Vector2 _touchPosition;
+
+    private Control_IA _control;
+
+    public void Init()
     {
-
+        _control = new Control_IA();
+        _control.Enable();
+        _control.Map.LeftMouseButton.performed += LeftMouseButton_performed;
+        _control.Map.LeftMouseButton.canceled += LeftMouseButton_canceled;
     }
 
-    //public void StartListen() =>
-    //    _isListening = true;
+    private void LeftMouseButton_performed(InputAction.CallbackContext obj) =>
+        OnPointerDown?.Invoke(InputPosition);
 
-    //public void StopListen() => 
-    //    _isListening = false;
+    private void LeftMouseButton_canceled(InputAction.CallbackContext obj) =>
+        OnPointerUp?.Invoke(InputPosition);
 
-    public void Update() 
+    public void Update()
     {
         HandleTouchInput();
         HandleMouseInput();
@@ -39,24 +51,48 @@ public class InputService
     private void HandleTouchInput()
     {
         if (Touch.activeTouches.Count >= 1 && Touch.activeTouches[0].phase == UnityEngine.InputSystem.TouchPhase.Began)
+        {
             StartTouchPosition = Touch.activeTouches[0].screenPosition;
-
+            _touchPosition = Touch.activeTouches[0].screenPosition;
+        }
         if (Touch.activeTouches.Count >= 1 && Touch.activeTouches[0].phase == UnityEngine.InputSystem.TouchPhase.Moved)
-            TouchInput = Touch.activeTouches[0].delta;
+        {
+            _touchDeltaInput = Touch.activeTouches[0].delta;
+            _touchPosition = Touch.activeTouches[0].screenPosition;
+        }
+        else if (Touch.activeTouches.Count >= 1 && Touch.activeTouches[0].phase == UnityEngine.InputSystem.TouchPhase.Canceled)
+        {
+            Debug.Log("TouchPhase.Canceled");
+        }
         else
-            TouchInput = Vector2.zero;
+        {
+            _touchDeltaInput = Vector2.zero;
+            //_touchPosition = Vector2.zero;
+        }
     }
 
     private void HandleMouseInput()
     {
-        MouseInput = Mouse.current.delta.ReadValue();
+        _mouseDeltaInput = Mouse.current.delta.ReadValue();
+        _mousePosition = Mouse.current.position.value;
     }
 
     private void CalculateInput()
     {
-        if (MouseInput == Vector2.zero)
-            InputResult = TouchInput;
+        if (_mouseDeltaInput == Vector2.zero)
+            InputDeltaResult = _touchDeltaInput;
         else
-            InputResult = MouseInput;
+            InputDeltaResult = _mouseDeltaInput;
+
+        if (_touchPosition != Vector2.zero)
+            InputPosition = _touchPosition;
+        else if (_mousePosition != Vector2.zero)
+            InputPosition = _mousePosition;
+    }
+
+    public void Dispose()
+    {
+        _control.Map.LeftMouseButton.performed -= LeftMouseButton_performed;
+        _control.Map.LeftMouseButton.canceled -= LeftMouseButton_canceled;
     }
 }

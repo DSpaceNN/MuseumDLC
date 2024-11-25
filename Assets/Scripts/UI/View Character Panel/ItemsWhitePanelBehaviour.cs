@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class ItemsWhitePanelBehaviour : ItemsPanelBase
 {
-    [SerializeField] private ScrollView _itemsScroll;
+    [SerializeField] private ScrollRect _scroll;
     [SerializeField] private Transform _scrollContentHolder;
     [SerializeField] private ItemIcon _itemIconPrefab;
 
@@ -13,6 +13,18 @@ public class ItemsWhitePanelBehaviour : ItemsPanelBase
     public override void Init(CanvasController canvasController)
     {
         base.Init(canvasController);
+        ItemIcon.OnBeginDragIcon += ItemIcon_OnBeginDragIcon;
+        ItemIcon.OnEndDragIcon += ItemIcon_OnEndDragIcon;
+    }
+
+    private void ItemIcon_OnBeginDragIcon()
+    {
+        _scroll.enabled = false;
+    }
+
+    private void ItemIcon_OnEndDragIcon()
+    {
+        _scroll.enabled = true;
     }
 
     public override void ShowIcons(CharacterSo characterSo)
@@ -29,5 +41,11 @@ public class ItemsWhitePanelBehaviour : ItemsPanelBase
         ItemIcon iconMb = Instantiate(_itemIconPrefab, _scrollContentHolder);
         iconMb.ShowItem(itemSo, _canvasController);
         _itemIcons.Add(iconMb);
+    }
+
+    private void OnDestroy()
+    {
+        ItemIcon.OnBeginDragIcon -= ItemIcon_OnBeginDragIcon;
+        ItemIcon.OnEndDragIcon -= ItemIcon_OnEndDragIcon;
     }
 }

@@ -31,7 +31,7 @@ public class ViewCharacterPanelBase : PanelBase, IMainPanel
         _audioPlayerService = ServiceLocator.Instance.AudioPlayerService;
 
         _characterChanger.ShowNewCharacter += OnChangeCharacter;
-        ItemIcon.OnClickOnItem += ItemIcon_OnClickOnItem;
+        ItemIcon.OnChooseItem += ItemIcon_OnClickOnItem;
         CharacterDresser.CharacterIsFullyEquiped += OnCharacterFullyEquipped;
 
         _resetButton.onClick.AddListener(() => ResetButton());
@@ -43,7 +43,7 @@ public class ViewCharacterPanelBase : PanelBase, IMainPanel
     public override void CleanUpPanel()
     {
         _characterChanger.ShowNewCharacter -= OnChangeCharacter;
-        ItemIcon.OnClickOnItem -= ItemIcon_OnClickOnItem;
+        ItemIcon.OnChooseItem -= ItemIcon_OnClickOnItem;
         CharacterDresser.CharacterIsFullyEquiped -= OnCharacterFullyEquipped;
 
         OnCleanup();

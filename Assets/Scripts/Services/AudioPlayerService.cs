@@ -22,7 +22,7 @@ public class AudioPlayerService : MonoBehaviour
         _characterChanger = characterChanger;
         _defaultPanelSwitcher = defaultPanelSwitcher;
         _characterChanger.ShowNewCharacter += OnShowNewCharacter;
-        ItemIcon.OnClickOnItem += OnShowNewItem;
+        ItemIcon.OnChooseItem += OnShowNewItem;
     }
 
     private void OnShowNewCharacter(CharacterSo itemSo) =>
